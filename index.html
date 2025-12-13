@@ -1,282 +1,511 @@
+<!DOCTYPE html>
 <html lang="en">
 
-<head>    
-    <!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-NLEVHY0HS1"></script>
-	<script>
- 	window.dataLayer = window.dataLayer || [];
-  	function gtag(){dataLayer.push(arguments);}
-  	gtag('js', new Date());
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLEVHY0HS1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-NLEVHY0HS1');
+    </script>
 
-  	gtag('config', 'G-NLEVHY0HS1');
-	</script>
-
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="files/jumbotron.css" rel="stylesheet">
-    <script src="js/main.js"></script>
-    <script src="js/scroll.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2">
+    <link href="https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;700&family=Zhi+Mang+Xing&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+
     <title>Jingdong Zhang</title>
+
+    <style>
+        /* --- Theme Variables --- */
+        :root {
+            /* 1. Main Tone: Gradient used in body instead of single color */
+            
+            /* Navbar: 提高了饱和度的蓝色 (Saturated Blue) */
+            --theme-nav: #406185; 
+
+            --link-color: #7677ce;
+            
+            /* Highlight: 保持之前的鹅黄色 */
+            --theme-highlight: #F4D03F; 
+            --theme-highlight-text: #D4AC0D;
+            
+            --text-main: #2F3033;
+        }
+
+        body {
+            /* 6. Font: Century Gothic */
+            font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', 'Gill Sans', sans-serif;
+            
+            /* 背景修改为渐变：从上部的淡蓝(#EBF5FB) 过渡到 下部的淡紫(#E0D4F7) */
+            /* min-height 确保内容较少时渐变也能撑满屏幕 */
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #eef5fc 0%, #ebe5f5 100%);
+            
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        /* Navbar Styling */
+        .bg-custom-nav {
+            /* 使用 rgba 设置透明度 0.85 */
+            background-color: rgba(64, 97, 133, 0.5) !important; 
+            /* 磨砂模糊效果 */
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+            font-family: 'Century Gothic', sans-serif; /* English match body */
+        }
+        
+        /* 6. Chinese Font: DengXian */
+        .cn-name {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 100; /* 仿宋笔画较细，稍微加粗更清晰 */
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        h3, h5 {
+            color: var(--theme-nav) !important;
+        }
+
+        a:hover {
+            color: #d39c12; /* Dark Goldenrod on hover */
+            text-decoration: none;
+            border-bottom: 2px solid var(--theme-highlight);
+        }
+
+        /* Section Headings */
+        h3 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* 5. Goose Yellow Highlight Underline */
+        h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--theme-highlight);
+            border-radius: 2px;
+        }
+
+        section {
+            padding: 45px 0;
+        }
+
+        /* --- 1. Bullet Points for Interests --- */
+        .interests-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .interests-list li {
+            margin-bottom: 6px;
+            list-style-type: circle; 
+        }
+
+        /* --- 2. News Scrollable Area --- */
+        .news-box {
+            max-height: 220px; /* Approx 6 lines */
+            overflow-y: auto;
+            background-color: rgba(250, 248, 245, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            /* Custom Scrollbar */
+            scrollbar-width: thin;
+            scrollbar-color: var(--theme-highlight) #eee;
+            transition: all 0.3s ease;
+        }
+        .news-box:hover {
+            transform: translateY(-5px); /* 向上浮动 */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* 增加阴影 */
+            background-color: rgba(250, 246, 240, 0.9); /* 悬浮时背景稍微变实，增加层次感 */
+        }
+        .news-box::-webkit-scrollbar {
+            width: 6px;
+        }
+        .news-box::-webkit-scrollbar-thumb {
+            background-color: var(--theme-highlight);
+            border-radius: 3px;
+        }
+
+        /* --- 3. Logo Sizing --- */
+        .inst-logo {
+            width: 100%;
+            max-width: 220px; /* 从 160px 增大到 220px，与右侧文字高度更匹配 */
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        /* 选中包含图标的列中的链接 */
+        .col-md-3.text-center a {
+            display: inline-block;
+            border-bottom: none !important; /* 强制去掉链接颜色的下划线 */
+        }
+        
+        /* 鼠标悬停时，内部的 logo 图片上浮 */
+        .col-md-3.text-center a:hover .inst-logo {
+            transform: translateY(-5px);
+        }
+
+        /* --- 4. Miscellaneous Images (Full Width) --- */
+        .gallery-item {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .gallery-item img {
+            width: 100%;
+            max-width: 900px; 
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .gallery-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
+        /* Profile & Pub Images */
+        .profile-img {
+            /* 删除了 border: 5px solid white; */
+            /* 保持阴影以制造悬浮感 */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15); 
+            max-width: 100%;
+            border-radius: 4px;
+            transition: transform 0.3s ease; /* 增加一点微小的互动效果 */
+        }
+        
+        .profile-img:hover {
+            transform: translateY(-5px); /* 鼠标悬停时轻微上浮 */
+        }
+
+        .pub-img-link {
+            display: block;
+            border-bottom: none !important; /* 强制去除链接下划线 */
+            cursor: pointer;
+        }
+
+        .pub-img {
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            width: 100%;
+            border: 1px solid #eee;
+            background: #fff;
+            
+            /* 新增过渡动画 */
+            transition: all 0.3s ease; 
+        }
+
+        /* [新增] 悬浮效果：上浮 + 阴影加深 */
+        .pub-img-link:hover .pub-img {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* 7. Icon Styling */
+        .icon-btn {
+            margin-right: 18px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            border-bottom: none !important;
+        }
+        .icon-btn i {
+            margin-right: 6px;
+            /* 原来是 var(--theme-nav)，现在改为链接色 */
+            color: var(--link-color); 
+            font-size: 1.1rem;
+            transition: color 0.2s; /* 增加变色过渡让体验更丝滑 */
+        }
+        
+        /* 可选：鼠标悬停时图标也跟着变亮 */
+        .icon-btn:hover i {
+             color: #d39c12; 
+             text-decoration: none;
+             border-bottom: none !important; /* 关键：强制覆盖全局的下划线样式 */
+        }
+
+        .icon-btn:hover i {
+             color: #d39c12; 
+        }
+
+        /* Anchor offset */
+        .anchor-offset {
+            padding-top: 80px;
+            margin-top: -80px;
+            display: block;
+            visibility: hidden;
+        }
+        
+        /* Publications Text adjustments */
+        .pub-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #222;
+        }
+        .author-list {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .venue-text {
+            color: #000;
+            font-weight: 500;
+        }
+    </style>
 </head>
 
-
-
 <body>
-    <div class="container">
-        <h3 id="Home" style="padding-top: 80px; margin-top: -80px;"></h3>
-    </div>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="Home">
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom-nav">
         <div class="container">
-            <a class="navbar-brand" href="#Home">Jingdong Zhang (张靖东)</a>
+            <a class="navbar-brand" href="#Home">
+                Jingdong Zhang <span class="cn-name">| 张靖东</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Publications">Publications</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#Home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#News">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Publications">Publications</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container" style="padding-top: 80px; font-size: 17px">
+    <span id="Home" class="anchor-offset"></span>
+    <section class="container pt-5">
         <div class="row">
-            <div class="col-md-4" ,="" style="padding-right: 40px">
-                <br>
-                <img class="img-responsive img-rounded" src="self_web.jpg" alt="Photo"
-                    style="max-width: 100%; border:1px solid black">
+            <div class="col-md-4 mb-4 text-center">
+                <img class="img-fluid profile-img" src="homepage_assets/self_web.jpg" alt="Jingdong Zhang">
             </div>
 
             <div class="col-md-8">
-                <br>
-                <p> I am currently a second-year Ph.D. student majoring in Computer Science at <a href="https://www.tamu.edu/index.html" target="_blank"> Texas A&M University </a>, 
-			and my advisors are Prof. <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">
-			Wenping Wang</a> and Prof. <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>. I received the Bachelor of Engineering degree at <a href="https://www.fudan.edu.cn/en/" target="_blank"> Fudan University </a> in 2023. 
-			I also worked as a research assistant at <a href="https://cse.hkust.edu.hk/" target="_blank">HKUST CSE</a> department with Prof. <a href="https://www.danxurgb.net/"
-                        target="_blank">Dan Xu</a>. Previously, I have been working with Prof. <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a> 
-			and Prof. <a href="https://scholar.google.com/citations?hl=zh-CN&user=gsLd2ccAAAAJ" target="_blank">Jiayuan Fan</a> at Fudan University.
+                <p class="lead">
+                    I am currently a second-year Ph.D. student majoring in Computer Science at <a href="https://www.tamu.edu/index.html" target="_blank">Texas A&M University</a>,
+                    advised by Prof. <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a> and Prof. <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>. 
                 </p>
-
-                <p> My research interests lie in computer vision and graphics. For computer graphics, I work on 3D asset generation and neural rendering. 
-			For computer vision, I work on representation learning and scene understanding especially under multi-tasking scenarios.
-                </p>
-
                 <p>
-                    Email: jdzhang [at] tamu [dot] edu <br>
-		    Wechat: Triumph0929 <br>
-                    <a href="https://openreview.net/profile?id=~Jingdong_Zhang2" target="_blank">OpenReview</a> /
-                    <a href="https://github.com/Evergreen0929" target="_blank">GitHub</a> / 
-		    <a href="https://scholar.google.com/citations?user=bhcm3NEAAAAJ&hl=zh-CN" target="_blank">Google Scholar</a> / 
- 		    <a href="https://drive.google.com/file/d/1wCKM9wosuzSTlGWINfuFeb1m0sTNzOEM/view?usp=drive_link" target="_blank">CV</a> 
-			<br>
+                    I received my Bachelor of Engineering degree at <a href="https://www.fudan.edu.cn/en/" target="_blank">Fudan University</a> in 2023.
+                    I also worked as a research assistant at <a href="https://cse.hkust.edu.hk/" target="_blank">HKUST CSE</a> with Prof. <a href="https://www.danxurgb.net/" target="_blank">Dan Xu</a>. 
+                    Previously, I worked with Prof. <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>
+                    and Prof. <a href="https://scholar.google.com/citations?hl=zh-CN&user=gsLd2ccAAAAJ" target="_blank">Jiayuan Fan</a>.
                 </p>
 
-            </div>
-        </div>
-    </div><br>
+                <p class="mb-1">My research interests lie in Computer Vision and Graphics.</p>
+                <ul class="interests-list">
+                    <li>For computer graphics, I work on 3D asset generation and neural rendering.</li>
+                    <li>For computer vision, I work on representation learning and scene understanding, especially under multi-tasking scenarios.</li>
+                </ul>
 
-
-    <!-- News -->
-    <div class="container">
-        <h3 id="News" style="padding-top: 80px; margin-top: -80px;">News</h3>
-        <ul>
-            <!--
-			<li>
-				<font color="firebrick">[Upcoming]</font> Invited Talk at <b>Carnegie Mellon University</b>.
-			</li>
-			-->
-		<li> <b style="color: darkred;">Sep. 2025</b>: Actively looking for summer internship in 2026!</li>
-	    <li> <b>Aug. 2025</b>: SPGen has been accepted by SIGGRAPH Aisa 2025!</li>
-		<li> <b>May. 2025</b>: Start the research internship in Adobe!
-	    <li> <b>Jan. 2025</b>:  HiTTs has been accepted by ACM MM 2025!
-		<li> <b>Jan. 2025</b>:  BridgeNet has been accepted by TPAMI!
-            <li> <b>Jul. 2024</b>: I have been invited to serve as a reviewer for Pacific Graphics.
-	    <li> <b>May. 2024</b>: Start the research internship in Tecent America!
-            <li> <b>Nov. 2023</b>: I have been invited to serve as a reviewer for CVPR2024.
-	    <!-- <li> <b>Aug. 2023</b>: A co-authored paper has been accepted by TIP! -->
-	    <li> <b>Nov. 2022</b>: I have been invited to serve as a reviewer for CVPR2023.
-		<!-- <li> <b>Sep. 2022</b>: I am honored to won the third prize of Excellent Undergraduate Scholarship of Fudan University. -->
-	    <li> <b>Mar. 2022</b>: I have been invited to serve as a reviewer for ECCV2022.
-	    <li> <b>Nov. 2021</b>: I have been invited to serve as a reviewer for CVPR2022.
-		<!-- <li> <b>May. 2021</b>: I served as the team leader in Advanced Driving Assistance System (ADAS) National Competition, and our team won the first price! -->
-		<!-- <li> <b>Sep. 2020</b>: I am honored to won the second prize of Excellent Undergraduate Scholarship of Fudan University. -->
-        </ul>
-    </div><br><br>
-
-
-    <!-- Education -->
-    <div class="container">
-        <h3 id="Education" stype="padding-top: 80px; margin-top: -80px;">
-            Education
-        </h3>
-
-        <hr>
-
-        <div class="row">
-            <div class="col-md-3">
-                <a href="https://www.tamu.edu/index.html" target="_blank"><img class="img-fluid img-rounded"
-                        src="TAMU.png" alt=""></a>
-            </div>
-
-            <div class="col-md-9">
-                <b>
-                    <font color="black">Texas A&M University</font>
-                </b>
-                <br>
-                <!-- No. 220, Handan Road, Yangpu District, Shanghai, People's Republic of China<br> -->
-                Department of Computer Science and Engineering<br>
-		Ph.D Student<br>
-                Auguest 2023 - recent
-            </div>
-        </div>
-        <hr>
-
-	<div class="row">
-            <div class="col-md-3">
-                <a href="https://www.fudan.edu.cn/en/" target="_blank"><img class="img-fluid img-rounded"
-                        src="fudan.png" alt=""></a>
-            </div>
-
-            <div class="col-md-9">
-                <b>
-                    <font color="black">Fudan University</font>
-                </b>
-                <br>
-                Intelligent Science and Technology (excellent class), School of Information Science and Engineering<br>
-                Undergraduate Student<br>
-                September 2019 - June 2023, received the bachelor's degree in Jun 2023
-            </div>
-        </div>
-        <hr>
-    </div><br><br>
-
-    <!-- Internship -->
-    <div class="container">
-        <h3 id="Education" stype="padding-top: 80px; margin-top: -80px;">
-            Internship
-        </h3>
-
-        <hr>
-
-	<div class="row">
-            <div class="col-md-3">
-                <a href="https://www.tencent.com/en-us/about.html" target="_blank"><img class="img-fluid img-rounded"
-                        src="tencent_logo.jpg" alt=""></a>
-            </div>
-
-            <div class="col-md-9">
-                <b>
-                    <font color="black">Tencent America</font>
-                </b>
-		<br>
-                Research Intern, working on high-quality 3D asset generation.<br>
-                May 2024 - Aug 2024
-            </div>
-        </div>
-        <hr>
-	<div class="row">
-            <div class="col-md-3">
-                <a href="https://www.adobe.com/" target="_blank"><img class="img-fluid img-rounded"
-                        src="adobe_logo.jpg" alt=""></a>
-            </div>
-
-            <div class="col-md-9">
-                <b>
-                    <font color="black">Adobe</font>
-                </b>
-		<br>
-                Research Intern, working on generative soft inpainting.<br>
-                May 2025 - Aug 2025
-            </div>
-        </div>
-        <hr>
-    </div><br><br>
-
-
-
-    <!-- Publications -->
-    <div class="container">
-        <h3 id="Publications" style="padding-top: 80px; margin-top: -80px;">
-            Publications
-        </h3>
-
-		<hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="OmniClear_demo.gif" alt="">
-                </div>
-                <div class="col-md-9">
-					<a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-					<a href="https://owenzlz.github.io/" target="_blank">Lingzhi Zhang</a>,
-                    Qing Liu,
-					Mang Tik Chiu,
-					Connelly Barnes,
-                    Yizhou Wang,
-                    Haoran You,
-					Xiaoyang Liu,
-					Yuqian Zhou,
-					Zhe Lin,
-					Eli Shechtman,
-					Sohrab Amirghodsi,
-					<a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
-		    		<a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
-					<a href="https://xiaohangzhan.github.io/" target="_blank">Xiaohang Zhan</a>
-                    <br>
-                    <b>
-                        <font color="black"> UniSER: A Foundation Model for Unified Soft Effects Removal</font>
-                    </b><br>
-					<!-- <b><a href="https://asia.siggraph.org/2025/" target="_blank">SIGGRAPH Asia</a></b>, 2025 &nbsp&nbsp 
-					[<a href="https://arxiv.org/abs/2509.12721" target="_blank"> <i>arxiv</i> </a>] -->
-					<br>
-			    	<i><b>Abstract:</b> We propose a foudantional image soft effect removal (SER) model with contributing i) a large, curated pair-wise dataset
-						with diverse soft effects (e.g. lens flare, haze, shadows, and reflections), ii) fine-grained user control 
-						with spatial masks and strength control, iii) generalize on zero-shot unseen effects, iv) add or enhance effects.</i>
+                <div class="mt-4">
+                    <div class="mb-2">
+                        <i class="fas fa-envelope mr-2 text-muted"></i> Email: jdzhang [at] tamu [dot] edu <br>
+                        <i class="fab fa-weixin mr-2 text-muted"></i> Wechat: Triumph0929
+                    </div>
+                    
+                    <div class="mt-3">
+                        <a href="https://openreview.net/profile?id=~Jingdong_Zhang2" target="_blank" class="icon-btn">
+                            <i class="fas fa-book-reader"></i> OpenReview
+                        </a>
+                        <a href="https://www.linkedin.com/in/jingdong-zhang-1b21572a7/" target="_blank" class="icon-btn">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/Evergreen0929" target="_blank" class="icon-btn">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=bhcm3NEAAAAJ&hl=zh-CN" target="_blank" class="icon-btn">
+                            <i class="fas fa-graduation-cap"></i> Google Scholar
+                        </a>
+                        <a href="https://drive.google.com/file/d/1wCKM9wosuzSTlGWINfuFeb1m0sTNzOEM/view?usp=drive_link" target="_blank" class="icon-btn">
+                            <i class="far fa-file-pdf"></i> CV
+                        </a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-        <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="representative_img.jpg" alt="">
+    <span id="News" class="anchor-offset"></span>
+    <section class="container">
+        <h3>News</h3>
+        <div class="news-box">
+            <ul class="list-unstyled mb-0">
+                <li class="mb-2"><b style="color: rgb(236, 177, 14);">Sep. 2025:</b> Actively looking for summer internship in 2026!</li>
+                <li class="mb-2"><b>Aug. 2025:</b> SPGen has been accepted by <b>SIGGRAPH Asia 2025</b>!</li>
+                <li class="mb-2"><b>May. 2025:</b> Start the research internship in <b>Adobe</b>!</li>
+                <li class="mb-2"><b>Jan. 2025:</b> HiTTs has been accepted by <b>ACM MM 2025</b>!</li>
+                <li class="mb-2"><b>Jan. 2025:</b> BridgeNet has been accepted by <b>TPAMI</b>!</li>
+                <li class="mb-2"><b>Jul. 2024:</b> Invited to serve as a reviewer for <b>Pacific Graphics</b>.</li>
+                <li class="mb-2"><b>May. 2024:</b> Start the research internship in <b>Tencent America</b>!</li>
+                <li class="mb-2"><b>Nov. 2023:</b> Invited to serve as a reviewer for <b>CVPR 2024</b>.</li>
+                <li class="mb-2"><b>Nov. 2022:</b> Invited to serve as a reviewer for <b>CVPR 2023</b>.</li>
+                <li class="mb-2"><b>Mar. 2022:</b> Invited to serve as a reviewer for <b>ECCV 2022</b>.</li>
+                <li class="mb-2"><b>Nov. 2021:</b> Invited to serve as a reviewer for <b>CVPR 2022</b>.</li>
+            </ul>
+        </div>
+    </section>
+
+    <span id="Education" class="anchor-offset"></span>
+    <section class="container">
+        <h3>Education</h3>
+        
+        <div class="row align-items-center mb-5">
+            <div class="col-md-3 text-center">
+                <a href="https://www.tamu.edu/index.html" target="_blank">
+                    <img class="img-fluid inst-logo" src="homepage_assets/TAMU.png" alt="TAMU Logo">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <h5><b>Texas A&M University</b></h5>
+                <p class="mb-0 text-muted">Department of Computer Science and Engineering</p>
+                <p class="mb-0">Ph.D. Student</p>
+                <small>August 2023 - Present</small>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center">
+                <a href="https://www.fudan.edu.cn/en/" target="_blank">
+                    <img class="img-fluid inst-logo" src="homepage_assets/fudan.png" alt="Fudan Logo">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <h5><b>Fudan University</b></h5>
+                <p class="mb-0 text-muted">Intelligent Science and Technology (Excellent Class)</p>
+                <p class="mb-0">Undergraduate Student</p>
+                <small>September 2019 - June 2023</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h3>Internship</h3>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-3 text-center">
+                <a href="https://www.tencent.com/en-us/about.html" target="_blank">
+                    <img class="img-fluid inst-logo" src="homepage_assets/tencent_logo.png" alt="Tencent Logo">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <h5><b>Tencent America</b></h5>
+                <p class="mb-0">Research Intern, working on high-quality 3D asset generation.</p>
+                <small>May 2024 - Aug 2024</small>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center">
+                <a href="https://www.adobe.com/" target="_blank">
+                    <img class="img-fluid inst-logo" src="homepage_assets/adobe_logo.jpg" alt="Adobe Logo">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <h5><b>Adobe</b></h5>
+                <p class="mb-0">Research Intern, working on generative soft inpainting.</p>
+                <small>May 2025 - Aug 2025</small>
+            </div>
+        </div>
+    </section>
+
+    <span id="Publications" class="anchor-offset"></span>
+    <section class="container">
+        <h3>Publications</h3>
+        
+        <div class="row mb-5">
+            <div class="col-md-3 d-flex align-items-center">
+                <a href="https://arxiv.org/abs/2511.14183" class="pub-img-link">
+                    <img class="img-fluid pub-img" src="homepage_assets/OmniClear_demo.gif" alt="UniSER demo" loading="lazy">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <div class="pub-title">UniSER: A Foundation Model for Unified Soft Effects Removal</div>
+                <div class="author-list">
+                    <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
+                    <a href="https://owenzlz.github.io/" target="_blank">Lingzhi Zhang</a>,
+                    Qing Liu, Mang Tik Chiu, Connelly Barnes, Yizhou Wang, Haoran You, Xiaoyang Liu, Yuqian Zhou, Zhe Lin, Eli Shechtman, Sohrab Amirghodsi,
+                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
+                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
+                    <a href="https://xiaohangzhan.github.io/" target="_blank">Xiaohang Zhan</a>
                 </div>
-                <div class="col-md-9">
-					<a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-					<a href="https://chenweikai.github.io/" target="_blank">Weikai Chen</a>,
+                <div class="mb-2">
+                    <i>(Project in progress/Preprint)</i> &nbsp;&nbsp;
+                    [<a href="https://arxiv.org/abs/2511.14183" target="_blank">arxiv</a>]
+                </div>
+                <p class="text-secondary small text-justify">
+                    <i><b>Abstract:</b> We propose a foundational image soft effect removal (SER) model with: i) a large, curated pair-wise dataset with diverse soft effects (e.g. lens flare, haze, shadows, and reflections), ii) fine-grained user control with spatial masks and strength control, iii) generalize on zero-shot unseen effects, iv) add or enhance effects.</i>
+                </p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-3 d-flex align-items-center">
+                <a href="https://arxiv.org/abs/2509.12721" target="_blank" class="pub-img-link">
+                    <img class="img-fluid pub-img" src="homepage_assets/representative_img.jpg" alt="SPGen demo" loading="lazy">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <div class="pub-title">SPGen: Spherical Projection as Consistent and Flexible Representation for Single Image 3D Shape Generation</div>
+                <div class="author-list">
+                    <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
+                    <a href="https://chenweikai.github.io/" target="_blank">Weikai Chen</a>,
                     <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a>,
-					<a href="https://shanemankiw.github.io/" target="_blank">Jionghao Wang</a>,
-					<a href="https://yzmblog.github.io/" target="_blank">Zhengming Yu</a>,
+                    <a href="https://shanemankiw.github.io/" target="_blank">Jionghao Wang</a>,
+                    <a href="https://yzmblog.github.io/" target="_blank">Zhengming Yu</a>,
                     <a href="https://mickshen7558.github.io/" target="_blank">Zhuowen Shen</a>,
                     <a href="https://sites.google.com/site/boyanghome/home" target="_blank">Bo Yang</a>,
-		    		<a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
-					<a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>
-                    <br>
-                    <b>
-                        <font color="black"> SPGen: Spherical Projection as Consistent and Flexible Representation for Single Image 3D Shape Generation</font>
-                    </b><br>
-					<b><a href="https://asia.siggraph.org/2025/" target="_blank">SIGGRAPH Asia</a></b>, 2025 &nbsp&nbsp 
-					[<a href="https://arxiv.org/abs/2509.12721" target="_blank"> <i>arxiv</i> </a>]
-					<br>
-			    	<i><b>Abstract:</b> SPGen leverages Spherical Projection (SP) to generate high-quality 3D shapes with i）Consistency: SP maps ensure view-consistent and unambiguous 3D reconstruction, 
-				    ii) Flexibility: Supports arbitrary topologies, iii) Efficiency: Inherit powerful 2D diffusion priors and enables efficient finetuning.</i>
+                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
+                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>
                 </div>
+                <div class="mb-2 venue-text">
+                    <a href="https://asia.siggraph.org/2025/" target="_blank">SIGGRAPH Asia</a>, 2025 &nbsp;&nbsp;
+                    [<a href="https://arxiv.org/abs/2509.12721" target="_blank">arxiv</a>]
+                </div>
+                <p class="text-secondary small text-justify">
+                    <i><b>Abstract:</b> SPGen leverages Spherical Projection (SP) to generate high-quality 3D shapes with i) Consistency: SP maps ensure view-consistent and unambiguous 3D reconstruction, ii) Flexibility: Supports arbitrary topologies, iii) Efficiency: Inherit powerful 2D diffusion priors and enables efficient finetuning.</i>
+                </p>
             </div>
+        </div>
 
-
-        <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="SolidGS.gif" alt="">
-                </div>
-                <div class="col-md-9">
+        <div class="row mb-5">
+            <div class="col-md-3 d-flex align-items-center">
+                <a href="https://mickshen7558.github.io/projects/SolidGS/" target="_blank" class="pub-img-link">
+                    <img class="img-fluid pub-img" src="homepage_assets/SolidGS.gif" alt="SolidGS demo" loading="lazy">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <div class="pub-title">SolidGS: Consolidating Gaussian Surfel Splatting for Sparse-View Surface Reconstruction</div>
+                <div class="author-list">
                     <a href="https://mickshen7558.github.io/" target="_blank">Zhuowen Shen</a>,
                     <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a>,
                     <a href="https://zhangchen8.github.io/" target="_blank">Zhang Chen</a>,
@@ -287,79 +516,84 @@
                     <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
                     <a href="https://scholar.google.com/citations?user=ldanjkUAAAAJ&hl=en" target="_blank">Yi Xu</a>,
                     <a href="https://people.engr.tamu.edu/schaefer/index.html" target="_blank">Scott Schaefer</a>,
-	            <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
-		    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>
-                    <br>
-                    <b>
-                        <font color="black"> SolidGS: Consolidating Gaussian Surfel Splatting for Sparse-View Surface Reconstruction </font>
-                    </b><br>
-                    Arxiv, 2024 &nbsp&nbsp  [<a href="https://arxiv.org/abs/2412.15400" target="_blank"> <i>arxiv</i> </a>]  &nbsp&nbsp 
-                    [<a href="https://mickshen7558.github.io/projects/SolidGS/" target="_blank"> <i>project</i> </a>]<br>
-			    <i><b>Abstract:</b> We present SolidGS, which reconstructs a consolidated Gaussian field from sparse inputs. Given only three input views, 
-                    our approach enables high-precision and detailed mesh extraction, and high-quality novel view synthesis, achieved within just three minutes.</i>
+                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
+                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>
                 </div>
+                <div class="mb-2 venue-text">
+                    Arxiv, 2024 &nbsp;&nbsp;
+                    [<a href="https://arxiv.org/abs/2412.15400" target="_blank">arxiv</a>] &nbsp;&nbsp;
+                    [<a href="https://mickshen7558.github.io/projects/SolidGS/" target="_blank">project</a>]
+                </div>
+                <p class="text-secondary small text-justify">
+                    <i><b>Abstract:</b> We present SolidGS, which reconstructs a consolidated Gaussian field from sparse inputs. Given only three input views, our approach enables high-precision and detailed mesh extraction, and high-quality novel view synthesis, achieved within just three minutes.</i>
+                </p>
             </div>
+        </div>
 
-	    <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="cvpr2024.png" alt="">
-                </div>
-                <div class="col-md-9">
+        <div class="row mb-5">
+            <div class="col-md-3 d-flex align-items-center">
+                <a href="https://arxiv.org/abs/2411.18823" target="_blank" class="pub-img-link">
+                    <img class="img-fluid pub-img" src="homepage_assets/cvpr2024.png" alt="HiTTs demo" loading="lazy">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <div class="pub-title">Multi-Task Label Discovery via Hierarchical Task Tokens for Partially Annotated Dense Predictions</div>
+                <div class="author-list">
                     <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
                     <a href="https://sites.google.com/site/yhrspace/" target="_blank">Hanrong Ye</a>,
-		    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
-		    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
+                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
+                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
                     <a href="https://www.danxurgb.net/" target="_blank">Dan Xu</a>
-                    <br>
-                    <b>
-                        <font color="black"> Multi-Task Label Discovery via Hierarchical Task Tokens for Partially Annotated Dense Predictions </font>
-                    </b><br>
-                    <b><a href="https://acmmm2025.org/" target="_blank">ACMMM (ACM MultiMedia)</a></b>, 2025 &nbsp&nbsp 
-                    [<a href="https://arxiv.org/abs/2411.18823" target="_blank"> <i>arxiv</i> </a>]
-			&nbsp&nbsp [<a href="https://github.com/Evergreen0929/EEMTL"> <i>code</i> </a>]<br>
-			    <i><b>Abstract:</b> This research proposes a new approach to multi-task dense predictions with partially labeled data. We introduce hierarchical task tokens 
-				 (HiTTs) to capture multi-level representations. The global task tokens conduct cross-task interactions and transfer 
-				 knowledge from labeled to unlabeled tasks, while the fine-grained task tokens form high-quality task predictions at a finer granularity.</i>
                 </div>
+                <div class="mb-2 venue-text">
+                    <a href="https://acmmm2025.org/" target="_blank">ACMMM (ACM MultiMedia)</a>, 2025 &nbsp;&nbsp;
+                    [<a href="https://arxiv.org/abs/2411.18823" target="_blank">arxiv</a>] &nbsp;&nbsp;
+                    [<a href="https://github.com/Evergreen0929/EEMTL">code</a>]
+                </div>
+                <p class="text-secondary small text-justify">
+                    <i><b>Abstract:</b> This research proposes a new approach to multi-task dense predictions with partially labeled data. We introduce hierarchical task tokens (HiTTs) to capture multi-level representations. The global task tokens conduct cross-task interactions and transfer knowledge from labeled to unlabeled tasks.</i>
+                </p>
             </div>
-	    <hr>
-	    
-	        <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="pami.png" alt="">
-                </div>
-                <div class="col-md-9">
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-3 d-flex align-items-center">
+                <a href="https://ieeexplore.ieee.org/abstract/document/10870147" target="_blank" class="pub-img-link">
+                    <img class="img-fluid pub-img" src="homepage_assets/pami.png" alt="BridgeNet demo" loading="lazy">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <div class="pub-title">BridgeNet: Comprehensive and Effective Feature Interactions via Bridge Feature for Multi-task Dense Predictions</div>
+                <div class="author-list">
                     <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-		            <a href="https://scholar.google.com/citations?hl=zh-CN&user=gsLd2ccAAAAJ" target="_blank">Jiayuan Fan</a>,
-                    <a href="https://scholar.google.com/citations?user=UEZZP5QAAAAJ&hl=en&oi=sra" target="_blank">Peng
-                        Ye</a>,
+                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=gsLd2ccAAAAJ" target="_blank">Jiayuan Fan</a>,
+                    <a href="https://scholar.google.com/citations?user=UEZZP5QAAAAJ&hl=en&oi=sra" target="_blank">Peng Ye</a>,
                     <a href="https://openreview.net/profile?id=~Bo_Zhang17" target="_blank">Bo Zhang</a>,
                     <a href="https://openreview.net/profile?id=~Hancheng_Ye1" target="_blank">Hancheng Ye</a>,
                     <a href="https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en" target="_blank">Baopu Li</a>,
                     <a href="https://caiyancheng.github.io/" target="_blank">Yancheng Cai</a>,
                     <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>
-                    <br>
-                    <b>
-                        <font color="black"> BridgeNet: Comprehensive and Effective Feature Interactions via Bridge Feature for Multi-task Dense Predictions</font>
-                    </b><br>
-                    <b> <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34" target="_blank">TPAMI (IEEE
-                            Transactions on Pattern Analysis and Machine Intelligence)</a></b>, 2025 &nbsp&nbsp 
-			    [<a href="https://ieeexplore.ieee.org/abstract/document/10870147" target="_blank"> <i>paper</i> </a>]
-			    &nbsp&nbsp [<a href="https://github.com/Evergreen0929/EEMTL"> <i>code</i> </a>]<br>
-                    <i><b>Abstract:</b> This work introduces a novel BridgeNet for multi-task learning on dense predictions. 
-			    It uses a Bridge Feature Extractor (BFE) to create strong bridge features and a Task Pattern Propagation (TPP) to solve the task-pattern entanglement issue, 
-			    which results in task-specific features with higher quality and discriminative task representations. 
-			    A Task-Feature Refiner (TFR) is then used to refine the final task predictions.</i>
                 </div>
+                <div class="mb-2 venue-text">
+                    <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34" target="_blank">TPAMI (IEEE TPAMI)</a>, 2025 &nbsp;&nbsp;
+                    [<a href="https://ieeexplore.ieee.org/abstract/document/10870147" target="_blank">paper</a>] &nbsp;&nbsp;
+                    [<a href="https://github.com/Evergreen0929/EEMTL">code</a>]
+                </div>
+                <p class="text-secondary small text-justify">
+                    <i><b>Abstract:</b> This work introduces a novel BridgeNet for multi-task learning on dense predictions. It uses a Bridge Feature Extractor (BFE) to create strong bridge features and a Task Pattern Propagation (TPP) to solve the task-pattern entanglement issue, resulting in task-specific features with higher quality.</i>
+                </p>
             </div>
-        <hr>
+        </div>
 
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="tip.png" alt="">
-                </div>
-                <div class="col-md-9">
+        <div class="row mb-5">
+            <div class="col-md-3 d-flex align-items-center">
+                <a href="https://ieeexplore.ieee.org/document/10231122" target="_blank" class="pub-img-link">
+                    <img class="img-fluid pub-img" src="homepage_assets/tip.png" alt="TIP demo" loading="lazy">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <div class="pub-title">Rethinking Cross-Domain Pedestrian Detection: A Background-Focused Distribution Alignment Framework for Instance-Free One-Stage Detectors</div>
+                <div class="author-list">
                     <a href="https://caiyancheng.github.io/" target="_blank">Yancheng Cai</a>,
                     <a href="https://openreview.net/profile?id=~Bo_Zhang17" target="_blank">Bo Zhang</a>,
                     <a href="https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en" target="_blank">Baopu Li</a>,
@@ -367,142 +601,101 @@
                     <a href="https://scholar.google.com/citations?user=Obo7-bIAAAAJ&hl=en" target="_blank">Hongliang Yan</a>,
                     <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
                     Jiahao Xu
-                    <br>
-                    <b>
-                        <font color="black">Rethinking Cross-Domain Pedestrian Detection: A Background-Focused
-                            Distribution Alignment Framework for Instance-Free One-Stage Detectors
-                        </font>
-                    </b><br>
-                    <b><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83" target="_blank">TIP (IEEE
-                            Transactions on Image Processing)</a></b>, 2023 &nbsp&nbsp [<a href="https://ieeexplore.ieee.org/document/10231122"  
-			target="_blank"> <i>paper</i> </a>] &nbsp&nbsp [<a href="https://github.com/caiyancheng/BFDA"> <i>code</i> </a>] <br>
-                    <i><b>Abstract:</b> We introduce a new approach for cross-domain pedestrian one-stage detectors. The paper identifies 
-			    a foreground-background misalignment issue in image-level feature alignment, and a novel framework, Background-Focused 
-			    Distribution Alignment (BFDA) is proposed to address this issue.</i>
                 </div>
+                <div class="mb-2 venue-text">
+                    <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83" target="_blank">TIP (IEEE TIP)</a>, 2023 &nbsp;&nbsp;
+                    [<a href="https://ieeexplore.ieee.org/document/10231122" target="_blank">paper</a>] &nbsp;&nbsp;
+                    [<a href="https://github.com/caiyancheng/BFDA">code</a>]
+                </div>
+                <p class="text-secondary small text-justify">
+                    <i><b>Abstract:</b> We introduce a new approach for cross-domain pedestrian one-stage detectors. The paper identifies a foreground-background misalignment issue in image-level feature alignment, and a novel framework, Background-Focused Distribution Alignment (BFDA) is proposed to address this issue.</i>
+                </p>
             </div>
-            <hr>
-
         </div>
-    </div><br><br>
+    </section>
 
-
-    <!-- Research Experience -->
-    <div class="container">
-        <h3 id="Research Experience" style="padding-top: 80px; margin-top: -80px;">Research Experience</h3>
+    <span id="Research" class="anchor-offset"></span>
+    <section class="container">
+        <h3>Research Experience</h3>
         <ul>
             <li>
-                Jun. 2023 - Present, Ph.D. student, Aggie Graphics Group, Texas A&M University<br>
-                Advisor: Prof. <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">
-			Wenping Wang</a> and Prof. <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>
+                <b>Jun. 2023 - Present:</b> Ph.D. student, Aggie Graphics Group, Texas A&M University<br>
+                Advisor: Prof. Wenping Wang and Prof. Xin Li
             </li>
-	
-	    <li>
-                Feb. 2022 - Present, Research Assistant, HKUST<br>
-                Advisor: Prof. <a href="https://www.danxurgb.net/" target="_blank">Dan Xu</a>
+            <li class="mt-2">
+                <b>Feb. 2022 - Present:</b> Research Assistant, HKUST<br>
+                Advisor: Prof. Dan Xu
             </li>
-		
-            <li>
-                Jul. 2021 - Present, Research Assistant, Fudan Embedded Deep Learning and Visual Analysis Lab<br>
-                Advisor: Prof. <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a> 
-		    and Prof. <a href="https://scholar.google.com/citations?hl=zh-CN&user=gsLd2ccAAAAJ" target="_blank">Jiayuan Fan</a>
+            <li class="mt-2">
+                <b>Jul. 2021 - Present:</b> Research Assistant, Fudan Embedded Deep Learning and Visual Analysis Lab<br>
+                Advisor: Prof. Tao Chen and Prof. Jiayuan Fan
             </li>
         </ul>
-    </div><br><br>
+    </section>
 
-
-    <!-- Award -->
-    <div class="container">
-        <h3 id="Award" style="padding-top: 80px; margin-top: -80px;">Selected Award</h3>
+    <section class="container">
+        <h3>Selected Awards</h3>
         <ul>
-            <li>The third prize of outstanding Undergraduate Student Scholarship of Fudan University in 2021-2022 Academic year.</li>
-            <li>The second prize of outstanding Undergraduate Student Scholarship of Fudan University in 2019-2020 Academic year.</li>
-            <li>Outstanding Student of Fudan University in 2019-2020 Academic year.</li>
-	    <li>The first prize of Advanced Driving Assistance System (ADAS) National Competition by Dell Corporation, May 2021.</li>
+            <li>The third prize of outstanding Undergraduate Student Scholarship of Fudan University in 2021-2022.</li>
+            <li>The second prize of outstanding Undergraduate Student Scholarship of Fudan University in 2019-2020.</li>
+            <li>Outstanding Student of Fudan University in 2019-2020.</li>
+            <li>The first prize of Advanced Driving Assistance System (ADAS) National Competition by Dell Corporation, May 2021.</li>
         </ul>
-	<!--
-	<hr>
-            <div class="row">
-                <div class="col-md-5">
-                    <img class="img-fluid img-rounded" src="dell.png" alt="">
-                </div>
-                <div class="col-md-7">
-		    <ul>
-			<li><font color="black">The <b>first prize</b> of Advanced Driving Assistance System (ADAS) National Competition by Dell Corporation, 
-				May 2021.</font>
-                        <li>I am the team leader.
-	 	    <ul>
-                </div>
+    </section>
+
+    <section class="container">
+        <h3>Academic Service</h3>
+        <ul>
+            <li><b>Reviewer for:</b></li>
+            <ul class="list-unstyled ml-4">
+                <li>CVPR: 2022 - 2024</li>
+                <li>ECCV: 2022</li>
+                <li>ICRA: 2024</li>
+                <li>Pacific Graphics: 2024</li>
+            </ul>
+        </ul>
+    </section>
+
+    <span id="Miscellaneous" class="anchor-offset"></span>
+    <section class="container mb-5">
+        <h3>Miscellaneous</h3>
+        <p>I love photography and road trips.</p>
+        
+        <div class="row">
+            <div class="col-md-10 offset-md-1 gallery-item">
+                <img src="homepage_assets/p1.jpg" alt="TX, US" loading="lazy">
+                <div class="gallery-caption">TX, US</div>
             </div>
-	    <hr>
-	-->
-    </div><br><br>
+            <div class="col-md-10 offset-md-1 gallery-item">
+                <img src="homepage_assets/p2.jpg" alt="Mount Rainier NP" loading="lazy">
+                <div class="gallery-caption">Reflection Lake, Mount Rainier NP, WA, US</div>
+            </div>
+            <div class="col-md-10 offset-md-1 gallery-item">
+                <img src="homepage_assets/p3.jpg" alt="AZ, US" loading="lazy">
+                <div class="gallery-caption">AZ, US</div>
+            </div>
+            <div class="col-md-10 offset-md-1 gallery-item">
+                <img src="homepage_assets/p4.jpg" alt="Petrified Forest NP" loading="lazy">
+                <div class="gallery-caption">Petrified Forest NP, AZ, US</div>
+            </div>
+        </div>
+        
+        <hr class="mt-5">
+        <footer class="text-center text-muted">
+            <p>© Jingdong Zhang 2026</p>
+        </footer>
+    </section>
 
-
-    <!-- Academic Service -->
-    <div class="container">
-        <h3 id="Academic Service" style="padding-top: 80px; margin-top: -80px;">Academic Service</h3>
-        <ul>
-            <li>Reviewer for: <br>
-		    CVPR: 2022-2024, <br>
-		    ECCV: 2022, <br>
-		    ICRA: 2024 <br>
-		    Pacific Graphics: 2024 <br>
-        </ul>
-    </div><br>
-
-	<!-- Miscellaneous -->
-    <div class="container">
-		<h3 id="Miscellaneous" style="padding-top: 80px; margin-top: -80px;">
-            Miscellaneous
-        </h3>
-		<ul>
-			<li>I love photography and road trips.</li>
-		</ul>
-        <center>
-		<hr>
-		<div class="col-md-10">
-		    <img class="img-fluid img-rounded" src="p1.jpg" alt="">
-		</div>
-		<i>TX, US</i>
-		
-		<hr>
-		<div class="col-md-10">
-		    <img class="img-fluid img-rounded" src="p2.jpg" alt="">
-		</div>
-		<i>Reflection Lake, Mount Rainier NP, WA, US</i>
-		
-		<hr>
-		<div class="col-md-10">
-		    <img class="img-fluid img-rounded" src="p3.jpg" alt="">
-		</div>
-		<i>AZ, US</i>
-
-        <hr>
-		<div class="col-md-10">
-		    <img class="img-fluid img-rounded" src="p4.jpg" alt="">
-		</div>
-		<i>Petrified Forest NP, AZ, US</i>
-
-		<hr>
-		
-            <footer>
-                <p>© Jingdong Zhang 2024</p>
-            </footer>
-        </center>
-    </div>
-    <!-- /container -->
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script>showPubs(1);</script>
-    <script>var scroll = new SmoothScroll('a[href*="#"]', { speed: 1000 });</script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling
+        $('a[href*="#"]').on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: $($(this).attr('href')).offset().top
+            }, 800, 'linear');
+        });
+    </script>
 </body>
-
 </html>
