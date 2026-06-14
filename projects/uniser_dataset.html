@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLEVHY0HS1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-NLEVHY0HS1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <title>UniSER Datasets — HALO &amp; Synthetic Haze</title>
+
+    <style>
+        /* --- Inherited from uniser.html design language --- */
+        :root {
+            --theme-nav: #406185;
+            --link-color: #7677ce;
+            --theme-highlight: #F4D03F;
+            --text-main: #2F3033;
+        }
+
+        body {
+            font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', 'Gill Sans', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #eef5fc 0%, #ebe5f5 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        .bg-custom-nav {
+            background-color: rgba(64, 97, 133, 0.6) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+            font-family: 'Century Gothic', sans-serif;
+        }
+
+        a { color: var(--link-color); transition: all 0.3s; }
+        a:hover { color: #d39c12; text-decoration: none; }
+
+        h1.paper-title {
+            font-weight: 700;
+            color: #222;
+            font-size: 2.2rem;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-weight: 700;
+            color: var(--theme-nav);
+            margin-top: 50px;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 4px;
+            background-color: var(--theme-highlight);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+
+        h5.subhead {
+            color: var(--theme-nav);
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .author-block { font-size: 1.15rem; margin-bottom: 10px; }
+        .author-block a { color: #222; font-weight: 500; }
+        .author-block sup { color: #666; font-size: 0.8rem; }
+
+        .affiliation-block { font-size: 0.95rem; color: #555; margin-bottom: 20px; }
+        .venue-block { font-weight: 700; font-size: 1.2rem; color: var(--theme-nav); margin-bottom: 30px; }
+
+        .btn-resource {
+            background-color: #2F3033;
+            color: #fff !important;
+            border-radius: 50px;
+            padding: 8px 25px;
+            margin: 5px;
+            border: none;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-resource:hover {
+            background-color: var(--theme-nav);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-hf {
+            background-color: #ff9d00;
+        }
+
+        .btn-hf:hover {
+            background-color: #e08700;
+        }
+
+        .img-container {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 15px;
+        }
+
+        .img-fluid { border-radius: 4px; }
+
+        .teaser-img {
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .teaser-img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .caption {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .abstract-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        /* Stat tiles in the overview row */
+        .stat-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            padding: 24px 20px;
+            text-align: center;
+            margin-bottom: 18px;
+            border-left: 6px solid var(--theme-nav);
+        }
+        .stat-card .stat-name {
+            color: var(--theme-nav);
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+        }
+        .stat-card .stat-figure {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 2px;
+        }
+        .stat-card .stat-sub {
+            color: #777;
+            font-size: 0.88rem;
+        }
+        .stat-card.halo { border-left-color: #dfac06; }
+        .stat-card.haze { border-left-color: #406185; }
+
+        /* Composition tables */
+        table.comp {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+        }
+        table.comp th, table.comp td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.93rem;
+            text-align: center;
+        }
+        table.comp th {
+            background: var(--theme-nav);
+            color: #fff;
+            font-weight: 600;
+        }
+        table.comp td.left { text-align: left; }
+        table.comp tr:last-child td {
+            font-weight: 700;
+            background: #f4f4f4;
+        }
+
+        /* Code blocks */
+        pre.code-block {
+            background-color: #f4f4f4;
+            padding: 18px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.83rem;
+            overflow-x: auto;
+            border-left: 5px solid var(--theme-nav);
+            text-align: left;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            white-space: pre;
+        }
+
+        .bibtex-box {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            border-left: 5px solid var(--theme-nav);
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .dataset-section {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            padding: 30px 28px;
+            margin-bottom: 28px;
+        }
+
+        .dataset-section h3 {
+            color: var(--theme-nav);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .dataset-section .tagline {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 18px;
+        }
+
+        .pill {
+            display: inline-block;
+            font-size: 0.78rem;
+            padding: 3px 12px;
+            border-radius: 50px;
+            background: #eef5fc;
+            color: var(--theme-nav);
+            font-weight: 600;
+            margin: 0 2px;
+        }
+        .pill.cc { background: #fff0d9; color: #b97800; }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">UniSER Datasets</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="./uniser.html">UniSER Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#Publications">Other Publications</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container pt-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h1 class="paper-title">
+                    <img src="../project_assets/uniser/uniser_anim_trans.gif" alt="UniSER" style="height: 3em; vertical-align: middle; margin-right: 5px; margin-bottom: 8px;">
+                    <span style="font-size: 0.75em; font-weight: 500; vertical-align: middle;">
+                        :
+                        <span style="font-size: 1.1em; font-weight: 800; color: #dfac06;">HALO</span> &amp;
+                        <span style="font-size: 1.1em; font-weight: 800; color: #406185;">Synthetic Haze</span>
+                        Datasets
+                    </span>
+                </h1>
+
+                <div class="affiliation-block mt-3">
+                    Companion data releases for our CVPR 2026 paper
+                    <a href="./uniser.html"><i>UniSER: A Foundation Model for Unified Soft Effects Removal</i></a>
+                </div>
+
+                <div class="venue-block">
+                    <span class="pill">WebDataset</span>
+                    <span class="pill cc">CC-BY-NC-SA-4.0 · gated</span>
+                </div>
+
+                <div class="mb-5">
+                    <a href="https://huggingface.co/datasets/jdzhang0929/halo-flare-dataset" target="_blank" class="btn btn-resource btn-hf">
+                        🤗 HALO Dataset
+                    </a>
+                    <a href="https://huggingface.co/datasets/jdzhang0929/uniser-haze-dataset" target="_blank" class="btn btn-resource btn-hf">
+                        🤗 Synthetic Haze Dataset
+                    </a>
+                    <a href="https://github.com/Evergreen0929/UniSER-Datasets" target="_blank" class="btn btn-resource">
+                        <i class="fab fa-github"></i> Code
+                    </a>
+                    <a href="./uniser.html" class="btn btn-resource">
+                        <i class="fas fa-arrow-left"></i> Back to UniSER
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-11">
+                <img src="../project_assets/uniser_dataset/halo_triplets.jpg"
+                     class="img-fluid teaser-img"
+                     alt="HALO triplets: light / flare / separate across four flare types">
+                <p class="caption">
+                    HALO: each sample ships as a flare-free / flared / flare-only triplet across four flare types
+                    (Streak, Reflective, Glare, Shimmer).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>Overview</h2>
+                <div class="abstract-box">
+                    <p>
+                        We release the two image datasets that power UniSER's training pipeline, both sharded in
+                        <a href="https://github.com/webdataset/webdataset" target="_blank">WebDataset</a> format on
+                        Hugging Face for fast streaming and partial-download support.
+                    </p>
+                    <p class="mb-1">
+                        <b>HALO</b> is a brand-new 3D-rendered lens-flare dataset with
+                        <b>4,945 4K-resolution triplets</b> (clean / flared / flare-only) spanning
+                        <b>32 scenes</b> &times; <b>4 flare types</b>. The triplet design supports paired flare
+                        removal, forward flare synthesis, and additive decomposition
+                        (<code>flare &asymp; light + separate</code>).
+                    </p>
+                    <p class="mb-0">
+                        <b>Synthetic Haze</b> bundles
+                        <b>~80.9k unique clean images</b> with
+                        <b>~2M physically-motivated haze variants</b> — a depth-driven atmospheric scattering
+                        synthesizer applied across six upstream image sources covering indoor/outdoor,
+                        homogeneous/non-homogeneous, daytime/dense atmospheric conditions.
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="stat-card halo">
+                            <div class="stat-name"><i class="fas fa-sun"></i> HALO Lens Flare</div>
+                            <div class="stat-figure">4,945</div>
+                            <div class="stat-sub">4K triplets · 32 scenes · ~153 GB · 71 shards</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="stat-card haze">
+                            <div class="stat-name"><i class="fas fa-smog"></i> Synthetic Haze</div>
+                            <div class="stat-figure">~80.9k &middot; ~2M</div>
+                            <div class="stat-sub">unique GTs · haze variants · ~2.5 TB · 1,327 shards</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== HALO SECTION ====================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>HALO — 3D-Rendered Lens Flare</h2>
+
+                <div class="dataset-section">
+                    <h3><i class="fas fa-sun" style="color: #dfac06;"></i> HALO</h3>
+                    <div class="tagline">Blender-rendered 4K scenes with physically-based flare triplets.</div>
+
+                    <p>
+                        HALO covers <b>4 flare types</b> across <b>32 distinct scenes</b>, with multiple cameras
+                        and lighting variants per scene. Each sample carries three aligned 4K RGBA PNGs — the
+                        clean scene (<code>gt</code>), the same scene with flare added (<code>flare</code>), and
+                        the flare layer rendered against transparent background (<code>separate</code>) so it can
+                        be re-composited over arbitrary clean images at training time.
+                    </p>
+
+                    <h5 class="subhead">Per-scene composition</h5>
+                    <div class="img-container">
+                        <img src="../project_assets/uniser_dataset/halo_composition.png"
+                             class="img-fluid" alt="HALO per-scene composition">
+                    </div>
+                    <p class="caption">
+                        4,945 samples are stratified across 32 scenes; the four flare types share the same
+                        per-scene distribution at a 2&thinsp;:&thinsp;2&thinsp;:&thinsp;1&thinsp;:&thinsp;1
+                        (Streak&thinsp;:&thinsp;Reflective&thinsp;:&thinsp;Glare&thinsp;:&thinsp;Shimmer) ratio.
+                    </p>
+
+                    <h5 class="subhead">Effect-type breakdown</h5>
+                    <table class="comp">
+                        <thead>
+                            <tr><th>Effect type</th><th>Samples</th><th>Share</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><b style="color:#ffaf50;">Streak</b></td><td>1,656</td><td>33.5%</td><td class="left">bright streak / anamorphic stretch flares</td></tr>
+                            <tr><td><b style="color:#6eb4e6;">Reflective</b></td><td>1,655</td><td>33.5%</td><td class="left">inter-element ghost reflections</td></tr>
+                            <tr><td><b style="color:#ff8c5a;">Glare</b></td><td>817</td><td>16.5%</td><td class="left">wide soft halo + bloom</td></tr>
+                            <tr><td><b style="color:#aadc6e;">Shimmer</b></td><td>817</td><td>16.5%</td><td class="left">iridescent / dispersive flare</td></tr>
+                            <tr><td>Total</td><td>4,945</td><td>100%</td><td class="left">32 scenes &times; 4 effects</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h5 class="subhead">Per-sample shard layout</h5>
+                    <pre class="code-block">halo/&lt;base_name&gt;.gt.png         clean scene without flare       (RGBA, 3840&times;2160)
+halo/&lt;base_name&gt;.flare.png      same scene with flare added     (RGBA, 3840&times;2160)
+halo/&lt;base_name&gt;.separate.png   flare-only on transparent bg    (RGBA, 3840&times;2160)
+halo/&lt;base_name&gt;.json           per-sample metadata</pre>
+
+                    <h5 class="subhead">Stream from Hugging Face</h5>
+                    <pre class="code-block">pip install -U "huggingface_hub[hf_xet]" webdataset pillow
+hf auth login   # accept terms at https://huggingface.co/datasets/jdzhang0929/halo-flare-dataset
+
+import io, json
+from huggingface_hub import HfFileSystem
+import webdataset as wds
+from PIL import Image
+
+REPO = "jdzhang0929/halo-flare-dataset"
+urls = [
+    f"https://huggingface.co/datasets/{REPO}/resolve/main/{p[len(f'datasets/{REPO}/'):]}"
+    for p in HfFileSystem().ls(f"datasets/{REPO}/shards", detail=False)
+    if p.endswith(".tar")
+]
+
+def decode(s):
+    meta = json.loads(s["json"])
+    return {
+        "scene":    meta["scene"],
+        "effect":   meta["effect_id"],
+        "light":    Image.open(io.BytesIO(s["gt.png"])).convert("RGB"),
+        "flare":    Image.open(io.BytesIO(s["flare.png"])).convert("RGB"),
+        "separate": Image.open(io.BytesIO(s["separate.png"])),  # keep RGBA
+    }
+
+pipeline = wds.WebDataset(urls, shardshuffle=True).shuffle(500).map(decode)
+for sample in pipeline:
+    print(sample["scene"], sample["effect"])
+    break</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== HAZE SECTION ====================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>Synthetic Haze</h2>
+
+                <div class="dataset-section">
+                    <h3><i class="fas fa-smog" style="color: #406185;"></i> Synthetic Haze</h3>
+                    <div class="tagline">Depth-driven atmospheric synthesis over six upstream image sources.</div>
+
+                    <p>
+                        Per the paper's §7 atmospheric model, every clean image is augmented with multiple
+                        haze variants whose optical thickness <code>&tau;</code> follows depth predictions from
+                        Marigold, optionally modulated by Perlin noise for non-uniform haze and valley fog.
+                        Variants span homogeneous, non-homogeneous, indoor, outdoor, daytime, dense, and
+                        smoke-like conditions.
+                    </p>
+
+                    <div class="img-container">
+                        <img src="../project_assets/uniser_dataset/haze_samples.jpg"
+                             class="img-fluid" alt="Synthetic haze samples">
+                    </div>
+                    <p class="caption">
+                        Top row: synthesized hazy variants; bottom row: the corresponding clean ground-truth
+                        images. Each clean image is paired with multiple distinct haze atmospheres.
+                    </p>
+
+                    <h5 class="subhead">Source composition</h5>
+                    <div class="img-container">
+                        <img src="../project_assets/uniser_dataset/haze_composition.png"
+                             class="img-fluid" alt="Synthetic haze composition">
+                    </div>
+                    <p class="caption">
+                        Six upstream sources, dominated by HazeSpace2M (~82% of unique GTs). Each GT carries
+                        ~19–37 synthesized haze variants, for ~2&nbsp;million total pairs.
+                    </p>
+
+                    <h5 class="subhead">Per-sample shard layout</h5>
+                    <pre class="code-block">&lt;source&gt;/&lt;base_name&gt;.gt.&lt;ext&gt;          clean RGB image (absent for OTS)
+&lt;source&gt;/&lt;base_name&gt;.haze_NNN.png      synthesized haze variant
+&lt;source&gt;/&lt;base_name&gt;.haze_NNN.txt      descriptive tag (e.g. out_fog_120)
+&lt;source&gt;/&lt;base_name&gt;.json              per-sample metadata</pre>
+                    <p>
+                        <code>&lt;source&gt;</code> is one of <code>hazespace</code>, <code>its</code>,
+                        <code>ots</code>, <code>wsrd</code>, <code>real_flare</code>, <code>istd</code>.
+                        RESIDE-OTS clean GTs carry third-party photographer copyrights and are
+                        <i>not</i> bundled; the companion repo ships a
+                        <a href="https://github.com/Evergreen0929/UniSER-Datasets/blob/main/scripts/prepare_ots_originals.py" target="_blank">fetch script</a>
+                        that pulls the originals from the official RESIDE source.
+                    </p>
+
+                    <h5 class="subhead">Stream from Hugging Face</h5>
+                    <pre class="code-block">import io, json, random
+from huggingface_hub import HfFileSystem
+import webdataset as wds
+from PIL import Image
+
+REPO = "jdzhang0929/uniser-haze-dataset"
+urls = [
+    f"https://huggingface.co/datasets/{REPO}/resolve/main/{p[len(f'datasets/{REPO}/'):]}"
+    for p in HfFileSystem().ls(f"datasets/{REPO}/shards", detail=False)
+    if p.endswith(".tar")
+]
+
+def decode(s):
+    meta = json.loads(s["json"])
+    haze_keys = sorted(k for k in s if k.startswith("haze_") and k.endswith(".png"))
+    chosen = random.choice(haze_keys)
+    gt_key = next((k for k in s if k.startswith("gt.")), None)
+    return {
+        "source": meta["source"],
+        "gt":     Image.open(io.BytesIO(s[gt_key])).convert("RGB") if gt_key else None,
+        "haze":   Image.open(io.BytesIO(s[chosen])).convert("RGB"),
+        "tag":    s[chosen.replace(".png", ".txt")].decode(),
+    }
+
+pipeline = wds.WebDataset(urls, shardshuffle=True).shuffle(1000).map(decode)
+for sample in pipeline:
+    print(sample["source"], sample["tag"])
+    break</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== ACKNOWLEDGMENTS ====================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>Acknowledgments</h2>
+                <div class="abstract-box">
+                    <p>
+                        <b>HALO HDRI environments</b> are sourced from
+                        <a href="https://polyhaven.com/hdris" target="_blank">Poly Haven</a> (CC0 1.0 Universal,
+                        public domain) and <a href="https://www.freepoly.org" target="_blank">freepoly.org</a>.
+                        The 4,945 HALO samples span <b>118 distinct HDRIs</b> across coast, mountain, urban,
+                        industrial, pastoral, and aerial-landscape categories. The companion HF dataset card
+                        lists a representative subset.
+                    </p>
+                    <p class="mb-0">
+                        <b>Synthetic Haze</b> builds on six upstream image datasets — HazeSpace2M, RESIDE-ITS,
+                        RESIDE-OTS, WSRD, Flare7K++ (Flare-R subset), and ISTD. Each subset retains its
+                        own upstream license; please consult
+                        <a href="https://github.com/Evergreen0929/UniSER-Datasets/blob/main/docs/upstream_licenses.md" target="_blank">docs/upstream_licenses.md</a>
+                        and cite every subset whose data you use.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>BibTeX</h2>
+                <pre class="bibtex-box">
+@article{zhang2025uniser,
+    title={UniSER: A Foundation Model for Unified Soft Effects Removal},
+    author={Zhang, Jingdong and Zhang, Lingzhi and Liu, Qing and Chiu, Mang Tik and Barnes, Connelly and Wang, Yizhou and You, Haoran and Liu, Xiaoyang and Zhou, Yuqian and Lin, Zhe and others},
+    journal={arXiv preprint arXiv:2511.14183},
+    year={2025}
+    }
+</pre>
+            </div>
+        </div>
+    </section>
+
+    <hr class="mt-5">
+    <footer class="text-center text-muted mb-4">
+        <p>© Jingdong Zhang 2026</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
