@@ -481,9 +481,25 @@ for sample in pipeline:
     <!-- ====================== HAZE SECTION ====================== -->
     <section class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-10">
+            <div class="col-lg-10 text-center">
                 <h2>Synthetic Haze</h2>
+            </div>
+        </div>
 
+        <!-- Floating samples figure (outside dataset-section box, like HALO triplet hero) -->
+        <div class="row justify-content-center">
+            <div class="col-lg-11">
+                <img src="../project_assets/uniser_dataset/haze_samples.jpg"
+                     class="img-fluid teaser-img" alt="Synthetic haze samples">
+                <p class="caption">
+                    Each row: one upstream source's clean GT plus three of its synthesized haze variants.
+                    OTS clean images are not bundled (Flickr copyright).
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-lg-10">
                 <div class="dataset-section">
                     <h3><i class="fas fa-smog" style="color: #406185;"></i> Synthetic Haze</h3>
                     <div class="tagline">Depth-driven atmospheric synthesis over six upstream image sources.</div>
@@ -494,15 +510,6 @@ for sample in pipeline:
                         Marigold, optionally modulated by Perlin noise for non-uniform haze and valley fog.
                         Variants span homogeneous, non-homogeneous, indoor, outdoor, daytime, dense, and
                         smoke-like conditions.
-                    </p>
-
-                    <div class="img-container">
-                        <img src="../project_assets/uniser_dataset/haze_samples.jpg"
-                             class="img-fluid" alt="Synthetic haze samples">
-                    </div>
-                    <p class="caption">
-                        Top row: synthesized hazy variants; bottom row: the corresponding clean ground-truth
-                        images. Each clean image is paired with multiple distinct haze atmospheres.
                     </p>
 
                     <h5 class="subhead">Source composition</h5>
