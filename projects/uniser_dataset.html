@@ -335,14 +335,29 @@
             </div>
         </div>
 
+        <!-- Both showcase figures together at the top of the page -->
         <div class="row justify-content-center">
             <div class="col-lg-11">
                 <img src="../project_assets/uniser_dataset/halo_triplets.jpg"
                      class="img-fluid teaser-img"
                      alt="HALO triplets: light / flare / separate across four flare types">
                 <p class="caption">
-                    HALO: each sample ships as a flare-free / flared / flare-only triplet across four flare types
-                    (Streak, Reflective, Glare, Shimmer).
+                    <b>HALO</b>: each sample ships as a flare-free / flared / flare-only triplet across four
+                    flare types (Streak, Reflective, Glare, Shimmer).
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-11">
+                <img src="../project_assets/uniser_dataset/haze_samples.jpg"
+                     class="img-fluid teaser-img"
+                     alt="Synthetic Haze: one row per upstream source, three synthesized variants each">
+                <p class="caption">
+                    <b>Synthetic Haze</b>: one representative scene per upstream source paired with three
+                    synthesized haze variants — fog / haze / smoke (HAZESPACE, ITS, OTS) or
+                    neutral / yellowish atmospheric haze (WSRD, Flare-R, ISTD). OTS clean images are not
+                    bundled (Flickr copyright).
                 </p>
             </div>
         </div>
@@ -481,25 +496,8 @@ for sample in pipeline:
     <!-- ====================== HAZE SECTION ====================== -->
     <section class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-                <h2>Synthetic Haze</h2>
-            </div>
-        </div>
-
-        <!-- Floating samples figure (outside dataset-section box, like HALO triplet hero) -->
-        <div class="row justify-content-center">
-            <div class="col-lg-11">
-                <img src="../project_assets/uniser_dataset/haze_samples.jpg"
-                     class="img-fluid teaser-img" alt="Synthetic haze samples">
-                <p class="caption">
-                    Each row: one upstream source's clean GT plus three of its synthesized haze variants.
-                    OTS clean images are not bundled (Flickr copyright).
-                </p>
-            </div>
-        </div>
-
-        <div class="row justify-content-center mt-3">
             <div class="col-lg-10">
+                <h2>Synthetic Haze</h2>
                 <div class="dataset-section">
                     <h3><i class="fas fa-smog" style="color: #406185;"></i> Synthetic Haze</h3>
                     <div class="tagline">Depth-driven atmospheric synthesis over six upstream image sources.</div>
