@@ -9,795 +9,580 @@
         gtag('js', new Date());
         gtag('config', 'G-NLEVHY0HS1');
     </script>
+    <script>document.documentElement.classList.add('js');</script>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com/css2">
-    <link href="https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;700&family=Zhi+Mang+Xing&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="homepage_assets/self_web.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0e1215">
+    <meta name="description" content="Jingdong Zhang — Ph.D. student in Computer Science at Texas A&M University. Scene parsing and reasoning, multi-modal/-task collaboration, scalable foundation models.">
 
     <title>Jingdong Zhang</title>
+    <link rel="icon" type="image/png" href="homepage_assets/self_web.jpg">
 
-    <style>
-        /* --- Theme Variables --- */
-        :root {
-            /* 1. Main Tone: Gradient used in body instead of single color */
-            
-            /* Navbar: 提高了饱和度的蓝色 (Saturated Blue) */
-            --theme-nav: #406185; 
+    <link rel="preload" as="image" href="homepage_assets/cover_2560.jpg" media="(min-width: 901px)">
+    <link rel="preload" as="image" href="homepage_assets/cover_1280.jpg" media="(max-width: 900px)">
 
-            --link-color: #7677ce;
-            
-            /* Highlight: 保持之前的鹅黄色 */
-            --theme-highlight: #F4D03F; 
-            --theme-highlight-text: #D4AC0D;
-            
-            --text-main: #2F3033;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;500&text=%E5%BC%A0%E9%9D%96%E4%B8%9C&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        body {
-            /* 6. Font: Century Gothic */
-            font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', 'Gill Sans', sans-serif;
-            
-            /* 背景修改为渐变：从上部的淡蓝(#EBF5FB) 过渡到 下部的淡紫(#E0D4F7) */
-            /* min-height 确保内容较少时渐变也能撑满屏幕 */
-            min-height: 100vh;
-            background: linear-gradient(to bottom, #eef5fc 0%, #ebe5f5 100%);
-            
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-top: 70px;
-        }
-
-        /* Navbar Styling */
-        .bg-custom-nav {
-            /* 使用 rgba 设置透明度 0.85 */
-            background-color: rgba(64, 97, 133, 0.5) !important; 
-            /* 磨砂模糊效果 */
-            backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .navbar-brand {
-            font-size: 1.6rem;
-            letter-spacing: 0.5px;
-            font-family: 'Century Gothic', sans-serif; /* English match body */
-        }
-        
-        /* 6. Chinese Font: DengXian */
-        .cn-name {
-            font-family: 'Noto Serif SC', serif;
-            font-weight: 100; /* 仿宋笔画较细，稍微加粗更清晰 */
-        }
-
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        h3, h5 {
-            color: var(--theme-nav) !important;
-        }
-
-        a:hover {
-            color: #d39c12; /* Dark Goldenrod on hover */
-            text-decoration: none;
-            border-bottom: 2px solid var(--theme-highlight);
-        }
-
-        /* Section Headings */
-        h3 {
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-
-        /* 5. Goose Yellow Highlight Underline */
-        h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--theme-highlight);
-            border-radius: 2px;
-        }
-
-        section {
-            padding: 45px 0;
-        }
-
-        /* --- 1. Bullet Points for Interests --- */
-        .interests-list {
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-        .interests-list li {
-            margin-bottom: 6px;
-            list-style-type: circle; 
-        }
-
-        /* --- 2. News Scrollable Area --- */
-        .news-box {
-            max-height: 220px; /* Approx 6 lines */
-            overflow-y: auto;
-            background-color: rgba(250, 248, 245, 0.6);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-            /* Custom Scrollbar */
-            scrollbar-width: thin;
-            scrollbar-color: var(--theme-highlight) #eee;
-            transition: all 0.3s ease;
-        }
-        .news-box:hover {
-            transform: translateY(-5px); /* 向上浮动 */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* 增加阴影 */
-            background-color: rgba(250, 246, 240, 0.9); /* 悬浮时背景稍微变实，增加层次感 */
-        }
-        .news-box::-webkit-scrollbar {
-            width: 6px;
-        }
-        .news-box::-webkit-scrollbar-thumb {
-            background-color: var(--theme-highlight);
-            border-radius: 3px;
-        }
-
-        /* --- 3. Logo Sizing --- */
-        .inst-logo {
-            width: 100%;
-            max-width: 220px; /* 从 160px 增大到 220px，与右侧文字高度更匹配 */
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        /* 选中包含图标的列中的链接 */
-        .col-md-3.text-center a {
-            display: inline-block;
-            border-bottom: none !important; /* 强制去掉链接颜色的下划线 */
-        }
-        
-        /* 鼠标悬停时，内部的 logo 图片上浮 */
-        .col-md-3.text-center a:hover .inst-logo {
-            transform: translateY(-5px);
-        }
-
-        /* --- 4. Miscellaneous Images (Full Width) --- */
-        .gallery-item {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        .gallery-item img {
-            width: 100%;
-            max-width: 900px; 
-            border-radius: 6px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .gallery-caption {
-            font-style: italic;
-            color: #666;
-            margin-top: 10px;
-            font-size: 0.95rem;
-        }
-
-        /* Profile & Pub Images */
-        .profile-img {
-            /* 删除了 border: 5px solid white; */
-            /* 保持阴影以制造悬浮感 */
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15); 
-            max-width: 100%;
-            border-radius: 4px;
-            transition: transform 0.3s ease; /* 增加一点微小的互动效果 */
-        }
-        
-        .profile-img:hover {
-            transform: translateY(-5px); /* 鼠标悬停时轻微上浮 */
-        }
-
-        .pub-img-link {
-            display: block;
-            border-bottom: none !important; /* 强制去除链接下划线 */
-            cursor: pointer;
-        }
-
-        .pub-img {
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            width: 100%;
-            border: 1px solid #eee;
-            background: #fff;
-            
-            /* 新增过渡动画 */
-            transition: all 0.3s ease; 
-        }
-
-        /* [新增] 悬浮效果：上浮 + 阴影加深 */
-        .pub-img-link:hover .pub-img {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        /* 7. Icon Styling */
-        .icon-btn {
-            margin-right: 18px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            border-bottom: none !important;
-        }
-        .icon-btn i {
-            margin-right: 6px;
-            /* 原来是 var(--theme-nav)，现在改为链接色 */
-            color: var(--link-color); 
-            font-size: 1.1rem;
-            transition: color 0.2s; /* 增加变色过渡让体验更丝滑 */
-        }
-        
-        /* 可选：鼠标悬停时图标也跟着变亮 */
-        .icon-btn:hover i {
-             color: #d39c12; 
-             text-decoration: none;
-             border-bottom: none !important; /* 关键：强制覆盖全局的下划线样式 */
-        }
-
-        .icon-btn:hover i {
-             color: #d39c12; 
-        }
-
-        /* Anchor offset */
-        .anchor-offset {
-            padding-top: 80px;
-            margin-top: -80px;
-            display: block;
-            visibility: hidden;
-        }
-        
-        /* Publications Text adjustments */
-        .pub-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #222;
-        }
-        .author-list {
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-        .venue-text {
-            color: #000;
-            font-weight: 500;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/home.css">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom-nav">
-        <div class="container">
-            <a class="navbar-brand" href="#Home">
-                Jingdong Zhang <span class="cn-name">| 张靖东</span>
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <!-- ============================== Cover ============================== -->
+    <header class="cover" id="cover">
+        <div class="cover__media" aria-hidden="true"><div class="cover__img"></div></div>
+        <div class="cover__shade" aria-hidden="true"></div>
 
-            <div class="collapse navbar-collapse" id="navbarToggle">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#Home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#News">News</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#Publications">Publications</a></li>
-                </ul>
-            </div>
+        <div class="cover__inner">
+            <h1 class="cover__name" data-anim style="--d: .4s">Jingdong Zhang</h1>
+            <p class="cover__cn" data-anim style="--d: .95s">张靖东</p>
+            <span class="cover__rule" data-anim style="--d: 1.3s"></span>
+            <p class="cover__caption" data-anim style="--d: 1.55s">Personal Website</p>
         </div>
+
+        <div class="cover__hint-wrap">
+            <a class="cover__hint" href="#main" data-anim style="--d: 2.1s" aria-label="Scroll to content">
+                <span>Scroll</span><i></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Star-trail backdrop (decorative) -->
+    <div class="sky" aria-hidden="true"><canvas></canvas></div>
+
+    <!-- ============================== Mobile top bar ============================== -->
+    <div class="topbar" aria-hidden="true">
+        <a class="topbar__name" href="#Home">Jingdong Zhang <span class="cn-name">张靖东</span></a>
+        <button class="topbar__menu" type="button" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+    <nav class="drawer" aria-label="Sections">
+        <a href="#Home">About</a>
+        <a href="#News">News</a>
+        <a href="#Education">Education</a>
+        <a href="#Internship">Internship</a>
+        <a href="#Publications">Publications</a>
+        <a href="#Research">Experience</a>
+        <a href="#Awards">Awards</a>
+        <a href="#Service">Service</a>
+        <a href="#Miscellaneous">Miscellaneous</a>
     </nav>
 
-    <span id="Home" class="anchor-offset"></span>
-    <section class="container pt-5">
-        <div class="row">
-            <div class="col-md-4 mb-4 text-center">
-                <img class="img-fluid profile-img" src="homepage_assets/self_web.jpg" alt="Jingdong Zhang">
-            </div>
+    <!-- ============================== Page ============================== -->
+    <div class="page" id="main">
 
-            <div class="col-md-8">
-                <p class="lead">
-                    I am currently a third-year Ph.D. student majoring in Computer Science at <a href="https://www.tamu.edu/index.html" target="_blank">Texas A&M University</a>,
-                    advised by Prof. <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a> and Prof. <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>. 
+        <!-- ---------- Sidebar ---------- -->
+        <aside class="sidebar">
+            <div class="sidebar__inner">
+                <div class="portrait reveal">
+                    <img src="homepage_assets/self_web.jpg" alt="Jingdong Zhang">
+                </div>
+
+                <div class="reveal" style="--d: .1s">
+                    <h2 class="sb-name">Jingdong Zhang</h2>
+                    <p class="sb-cn cn-name">张靖东</p>
+                </div>
+
+                <div class="sb-contact reveal" style="--d: .2s">
+                    <div><i class="fas fa-envelope"></i> Email: jdzhang [at] tamu [dot] edu</div>
+                    <div><i class="fab fa-weixin"></i> Wechat: Triumph0929</div>
+                </div>
+
+                <div class="sb-links reveal" style="--d: .3s">
+                    <a href="https://www.linkedin.com/in/jingdong-zhang-1b21572a7/" target="_blank" class="pill pill--icon" aria-label="LinkedIn" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Evergreen0929" target="_blank" class="pill pill--icon" aria-label="GitHub" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=bhcm3NEAAAAJ&hl=zh-CN" target="_blank" class="pill pill--icon" aria-label="Google Scholar" title="Google Scholar">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1wCKM9wosuzSTlGWINfuFeb1m0sTNzOEM/view?usp=drive_link" target="_blank" class="pill pill--icon" aria-label="CV" title="CV">
+                        <i class="far fa-file-pdf"></i>
+                    </a>
+                </div>
+
+                <nav class="toc reveal" style="--d: .4s" aria-label="Sections">
+                    <a href="#Home"><i></i><span>About</span></a>
+                    <a href="#News"><i></i><span>News</span></a>
+                    <a href="#Education"><i></i><span>Education</span></a>
+                    <a href="#Internship"><i></i><span>Internship</span></a>
+                    <a href="#Publications"><i></i><span>Publications</span></a>
+                    <a href="#Research"><i></i><span>Experience</span></a>
+                    <a href="#Awards"><i></i><span>Awards</span></a>
+                    <a href="#Service"><i></i><span>Service</span></a>
+                    <a href="#Miscellaneous"><i></i><span>Miscellaneous</span></a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- ---------- Content ---------- -->
+        <main class="content">
+
+            <!-- Home -->
+            <section class="section section--intro" id="Home">
+                <p class="bio-lead reveal">
+                    I am currently a third-year Ph.D. student majoring in Computer Science at <a href="https://www.tamu.edu/index.html" target="_blank">Texas A&amp;M University</a>,
+                    advised by Prof. <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a> and Prof. <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>.
                 </p>
-                <p>
+                <p class="reveal" style="--d: .1s">
                     I received my Bachelor of Engineering degree at <a href="https://www.fudan.edu.cn/en/" target="_blank">Fudan University</a> in 2023.
-                    I also worked as a research assistant at <a href="https://cse.hkust.edu.hk/" target="_blank">HKUST CSE</a> with Prof. <a href="https://www.danxurgb.net/" target="_blank">Dan Xu</a>. 
+                    I also worked as a research assistant at <a href="https://cse.hkust.edu.hk/" target="_blank">HKUST CSE</a> with Prof. <a href="https://www.danxurgb.net/" target="_blank">Dan Xu</a>.
                     Previously, I worked with Prof. <a href="https://eetchen.github.io/" target="_blank">Tao Chen</a>
                     and Prof. <a href="https://fansarah.github.io/" target="_blank">Jiayuan Fan</a>.
                 </p>
 
-                <p class="mb-1">My research interests lie in:</p>
-                <ul class="interests-list">
-                    <li>Scene parsing and reasoning.</li>
-                    <li>Multi-modal/-task collaboration.</li>
-                    <li>Scalable foundation models.</li>
+                <div class="interests reveal" style="--d: .2s">
+                    <p class="interests__label">My research interests lie in:</p>
+                    <ul>
+                        <li>Scene parsing and reasoning.</li>
+                        <li>Multi-modal/-task collaboration.</li>
+                        <li>Scalable foundation models.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- News -->
+            <section class="section" id="News">
+                <header class="section__head reveal">
+                    <h3 class="section__title">News</h3>
+                    <span class="section__rule"></span>
+                </header>
+
+                <div class="news reveal" style="--d: .1s">
+                    <ul class="news__list">
+                        <li class="news-hl"><b>Apr. 2026:</b> <span>MTPano has been accepted to <b>SIGGRAPH 2026</b>, meet y'all in LA!</span></li>
+                        <li class="news-hl"><b>Feb. 2026:</b> <span>UniSER has been accepted to <b>CVPR 2026</b>, meet y'all in Denver!</span></li>
+                        <li><b>Dec. 2025:</b> <span>Will be joining <b>NVIDIA Research</b> in 2026 summer!</span></li>
+                        <li><b>Aug. 2025:</b> <span>SPGen has been accepted by <b>SIGGRAPH Asia 2025</b>!</span></li>
+                        <li><b>May. 2025:</b> <span>Start the research internship in <b>Adobe</b>!</span></li>
+                        <li><b>Jan. 2025:</b> <span>HiTTs has been accepted by <b>ACM MM 2025</b>!</span></li>
+                        <li><b>Jan. 2025:</b> <span>BridgeNet has been accepted by <b>TPAMI</b>!</span></li>
+                        <li><b>Jul. 2024:</b> <span>Invited to serve as a reviewer for <b>Pacific Graphics</b>.</span></li>
+                        <li><b>May. 2024:</b> <span>Start the research internship in <b>Tencent America</b>!</span></li>
+                        <li><b>Nov. 2023:</b> <span>Invited to serve as a reviewer for <b>CVPR 2024</b>.</span></li>
+                        <li><b>Nov. 2022:</b> <span>Invited to serve as a reviewer for <b>CVPR 2023</b>.</span></li>
+                        <li><b>Mar. 2022:</b> <span>Invited to serve as a reviewer for <b>ECCV 2022</b>.</span></li>
+                        <li><b>Nov. 2021:</b> <span>Invited to serve as a reviewer for <b>CVPR 2022</b>.</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="section" id="Education">
+                <header class="section__head reveal">
+                    <h3 class="section__title">Education</h3>
+                    <span class="section__rule"></span>
+                </header>
+
+                <div class="inst reveal">
+                    <a class="inst__logo" href="https://www.tamu.edu/index.html" target="_blank">
+                        <img src="homepage_assets/TAMU.png" alt="TAMU Logo">
+                    </a>
+                    <div class="inst__body">
+                        <h5 class="inst__name">Texas A&amp;M University</h5>
+                        <p class="inst__dept">Department of Computer Science and Engineering</p>
+                        <p class="inst__role">Ph.D. Student</p>
+                        <small class="inst__date">August 2023 - Present</small>
+                    </div>
+                </div>
+
+                <div class="inst reveal">
+                    <a class="inst__logo" href="https://www.fudan.edu.cn/en/" target="_blank">
+                        <img src="homepage_assets/fudan.png" alt="Fudan Logo">
+                    </a>
+                    <div class="inst__body">
+                        <h5 class="inst__name">Fudan University</h5>
+                        <p class="inst__dept">Intelligent Science and Technology (Excellent Class)</p>
+                        <p class="inst__role">Undergraduate Degree</p>
+                        <small class="inst__date">September 2019 - June 2023</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Internship -->
+            <section class="section" id="Internship">
+                <header class="section__head reveal">
+                    <h3 class="section__title">Internship</h3>
+                    <span class="section__rule"></span>
+                </header>
+
+                <div class="inst reveal">
+                    <a class="inst__logo" href="https://www.nvidia.com/en-us/research/" target="_blank">
+                        <img src="homepage_assets/nvidia_logo_trim.png" alt="NVIDIA Logo" class="logo-sized" style="--lw: 132px">
+                    </a>
+                    <div class="inst__body">
+                        <h5 class="inst__name">NVIDIA Research</h5>
+                        <p class="inst__role">Research Intern, working on foundational 3D understanding.</p>
+                        <small class="inst__date">Jun 2026 - Sep 2026</small>
+                    </div>
+                </div>
+
+                <div class="inst reveal">
+                    <a class="inst__logo" href="https://www.adobe.com/" target="_blank">
+                        <img src="homepage_assets/adobe_logo_alpha.png" alt="Adobe Logo" class="logo-sized" style="--lw: 104px">
+                    </a>
+                    <div class="inst__body">
+                        <h5 class="inst__name">Adobe</h5>
+                        <p class="inst__role">Research Intern, working on generative soft inpainting.</p>
+                        <small class="inst__date">May 2025 - Aug 2025</small>
+                    </div>
+                </div>
+
+                <div class="inst reveal">
+                    <a class="inst__logo" href="https://www.tencent.com/en-us/about.html" target="_blank">
+                        <img src="homepage_assets/tencent_logo_trim.png" alt="Tencent Logo" class="logo-sized" style="--lw: 132px">
+                    </a>
+                    <div class="inst__body">
+                        <h5 class="inst__name">Tencent America</h5>
+                        <p class="inst__role">Research Intern, working on high-quality 3D asset generation.</p>
+                        <small class="inst__date">May 2024 - Aug 2024</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications -->
+            <section class="section" id="Publications">
+                <header class="section__head reveal">
+                    <h3 class="section__title">Publications</h3>
+                    <span class="section__rule"></span>
+                </header>
+
+                <article class="pub reveal">
+                    <a href="https://arxiv.org/abs/2605.09146" target="_blank" class="pub__thumb">
+                        <span class="pub__media"><img src="homepage_assets/thinking360_anim.webp" alt="Imagining in 360 demo" loading="lazy"></span>
+                    </a>
+                    <div class="pub__body">
+                        <h4 class="pub__title">Beyond Thinking: Imagining in 360 for Humanoid Visual Search</h4>
+                        <div class="pub__authors">
+                            <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
+                            <a href="https://wyzjack.github.io/" target="_blank">Yizhou Wang</a>,
+                            <a href="https://vztu.github.io/" target="_blank">Zhengzhong Tu</a>,
+                            <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
+                            <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
+                            <a href="https://xiaohangzhan.github.io/" target="_blank">Xiaohang Zhan</a>
+                        </div>
+                        <div class="pub__meta">
+                            <span class="pub__venue">Arxiv, 2026</span>
+                            <a class="chip" href="https://arxiv.org/abs/2605.09146" target="_blank">arxiv</a>
+                        </div>
+                        <p class="pub__abstract">
+                            <i><b>Abstract:</b> We propose Imagining in 360, a framework for Humanoid Visual Search (HVS) in immersive 360 environments with: i) Decoupled paradigm: separates intuitive spatial imagination from action planning for more grounded exploration, ii) Probabilistic Imaginator: learns spatial priors and guides the Actor via probabilistic estimations, iii) Scalable data engine: a fully automated pipeline producing 1.92M training samples without manual trajectory labels.</i>
+                        </p>
+                    </div>
+                </article>
+
+                <article class="pub reveal">
+                    <a href="./projects/mtpano.html" class="pub__thumb">
+                        <span class="pub__media"><img src="homepage_assets/mtpano_anim.webp" alt="MTPano demo" loading="lazy"></span>
+                    </a>
+                    <div class="pub__body">
+                        <h4 class="pub__title">MTPano: Multi-Task Panoramic Scene Understanding via Label-Free Integration of Dense Prediction Priors</h4>
+                        <div class="pub__authors">
+                            <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
+                            <a href="https://xiaohangzhan.github.io/" target="_blank">Xiaohang Zhan</a>,
+                            <a href="https://owenzlz.github.io/" target="_blank">Lingzhi Zhang</a>,
+                            <a href="https://wyzjack.github.io/" target="_blank">Yizhou Wang</a>,
+                            <a href="https://yzmblog.github.io/" target="_blank">Zhengming Yu</a>,
+                            <a href="https://shanemankiw.github.io/" target="_blank">Jionghao Wang</a>,
+                            <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
+                            <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>
+                        </div>
+                        <div class="pub__meta">
+                            <!-- <a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank">CVPR</a>, 2026 &nbsp;&nbsp; -->
+                            <span class="pub__venue"><a href="https://s2026.siggraph.org/" target="_blank">SIGGRAPH</a>, 2026</span>
+                            <a class="chip" href="https://arxiv.org/abs/2602.05330" target="_blank">arxiv</a>
+                            <a class="chip" href="./projects/mtpano.html" target="_blank">project</a>
+                            <a class="chip" href="https://github.com/Evergreen0929/MTPano">code</a>
+                            <a class="chip" href="https://huggingface.co/spaces/jdzhang0929/MTPano-demo">demo</a>
+                        </div>
+                        <p class="pub__abstract">
+                            <i><b>Abstract:</b> We propose a foundational panoramic scene understanding model capabale of predicting multiple dense prediction tasks. We achieve this by i) curating large dataset with auto labeling pipeline by existing perspective prediction models, ii) propose PD-BridgeNet to tackle the multi-task interaction challenges under EPR distortions .</i>
+                        </p>
+                    </div>
+                </article>
+
+                <article class="pub reveal">
+                    <a href="./projects/uniser.html" class="pub__thumb">
+                        <span class="pub__media"><img src="homepage_assets/OmniClear_demo.gif" alt="UniSER demo" loading="lazy"></span>
+                    </a>
+                    <div class="pub__body">
+                        <h4 class="pub__title">UniSER: A Foundation Model for Unified Soft Effects Removal</h4>
+                        <div class="pub__authors">
+                            <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
+                            <a href="https://owenzlz.github.io/" target="_blank">Lingzhi Zhang</a>,
+                            <a href="https://qliu24.github.io/" target="_blank">Qing Liu</a>,
+                            <a href="https://www.linkedin.com/in/mtchiu/" target="_blank">MangTik Chiu</a>,
+                            <a href="https://www.connellybarnes.com/work/" target="_blank">Connelly Barnes</a>,
+                            <a href="https://wyzjack.github.io/" target="_blank">Yizhou Wang</a>,
+                            <a href="https://www.haoranyou.com/" target="_blank">Haoran You</a>,
+                            <a href="https://scholar.google.com/citations?user=KLVw2_UAAAAJ&hl=en" target="_blank">Xiaoyang Liu</a>,
+                            <a href="https://yzhouas.github.io/" target="_blank">Yuqian Zhou</a>,
+                            <a href="https://sites.google.com/site/zhelin625/" target="_blank">Zhe Lin</a>,
+                            <a href="https://research.adobe.com/person/eli-shechtman/" target="_blank">Eli Shechtman</a>,
+                            <a href="https://scholar.google.com/citations?user=aFrtZOIAAAAJ&hl=en" target="_blank">Sohrab Amirghodsi</a>,
+                            <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
+                            <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
+                            <a href="https://xiaohangzhan.github.io/" target="_blank">Xiaohang Zhan</a>
+                        </div>
+                        <div class="pub__meta">
+                            <span class="pub__venue"><a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank">CVPR</a>, 2026</span>
+                            <a class="chip" href="./papers/UniSER_CVPR.pdf" target="_blank">pdf</a>
+                            <a class="chip" href="https://arxiv.org/abs/2511.14183" target="_blank">arxiv</a>
+                            <a class="chip" href="./projects/uniser.html" target="_blank">project</a>
+                            <a class="chip" href="https://github.com/Evergreen0929/UniSER-Datasets">code</a>
+                            <a class="chip" href="./projects/uniser_dataset.html" target="_blank">dataset</a>
+                        </div>
+                        <p class="pub__abstract">
+                            <i><b>Abstract:</b> We propose a foundational image soft effect removal (SER) model with: i) a large, curated pair-wise dataset with diverse soft effects (e.g. lens flare, haze, shadows, and reflections), ii) fine-grained user control with spatial masks and strength control, iii) generalize on zero-shot unseen effects, iv) add or enhance effects.</i>
+                        </p>
+                    </div>
+                </article>
+
+                <article class="pub reveal">
+                    <a href="./projects/spgen.html" target="_blank" class="pub__thumb">
+                        <span class="pub__media"><img src="homepage_assets/representative_img.jpg" alt="SPGen demo" loading="lazy"></span>
+                    </a>
+                    <div class="pub__body">
+                        <h4 class="pub__title">SPGen: Spherical Projection as Consistent and Flexible Representation for Single Image 3D Shape Generation</h4>
+                        <div class="pub__authors">
+                            <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
+                            <a href="https://chenweikai.github.io/" target="_blank">Weikai Chen</a>,
+                            <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a>,
+                            <a href="https://shanemankiw.github.io/" target="_blank">Jionghao Wang</a>,
+                            <a href="https://yzmblog.github.io/" target="_blank">Zhengming Yu</a>,
+                            <a href="https://mickshen7558.github.io/" target="_blank">Zhuowen Shen</a>,
+                            <a href="https://sites.google.com/site/boyanghome/home" target="_blank">Bo Yang</a>,
+                            <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
+                            <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>
+                        </div>
+                        <div class="pub__meta">
+                            <span class="pub__venue"><a href="https://asia.siggraph.org/2025/" target="_blank">SIGGRAPH Asia</a>, 2025</span>
+                            <a class="chip" href="./papers/SPGen_SIG_Asia.pdf" target="_blank">pdf</a>
+                            <a class="chip" href="https://arxiv.org/abs/2509.12721" target="_blank">arxiv</a>
+                            <a class="chip" href="./projects/spgen.html" target="_blank">project</a>
+                        </div>
+                        <p class="pub__abstract">
+                            <i><b>Abstract:</b> SPGen leverages Spherical Projection (SP) to generate high-quality 3D shapes with i) Consistency: SP maps ensure view-consistent and unambiguous 3D reconstruction, ii) Flexibility: Supports arbitrary topologies, iii) Efficiency: Inherit powerful 2D diffusion priors and enables efficient finetuning.</i>
+                        </p>
+                    </div>
+                </article>
+
+                <article class="pub reveal">
+                    <a href="https://mickshen7558.github.io/projects/SolidGS/" target="_blank" class="pub__thumb">
+                        <span class="pub__media"><img src="homepage_assets/SolidGS.gif" alt="SolidGS demo" loading="lazy"></span>
+                    </a>
+                    <div class="pub__body">
+                        <h4 class="pub__title">SolidGS: Consolidating Gaussian Surfel Splatting for Sparse-View Surface Reconstruction</h4>
+                        <div class="pub__authors">
+                            <a href="https://mickshen7558.github.io/" target="_blank">Zhuowen Shen</a>,
+                            <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a>,
+                            <a href="https://zhangchen8.github.io/" target="_blank">Zhang Chen</a>,
+                            <a href="https://sites.google.com/site/lizhong19900216/" target="_blank">Zhong Li</a>,
+                            <a href="https://jiepengwang.github.io/" target="_blank">Jiepeng Wang</a>,
+                            <a href="https://lyq.me/scholar" target="_blank">Yongqing Liang</a>,
+                            <a href="https://yzmblog.github.io/" target="_blank">Zhengming Yu</a>,
+                            <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
+                            <a href="https://scholar.google.com/citations?user=ldanjkUAAAAJ&hl=en" target="_blank">Yi Xu</a>,
+                            <a href="https://people.engr.tamu.edu/schaefer/index.html" target="_blank">Scott Schaefer</a>,
+                            <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
+                            <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>
+                        </div>
+                        <div class="pub__meta">
+                            <span class="pub__venue">Arxiv, 2024</span>
+                            <a class="chip" href="https://arxiv.org/abs/2412.15400" target="_blank">arxiv</a>
+                            <a class="chip" href="https://mickshen7558.github.io/projects/SolidGS/" target="_blank">project</a>
+                        </div>
+                        <p class="pub__abstract">
+                            <i><b>Abstract:</b> We present SolidGS, which reconstructs a consolidated Gaussian field from sparse inputs. Given only three input views, our approach enables high-precision and detailed mesh extraction, and high-quality novel view synthesis, achieved within just three minutes.</i>
+                        </p>
+                    </div>
+                </article>
+
+                <article class="pub reveal">
+                    <a href="https://arxiv.org/abs/2411.18823" target="_blank" class="pub__thumb">
+                        <span class="pub__media"><img src="homepage_assets/cvpr2024.png" alt="HiTTs demo" loading="lazy"></span>
+                    </a>
+                    <div class="pub__body">
+                        <h4 class="pub__title">Multi-Task Label Discovery via Hierarchical Task Tokens for Partially Annotated Dense Predictions</h4>
+                        <div class="pub__authors">
+                            <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
+                            <a href="https://sites.google.com/site/yhrspace/" target="_blank">Hanrong Ye</a>,
+                            <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
+                            <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
+                            <a href="https://www.danxurgb.net/" target="_blank">Dan Xu</a>
+                        </div>
+                        <div class="pub__meta">
+                            <span class="pub__venue"><a href="https://acmmm2025.org/" target="_blank">ACMMM (ACM MultiMedia)</a>, 2025</span>
+                            <a class="chip" href="./papers/HiTTs_ACMMM.pdf" target="_blank">pdf</a>
+                            <a class="chip" href="https://arxiv.org/abs/2411.18823" target="_blank">arxiv</a>
+                            <a class="chip" href="https://github.com/Evergreen0929/EEMTL">code</a>
+                        </div>
+                        <p class="pub__abstract">
+                            <i><b>Abstract:</b> This research proposes a new approach to multi-task dense predictions with partially labeled data. We introduce hierarchical task tokens (HiTTs) to capture multi-level representations. The global task tokens conduct cross-task interactions and transfer knowledge from labeled to unlabeled tasks.</i>
+                        </p>
+                    </div>
+                </article>
+
+                <article class="pub reveal">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10870147" target="_blank" class="pub__thumb">
+                        <span class="pub__media"><img src="homepage_assets/pami.png" alt="BridgeNet demo" loading="lazy"></span>
+                    </a>
+                    <div class="pub__body">
+                        <h4 class="pub__title">BridgeNet: Comprehensive and Effective Feature Interactions via Bridge Feature for Multi-task Dense Predictions</h4>
+                        <div class="pub__authors">
+                            <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
+                            <a href="https://scholar.google.com/citations?hl=zh-CN&user=gsLd2ccAAAAJ" target="_blank">Jiayuan Fan</a>,
+                            <a href="https://scholar.google.com/citations?user=UEZZP5QAAAAJ&hl=en&oi=sra" target="_blank">Peng Ye</a>,
+                            <a href="https://openreview.net/profile?id=~Bo_Zhang17" target="_blank">Bo Zhang</a>,
+                            <a href="https://openreview.net/profile?id=~Hancheng_Ye1" target="_blank">Hancheng Ye</a>,
+                            <a href="https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en" target="_blank">Baopu Li</a>,
+                            <a href="https://caiyancheng.github.io/" target="_blank">Yancheng Cai</a>,
+                            <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>
+                        </div>
+                        <div class="pub__meta">
+                            <span class="pub__venue"><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34" target="_blank">TPAMI (IEEE TPAMI)</a>, 2025</span>
+                            <a class="chip" href="./papers/BridgeNet_TPAMI.pdf" target="_blank">pdf</a>
+                            <a class="chip" href="https://ieeexplore.ieee.org/abstract/document/10870147" target="_blank">paper</a>
+                            <a class="chip" href="https://github.com/Evergreen0929/EEMTL">code</a>
+                        </div>
+                        <p class="pub__abstract">
+                            <i><b>Abstract:</b> This work introduces a novel BridgeNet for multi-task learning on dense predictions. It uses a Bridge Feature Extractor (BFE) to create strong bridge features and a Task Pattern Propagation (TPP) to solve the task-pattern entanglement issue, resulting in task-specific features with higher quality.</i>
+                        </p>
+                    </div>
+                </article>
+
+                <article class="pub reveal">
+                    <a href="https://ieeexplore.ieee.org/document/10231122" target="_blank" class="pub__thumb">
+                        <span class="pub__media"><img src="homepage_assets/tip.png" alt="TIP demo" loading="lazy"></span>
+                    </a>
+                    <div class="pub__body">
+                        <h4 class="pub__title">Rethinking Cross-Domain Pedestrian Detection: A Background-Focused Distribution Alignment Framework for Instance-Free One-Stage Detectors</h4>
+                        <div class="pub__authors">
+                            <a href="https://caiyancheng.github.io/" target="_blank">Yancheng Cai</a>,
+                            <a href="https://openreview.net/profile?id=~Bo_Zhang17" target="_blank">Bo Zhang</a>,
+                            <a href="https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en" target="_blank">Baopu Li</a>,
+                            <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>,
+                            <a href="https://scholar.google.com/citations?user=Obo7-bIAAAAJ&hl=en" target="_blank">Hongliang Yan</a>,
+                            <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
+                            Jiahao Xu
+                        </div>
+                        <div class="pub__meta">
+                            <span class="pub__venue"><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83" target="_blank">TIP (IEEE TIP)</a>, 2023</span>
+                            <a class="chip" href="https://ieeexplore.ieee.org/document/10231122" target="_blank">paper</a>
+                            <a class="chip" href="https://github.com/caiyancheng/BFDA">code</a>
+                        </div>
+                        <p class="pub__abstract">
+                            <i><b>Abstract:</b> We introduce a new approach for cross-domain pedestrian one-stage detectors. The paper identifies a foreground-background misalignment issue in image-level feature alignment, and a novel framework, Background-Focused Distribution Alignment (BFDA) is proposed to address this issue.</i>
+                        </p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Research Experience -->
+            <section class="section" id="Research">
+                <header class="section__head reveal">
+                    <h3 class="section__title">Research Experience</h3>
+                    <span class="section__rule"></span>
+                </header>
+                <ul class="ledger">
+                    <li class="reveal">
+                        <b>Jun. 2023 - Present:</b> Ph.D. student, Aggie Graphics Group, Texas A&amp;M University<br>
+                        <span class="ledger__sub">Advisor: Prof. Wenping Wang and Prof. Xin Li</span>
+                    </li>
+                    <li class="reveal">
+                        <b>Feb. 2022 - Present:</b> Research Assistant, HKUST<br>
+                        <span class="ledger__sub">Advisor: Prof. Dan Xu</span>
+                    </li>
+                    <li class="reveal">
+                        <b>Jul. 2021 - Present:</b> Research Assistant, Fudan Embedded Deep Learning and Visual Analysis Lab<br>
+                        <span class="ledger__sub">Advisor: Prof. Tao Chen and Prof. Jiayuan Fan</span>
+                    </li>
                 </ul>
+            </section>
 
-                <div class="mt-4">
-                    <div class="mb-2">
-                        <i class="fas fa-envelope mr-2 text-muted"></i> Email: jdzhang [at] tamu [dot] edu <br>
-                        <i class="fab fa-weixin mr-2 text-muted"></i> Wechat: Triumph0929
+            <!-- Awards -->
+            <section class="section" id="Awards">
+                <header class="section__head reveal">
+                    <h3 class="section__title">Selected Awards</h3>
+                    <span class="section__rule"></span>
+                </header>
+                <ul class="ledger">
+                    <li class="reveal">The third prize of outstanding Undergraduate Student Scholarship of Fudan University in 2021-2022.</li>
+                    <li class="reveal">The second prize of outstanding Undergraduate Student Scholarship of Fudan University in 2019-2020.</li>
+                    <li class="reveal">Outstanding Student of Fudan University in 2019-2020.</li>
+                    <li class="reveal">The first prize of Advanced Driving Assistance System (ADAS) National Competition by Dell Corporation, May 2021.</li>
+                </ul>
+            </section>
+
+            <!-- Academic Service & Teaching -->
+            <section class="section" id="Service">
+                <header class="section__head reveal">
+                    <h3 class="section__title">Academic Service &amp; Teaching</h3>
+                    <span class="section__rule"></span>
+                </header>
+                <div class="service">
+                    <div class="service__card reveal">
+                        <h5 class="service__title">Reviewer for:</h5>
+                        <ul>
+                            <li>CVPR: 2022 - 2026</li>
+                            <li>ECCV: 2022 - 2026</li>
+                            <li>ICRA: 2024</li>
+                            <li>Pacific Graphics: 2024</li>
+                        </ul>
                     </div>
-                    
-                    <div class="mt-3">
-                        <a href="https://openreview.net/profile?id=~Jingdong_Zhang2" target="_blank" class="icon-btn">
-                            <i class="fas fa-book-reader"></i> OpenReview
-                        </a>
-                        <a href="https://www.linkedin.com/in/jingdong-zhang-1b21572a7/" target="_blank" class="icon-btn">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
-                        <a href="https://github.com/Evergreen0929" target="_blank" class="icon-btn">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=bhcm3NEAAAAJ&hl=zh-CN" target="_blank" class="icon-btn">
-                            <i class="fas fa-graduation-cap"></i> Google Scholar
-                        </a>
-                        <a href="https://drive.google.com/file/d/1wCKM9wosuzSTlGWINfuFeb1m0sTNzOEM/view?usp=drive_link" target="_blank" class="icon-btn">
-                            <i class="far fa-file-pdf"></i> CV
-                        </a>
+                    <div class="service__card reveal" style="--d: .12s">
+                        <h5 class="service__title">Teaching Assistant:</h5>
+                        <ul>
+                            <li>CSCE 633: Machine Learning</li>
+                            <li>CSCE 489: Special Topics in Computer Science and Engineering</li>
+                            <li>CSCE 442: Scientific Programming</li>
+                            <li>CSCE 222: Discrete Structures for Computing</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <span id="News" class="anchor-offset"></span>
-    <section class="container">
-        <h3>News</h3>
-        <div class="news-box">
-            <ul class="list-unstyled mb-0">
-                <li class="mb-2"><b style="color: rgb(236, 177, 14);">Apr. 2026:</b> MTPano has been accepted to <b>SIGGRAPH 2026</b>, meet y'all in LA!</li>
-                <li class="mb-2"><b style="color: rgb(236, 177, 14);">Feb. 2026:</b> UniSER has been accepted to <b>CVPR 2026</b>, meet y'all in Denver!</li>
-                <li class="mb-2"><b>Dec. 2025:</b> Will be joining <b>NVIDIA Research</b> in 2026 summer!</li>
-                <li class="mb-2"><b>Aug. 2025:</b> SPGen has been accepted by <b>SIGGRAPH Asia 2025</b>!</li>
-                <li class="mb-2"><b>May. 2025:</b> Start the research internship in <b>Adobe</b>!</li>
-                <li class="mb-2"><b>Jan. 2025:</b> HiTTs has been accepted by <b>ACM MM 2025</b>!</li>
-                <li class="mb-2"><b>Jan. 2025:</b> BridgeNet has been accepted by <b>TPAMI</b>!</li>
-                <li class="mb-2"><b>Jul. 2024:</b> Invited to serve as a reviewer for <b>Pacific Graphics</b>.</li>
-                <li class="mb-2"><b>May. 2024:</b> Start the research internship in <b>Tencent America</b>!</li>
-                <li class="mb-2"><b>Nov. 2023:</b> Invited to serve as a reviewer for <b>CVPR 2024</b>.</li>
-                <li class="mb-2"><b>Nov. 2022:</b> Invited to serve as a reviewer for <b>CVPR 2023</b>.</li>
-                <li class="mb-2"><b>Mar. 2022:</b> Invited to serve as a reviewer for <b>ECCV 2022</b>.</li>
-                <li class="mb-2"><b>Nov. 2021:</b> Invited to serve as a reviewer for <b>CVPR 2022</b>.</li>
-            </ul>
-        </div>
-    </section>
+            <!-- Miscellaneous -->
+            <section class="section" id="Miscellaneous">
+                <header class="section__head reveal">
+                    <h3 class="section__title">Miscellaneous</h3>
+                    <span class="section__rule"></span>
+                </header>
+                <p class="misc-lead reveal">I love photography and road trips. Intermediate skier.</p>
 
-    <span id="Education" class="anchor-offset"></span>
-    <section class="container">
-        <h3>Education</h3>
-        
-        <div class="row align-items-center mb-5">
-            <div class="col-md-3 text-center">
-                <a href="https://www.tamu.edu/index.html" target="_blank">
-                    <img class="img-fluid inst-logo" src="homepage_assets/TAMU.png" alt="TAMU Logo">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <h5><b>Texas A&M University</b></h5>
-                <p class="mb-0 text-muted">Department of Computer Science and Engineering</p>
-                <p class="mb-0">Ph.D. Student</p>
-                <small>August 2023 - Present</small>
-            </div>
-        </div>
-
-        <div class="row align-items-center">
-            <div class="col-md-3 text-center">
-                <a href="https://www.fudan.edu.cn/en/" target="_blank">
-                    <img class="img-fluid inst-logo" src="homepage_assets/fudan.png" alt="Fudan Logo">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <h5><b>Fudan University</b></h5>
-                <p class="mb-0 text-muted">Intelligent Science and Technology (Excellent Class)</p>
-                <p class="mb-0">Undergraduate Degree</p>
-                <small>September 2019 - June 2023</small>
-            </div>
-        </div>
-    </section>
-
-    <section class="container">
-        <h3>Internship</h3>
-
-        <div class="row align-items-center mb-5">
-            <div class="col-md-3 text-center">
-                <a href="https://www.nvidia.com/en-us/research/" target="_blank">
-                    <img class="img-fluid inst-logo" src="homepage_assets/NVIDIA_logo.png" alt="NVIDIA Logo">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <h5><b>NVIDIA Research</b></h5>
-                <p class="mb-0">Research Intern, working on foundational 3D understanding.</p>
-                <small>Jun 2026 - Sep 2026</small>
-            </div>
-        </div>
-
-        <div class="row align-items-center mb-5">
-            <div class="col-md-3 text-center">
-                <a href="https://www.adobe.com/" target="_blank">
-                    <img class="img-fluid inst-logo" src="homepage_assets/adobe_logo.jpg" alt="Adobe Logo">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <h5><b>Adobe</b></h5>
-                <p class="mb-0">Research Intern, working on generative soft inpainting.</p>
-                <small>May 2025 - Aug 2025</small>
-            </div>
-        </div>
-
-        <div class="row align-items-center">
-            <div class="col-md-3 text-center">
-                <a href="https://www.tencent.com/en-us/about.html" target="_blank">
-                    <img class="img-fluid inst-logo" src="homepage_assets/tencent_logo.png" alt="Tencent Logo">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <h5><b>Tencent America</b></h5>
-                <p class="mb-0">Research Intern, working on high-quality 3D asset generation.</p>
-                <small>May 2024 - Aug 2024</small>
-            </div>
-        </div>
-    </section>
-
-
-    <span id="Publications" class="anchor-offset"></span>
-    <section class="container">
-        <h3>Publications</h3>
-
-        <div class="row mb-5">
-            <div class="col-md-3 d-flex align-items-center">
-                <a href="https://arxiv.org/abs/2605.09146" target="_blank" class="pub-img-link">
-                    <video src="./homepage_assets/thinking360.mp4" class="img-fluid pub-img" alt="Imagining in 360 demo" loading="lazy" style="width: 100%;" autoplay loop muted playsinline></video>
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="pub-title">Beyond Thinking: Imagining in 360 for Humanoid Visual Search</div>
-                <div class="author-list">
-                    <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-                    <a href="https://wyzjack.github.io/" target="_blank">Yizhou Wang</a>,
-                    <a href="https://vztu.github.io/" target="_blank">Zhengzhong Tu</a>,
-                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
-                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
-                    <a href="https://xiaohangzhan.github.io/" target="_blank">Xiaohang Zhan</a>
+                <div class="gallery">
+                    <figure class="gallery__item reveal">
+                        <div class="gallery__frame"><img src="homepage_assets/rocky_mountain-3.jpg" alt="TX, US" loading="lazy"></div>
+                        <figcaption>Rocky Mountain NP, CO, US</figcaption>
+                    </figure>
+                    <figure class="gallery__item reveal">
+                        <div class="gallery__frame"><img src="homepage_assets/rialto_beach.jpg" alt="Mount Rainier NP" loading="lazy"></div>
+                        <figcaption>Rialto Beach, Olympics NP, WA, US</figcaption>
+                    </figure>
+                    <figure class="gallery__item reveal">
+                        <div class="gallery__frame"><img src="homepage_assets/rainier-2.jpg" alt="AZ, US" loading="lazy"></div>
+                        <figcaption>Mt Adams, WA, US</figcaption>
+                    </figure>
+                    <figure class="gallery__item reveal">
+                        <div class="gallery__frame"><img src="homepage_assets/joshuatree_2.jpg" alt="Petrified Forest NP" loading="lazy"></div>
+                        <figcaption>Joshua Tree NP, CA, US</figcaption>
+                    </figure>
                 </div>
-                <div class="mb-2 venue-text">
-                    Arxiv, 2026 &nbsp;&nbsp;
-                    [<a href="https://arxiv.org/abs/2605.09146" target="_blank">arxiv</a>]
-                </div>
-                <p class="text-secondary small text-justify">
-                    <i><b>Abstract:</b> We propose Imagining in 360, a framework for Humanoid Visual Search (HVS) in immersive 360 environments with: i) Decoupled paradigm: separates intuitive spatial imagination from action planning for more grounded exploration, ii) Probabilistic Imaginator: learns spatial priors and guides the Actor via probabilistic estimations, iii) Scalable data engine: a fully automated pipeline producing 1.92M training samples without manual trajectory labels.</i>
-                </p>
-            </div>
-        </div>
+            </section>
 
-        <div class="row mb-5">
-            <div class="col-md-3 d-flex align-items-center">
-                <a href="./projects/mtpano.html" class="pub-img-link">
-                    <video src="./homepage_assets/mtpano.mp4" class="img-fluid pub-img" alt="MTPano demo" loading="lazy" style="width: 100%;" autoplay loop muted playsinline></video>
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="pub-title" style="font-size: 0.98rem;">MTPano: Multi-Task Panoramic Scene Understanding via Label-Free Integration of Dense Prediction Priors</div>
-                <div class="author-list">
-                    <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-                    <a href="https://xiaohangzhan.github.io/" target="_blank">Xiaohang Zhan</a>,
-                    <a href="https://owenzlz.github.io/" target="_blank">Lingzhi Zhang</a>,
-                    <a href="https://wyzjack.github.io/" target="_blank">Yizhou Wang</a>,
-                    <a href="https://yzmblog.github.io/" target="_blank">Zhengming Yu</a>,
-                    <a href="https://shanemankiw.github.io/" target="_blank">Jionghao Wang</a>,
-                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
-                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>
-                </div>
-                <div class="mb-2">
-                    <!-- <a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank">CVPR</a>, 2026 &nbsp;&nbsp; -->
-                    <a href="https://s2026.siggraph.org/" target="_blank">SIGGRAPH</a>, 2026 &nbsp;&nbsp;
-                    [<a href="https://arxiv.org/abs/2602.05330" target="_blank">arxiv</a>] &nbsp;&nbsp;
-                    [<a href="./projects/mtpano.html" target="_blank">project</a>] &nbsp;&nbsp;
-                    [<a href="https://github.com/Evergreen0929/MTPano">code</a>] &nbsp;&nbsp;
-                    [<a href="https://huggingface.co/spaces/jdzhang0929/MTPano-demo">demo</a>]
-                </div>
-                <p class="text-secondary small text-justify">
-                    <i><b>Abstract:</b> We propose a foundational panoramic scene understanding model capabale of predicting multiple dense prediction tasks. We achieve this by i) curating large dataset with auto labeling pipeline by existing perspective prediction models, ii) propose PD-BridgeNet to tackle the multi-task interaction challenges under EPR distortions .</i>
-                </p>
-            </div>
-        </div>
-        
-        <div class="row mb-5">
-            <div class="col-md-3 d-flex align-items-center">
-                <a href="./projects/uniser.html" class="pub-img-link">
-                    <img class="img-fluid pub-img" src="homepage_assets/OmniClear_demo.gif" alt="UniSER demo" loading="lazy">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="pub-title">UniSER: A Foundation Model for Unified Soft Effects Removal</div>
-                <div class="author-list" style="font-size: 0.98rem;">
-                    <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-                    <a href="https://owenzlz.github.io/" target="_blank">Lingzhi Zhang</a>,
-                    <a href="https://qliu24.github.io/" target="_blank">Qing Liu</a>,
-                    <a href="https://www.linkedin.com/in/mtchiu/" target="_blank">MangTik Chiu</a>,
-                    <a href="https://www.connellybarnes.com/work/" target="_blank">Connelly Barnes</a>,
-                    <a href="https://wyzjack.github.io/" target="_blank">Yizhou Wang</a>,
-                    <a href="https://www.haoranyou.com/" target="_blank">Haoran You</a>,
-                    <a href="https://scholar.google.com/citations?user=KLVw2_UAAAAJ&hl=en" target="_blank">Xiaoyang Liu</a>,
-                    <a href="https://yzhouas.github.io/" target="_blank">Yuqian Zhou</a>,
-                    <a href="https://sites.google.com/site/zhelin625/" target="_blank">Zhe Lin</a>,
-                    <a href="https://research.adobe.com/person/eli-shechtman/" target="_blank">Eli Shechtman</a>,
-                    <a href="https://scholar.google.com/citations?user=aFrtZOIAAAAJ&hl=en" target="_blank">Sohrab Amirghodsi</a>,
-                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
-                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
-                    <a href="https://xiaohangzhan.github.io/" target="_blank">Xiaohang Zhan</a>
-                </div>
-                <div class="mb-2">
-                    <a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank">CVPR</a>, 2026 &nbsp;&nbsp;
-                    [<a href="./papers/UniSER_CVPR.pdf" target="_blank">pdf</a>] &nbsp;&nbsp;
-                    [<a href="https://arxiv.org/abs/2511.14183" target="_blank">arxiv</a>] &nbsp;&nbsp;
-                    [<a href="./projects/uniser.html" target="_blank">project</a>] &nbsp;&nbsp;
-                    [<a href="https://github.com/Evergreen0929/UniSER-Datasets">code</a>] &nbsp;&nbsp;
-                    [<a href="./projects/uniser_dataset.html" target="_blank">dataset</a>]
-                </div>
-                <p class="text-secondary small text-justify">
-                    <i><b>Abstract:</b> We propose a foundational image soft effect removal (SER) model with: i) a large, curated pair-wise dataset with diverse soft effects (e.g. lens flare, haze, shadows, and reflections), ii) fine-grained user control with spatial masks and strength control, iii) generalize on zero-shot unseen effects, iv) add or enhance effects.</i>
-                </p>
-            </div>
-        </div>
+            <footer class="footer">
+                <span class="footer__mark" aria-hidden="true"></span>
+                <p>© Jingdong Zhang 2026</p>
+            </footer>
+        </main>
+    </div>
 
-        <div class="row mb-5">
-            <div class="col-md-3 d-flex align-items-center">
-                <a href="./projects/spgen.html" target="_blank" class="pub-img-link">
-                    <img class="img-fluid pub-img" src="homepage_assets/representative_img.jpg" alt="SPGen demo" loading="lazy">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="pub-title" style="font-size: 0.98rem;">SPGen: Spherical Projection as Consistent and Flexible Representation for Single Image 3D Shape Generation</div>
-                <div class="author-list">
-                    <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-                    <a href="https://chenweikai.github.io/" target="_blank">Weikai Chen</a>,
-                    <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a>,
-                    <a href="https://shanemankiw.github.io/" target="_blank">Jionghao Wang</a>,
-                    <a href="https://yzmblog.github.io/" target="_blank">Zhengming Yu</a>,
-                    <a href="https://mickshen7558.github.io/" target="_blank">Zhuowen Shen</a>,
-                    <a href="https://sites.google.com/site/boyanghome/home" target="_blank">Bo Yang</a>,
-                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
-                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>
-                </div>
-                <div class="mb-2 venue-text">
-                    <a href="https://asia.siggraph.org/2025/" target="_blank">SIGGRAPH Asia</a>, 2025 &nbsp;&nbsp;
-                    [<a href="./papers/SPGen_SIG_Asia.pdf" target="_blank">pdf</a>]  &nbsp;&nbsp;
-                    [<a href="https://arxiv.org/abs/2509.12721" target="_blank">arxiv</a>]  &nbsp;&nbsp;
-                    [<a href="./projects/spgen.html" target="_blank">project</a>]
-                </div>
-                <p class="text-secondary small text-justify">
-                    <i><b>Abstract:</b> SPGen leverages Spherical Projection (SP) to generate high-quality 3D shapes with i) Consistency: SP maps ensure view-consistent and unambiguous 3D reconstruction, ii) Flexibility: Supports arbitrary topologies, iii) Efficiency: Inherit powerful 2D diffusion priors and enables efficient finetuning.</i>
-                </p>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-md-3 d-flex align-items-center">
-                <a href="https://mickshen7558.github.io/projects/SolidGS/" target="_blank" class="pub-img-link">
-                    <img class="img-fluid pub-img" src="homepage_assets/SolidGS.gif" alt="SolidGS demo" loading="lazy">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="pub-title">SolidGS: Consolidating Gaussian Surfel Splatting for Sparse-View Surface Reconstruction</div>
-                <div class="author-list">
-                    <a href="https://mickshen7558.github.io/" target="_blank">Zhuowen Shen</a>,
-                    <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a>,
-                    <a href="https://zhangchen8.github.io/" target="_blank">Zhang Chen</a>,
-                    <a href="https://sites.google.com/site/lizhong19900216/" target="_blank">Zhong Li</a>,
-                    <a href="https://jiepengwang.github.io/" target="_blank">Jiepeng Wang</a>,
-                    <a href="https://lyq.me/scholar" target="_blank">Yongqing Liang</a>,
-                    <a href="https://yzmblog.github.io/" target="_blank">Zhengming Yu</a>,
-                    <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-                    <a href="https://scholar.google.com/citations?user=ldanjkUAAAAJ&hl=en" target="_blank">Yi Xu</a>,
-                    <a href="https://people.engr.tamu.edu/schaefer/index.html" target="_blank">Scott Schaefer</a>,
-                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
-                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>
-                </div>
-                <div class="mb-2 venue-text">
-                    Arxiv, 2024 &nbsp;&nbsp;
-                    [<a href="https://arxiv.org/abs/2412.15400" target="_blank">arxiv</a>] &nbsp;&nbsp;
-                    [<a href="https://mickshen7558.github.io/projects/SolidGS/" target="_blank">project</a>]
-                </div>
-                <p class="text-secondary small text-justify">
-                    <i><b>Abstract:</b> We present SolidGS, which reconstructs a consolidated Gaussian field from sparse inputs. Given only three input views, our approach enables high-precision and detailed mesh extraction, and high-quality novel view synthesis, achieved within just three minutes.</i>
-                </p>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-md-3 d-flex align-items-center">
-                <a href="https://arxiv.org/abs/2411.18823" target="_blank" class="pub-img-link">
-                    <img class="img-fluid pub-img" src="homepage_assets/cvpr2024.png" alt="HiTTs demo" loading="lazy">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="pub-title">Multi-Task Label Discovery via Hierarchical Task Tokens for Partially Annotated Dense Predictions</div>
-                <div class="author-list">
-                    <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-                    <a href="https://sites.google.com/site/yhrspace/" target="_blank">Hanrong Ye</a>,
-                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a>,
-                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a>,
-                    <a href="https://www.danxurgb.net/" target="_blank">Dan Xu</a>
-                </div>
-                <div class="mb-2 venue-text">
-                    <a href="https://acmmm2025.org/" target="_blank">ACMMM (ACM MultiMedia)</a>, 2025 &nbsp;&nbsp;
-                    [<a href="./papers/HiTTs_ACMMM.pdf" target="_blank">pdf</a>] &nbsp;&nbsp;
-                    [<a href="https://arxiv.org/abs/2411.18823" target="_blank">arxiv</a>] &nbsp;&nbsp;
-                    [<a href="https://github.com/Evergreen0929/EEMTL">code</a>]
-                </div>
-                <p class="text-secondary small text-justify">
-                    <i><b>Abstract:</b> This research proposes a new approach to multi-task dense predictions with partially labeled data. We introduce hierarchical task tokens (HiTTs) to capture multi-level representations. The global task tokens conduct cross-task interactions and transfer knowledge from labeled to unlabeled tasks.</i>
-                </p>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-md-3 d-flex align-items-center">
-                <a href="https://ieeexplore.ieee.org/abstract/document/10870147" target="_blank" class="pub-img-link">
-                    <img class="img-fluid pub-img" src="homepage_assets/pami.png" alt="BridgeNet demo" loading="lazy">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="pub-title">BridgeNet: Comprehensive and Effective Feature Interactions via Bridge Feature for Multi-task Dense Predictions</div>
-                <div class="author-list">
-                    <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=gsLd2ccAAAAJ" target="_blank">Jiayuan Fan</a>,
-                    <a href="https://scholar.google.com/citations?user=UEZZP5QAAAAJ&hl=en&oi=sra" target="_blank">Peng Ye</a>,
-                    <a href="https://openreview.net/profile?id=~Bo_Zhang17" target="_blank">Bo Zhang</a>,
-                    <a href="https://openreview.net/profile?id=~Hancheng_Ye1" target="_blank">Hancheng Ye</a>,
-                    <a href="https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en" target="_blank">Baopu Li</a>,
-                    <a href="https://caiyancheng.github.io/" target="_blank">Yancheng Cai</a>,
-                    <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>
-                </div>
-                <div class="mb-2 venue-text">
-                    <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34" target="_blank">TPAMI (IEEE TPAMI)</a>, 2025 &nbsp;&nbsp;
-                    [<a href="./papers/BridgeNet_TPAMI.pdf" target="_blank">pdf</a>] &nbsp;&nbsp;
-                    [<a href="https://ieeexplore.ieee.org/abstract/document/10870147" target="_blank">paper</a>] &nbsp;&nbsp;
-                    [<a href="https://github.com/Evergreen0929/EEMTL">code</a>]
-                </div>
-                <p class="text-secondary small text-justify">
-                    <i><b>Abstract:</b> This work introduces a novel BridgeNet for multi-task learning on dense predictions. It uses a Bridge Feature Extractor (BFE) to create strong bridge features and a Task Pattern Propagation (TPP) to solve the task-pattern entanglement issue, resulting in task-specific features with higher quality.</i>
-                </p>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-md-3 d-flex align-items-center">
-                <a href="https://ieeexplore.ieee.org/document/10231122" target="_blank" class="pub-img-link">
-                    <img class="img-fluid pub-img" src="homepage_assets/tip.png" alt="TIP demo" loading="lazy">
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="pub-title">Rethinking Cross-Domain Pedestrian Detection: A Background-Focused Distribution Alignment Framework for Instance-Free One-Stage Detectors</div>
-                <div class="author-list">
-                    <a href="https://caiyancheng.github.io/" target="_blank">Yancheng Cai</a>,
-                    <a href="https://openreview.net/profile?id=~Bo_Zhang17" target="_blank">Bo Zhang</a>,
-                    <a href="https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en" target="_blank">Baopu Li</a>,
-                    <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>,
-                    <a href="https://scholar.google.com/citations?user=Obo7-bIAAAAJ&hl=en" target="_blank">Hongliang Yan</a>,
-                    <a href="https://evergreen0929.github.io/" target="_blank"><b>Jingdong Zhang</b></a>,
-                    Jiahao Xu
-                </div>
-                <div class="mb-2 venue-text">
-                    <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83" target="_blank">TIP (IEEE TIP)</a>, 2023 &nbsp;&nbsp;
-                    [<a href="https://ieeexplore.ieee.org/document/10231122" target="_blank">paper</a>] &nbsp;&nbsp;
-                    [<a href="https://github.com/caiyancheng/BFDA">code</a>]
-                </div>
-                <p class="text-secondary small text-justify">
-                    <i><b>Abstract:</b> We introduce a new approach for cross-domain pedestrian one-stage detectors. The paper identifies a foreground-background misalignment issue in image-level feature alignment, and a novel framework, Background-Focused Distribution Alignment (BFDA) is proposed to address this issue.</i>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <span id="Research" class="anchor-offset"></span>
-    <section class="container">
-        <h3>Research Experience</h3>
-        <ul>
-            <li>
-                <b>Jun. 2023 - Present:</b> Ph.D. student, Aggie Graphics Group, Texas A&M University<br>
-                Advisor: Prof. Wenping Wang and Prof. Xin Li
-            </li>
-            <li class="mt-2">
-                <b>Feb. 2022 - Present:</b> Research Assistant, HKUST<br>
-                Advisor: Prof. Dan Xu
-            </li>
-            <li class="mt-2">
-                <b>Jul. 2021 - Present:</b> Research Assistant, Fudan Embedded Deep Learning and Visual Analysis Lab<br>
-                Advisor: Prof. Tao Chen and Prof. Jiayuan Fan
-            </li>
-        </ul>
-    </section>
-
-    <section class="container">
-        <h3>Selected Awards</h3>
-        <ul>
-            <li>The third prize of outstanding Undergraduate Student Scholarship of Fudan University in 2021-2022.</li>
-            <li>The second prize of outstanding Undergraduate Student Scholarship of Fudan University in 2019-2020.</li>
-            <li>Outstanding Student of Fudan University in 2019-2020.</li>
-            <li>The first prize of Advanced Driving Assistance System (ADAS) National Competition by Dell Corporation, May 2021.</li>
-        </ul>
-    </section>
-
-    <section class="container">
-        <h3>Academic Service & Teaching</h3>
-        <ul>
-            <li><b>Reviewer for:</b></li>
-            <ul class="list-unstyled ml-4">
-                <li>CVPR: 2022 - 2026</li>
-                <li>ECCV: 2022 - 2026</li>
-                <li>ICRA: 2024</li>
-                <li>Pacific Graphics: 2024</li>
-            </ul>
-        </ul>
-        <ul>
-            <li><b>Teaching Assistant:</b></li>
-            <ul class="list-unstyled ml-4">
-                <li>CSCE 633: Machine Learning</li>
-                <li>CSCE 489: Special Topics in Computer Science and Engineering</li>
-                <li>CSCE 442: Scientific Programming</li>
-                <li>CSCE 222: Discrete Structures for Computing</li>
-            </ul>
-        </ul>
-    </section>
-
-    <span id="Miscellaneous" class="anchor-offset"></span>
-    <section class="container mb-5">
-        <h3>Miscellaneous</h3>
-        <p>I love photography and road trips. Intermediate skier.</p>
-        
-        <div class="row">
-            <div class="col-md-10 offset-md-1 gallery-item">
-                <img src="homepage_assets/rocky_mountain-3.jpg" alt="TX, US" loading="lazy">
-                <div class="gallery-caption">Rocky Mountain NP, CO, US</div>
-            </div>
-            <div class="col-md-10 offset-md-1 gallery-item">
-                <img src="homepage_assets/rialto_beach.jpg" alt="Mount Rainier NP" loading="lazy">
-                <div class="gallery-caption">Rialto Beach, Olympics NP, WA, US</div>
-            </div>
-            <div class="col-md-10 offset-md-1 gallery-item">
-                <img src="homepage_assets/rainier-2.jpg" alt="AZ, US" loading="lazy">
-                <div class="gallery-caption">Mt Adams, WA, US</div>
-            </div>
-            <div class="col-md-10 offset-md-1 gallery-item">
-                <img src="homepage_assets/joshuatree_2.jpg" alt="Petrified Forest NP" loading="lazy">
-                <div class="gallery-caption">Joshua Tree NP, CA, US</div>
-            </div>
-        </div>
-        
-        <hr class="mt-5">
-        <footer class="text-center text-muted">
-            <p>© Jingdong Zhang 2026</p>
-        </footer>
-    </section>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Smooth scrolling
-        $('a[href*="#"]').on('click', function (e) {
-            e.preventDefault();
-            $('html, body').animate({
-                scrollTop: $($(this).attr('href')).offset().top
-            }, 800, 'linear');
-        });
-    </script>
+    <script src="assets/js/home.js"></script>
 </body>
 </html>
