@@ -141,7 +141,7 @@
     var skyCanvas = sky && sky.querySelector('canvas');
     var skyOn = !!(sky && skyCanvas && skyCanvas.getContext);
     var POLE_X = .80, POLE_Y = .14;  // pole position as a fraction of the viewport
-    var SKY_AUTO = .012;             // rad / s idle drift (~0.7 deg/s)
+    var SKY_AUTO = .006;             // rad / s idle drift (~0.35 deg/s)
     var SKY_PER_PX = .00045;         // rad per scrolled px (1000 px ~ 26 deg)
     var SKY_W = 2.2;                 // spring stiffness of the rotation
     var sk = { angle: 0, vel: 0, target: 0, lastY: 0, raf: 0, last: 0, visible: false, opacity: -1 };

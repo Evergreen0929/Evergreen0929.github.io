@@ -640,6 +640,16 @@ html:not(.js) .section__rule { transform: scaleX(1); }
     line-height: 1.7;
     color: var(--ink);
 }
+.interests li { padding-bottom: .35rem; }
+.interests li b { font-weight: 600; color: #f4efe4; }
+.interests li span {
+    display: block;              /* description sits under its title */
+    margin-top: .1rem;
+    font-family: var(--f-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+}
 .interests li::before {
     content: '';
     position: absolute;
@@ -716,6 +726,62 @@ html:not(.js) .section__rule { transform: scaleX(1); }
 }
 .news__list li.news-hl > b { color: var(--gold-bright); }
 .news__list li.news-hl span > b { color: var(--gold-bright); }
+
+/* "On the job market" — the one item meant to catch the eye: permanent gilded bar,
+   warm wash, a light sweep every few seconds, a pulsing beacon and shimmering lead.
+   Sweep and beacon animate transform/opacity only. */
+.news__list li.news-hot {
+    margin: 4px 0 10px;
+    padding: 14px 16px 14px 18px;
+    overflow: hidden;
+    border-radius: 4px;
+    color: var(--ink);
+    background: linear-gradient(100deg, rgba(201, 169, 106, .17), rgba(201, 169, 106, .05) 55%, rgba(201, 169, 106, 0));
+    box-shadow: inset 0 0 0 1px rgba(201, 169, 106, .38);
+}
+.news__list li.news-hot:hover { background: linear-gradient(100deg, rgba(201, 169, 106, .22), rgba(201, 169, 106, .07) 55%, rgba(201, 169, 106, 0)); }
+.news__list li.news-hot::before { top: 10px; bottom: 10px; transform: scaleY(1); }
+.news__list li.news-hot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 35%, rgba(255, 236, 196, .16) 50%, transparent 65%);
+    transform: translateX(-100%);
+    animation: news-sweep 5.5s var(--ease) 1.2s infinite;
+}
+.news__list li.news-hot > b { color: var(--gold-bright); }
+.news__list li.news-hot span > b { color: #f6f1e6; }
+.news-hot__lead {
+    background: linear-gradient(90deg, var(--gold-bright) 0%, #fff3d4 22%, var(--gold-bright) 44%, var(--gold-bright) 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent !important;
+    animation: news-shimmer 4s linear infinite;
+}
+.news-hot__pulse {
+    position: relative;
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin: 0 .6em 0 .1em;
+    vertical-align: .14em;
+    border-radius: 50%;
+    background: var(--gold-bright);
+    box-shadow: 0 0 10px rgba(228, 203, 148, .7);
+}
+.news-hot__pulse::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-bright);
+    animation: news-pulse 2.2s cubic-bezier(.2, .6, .35, 1) infinite;
+}
+@keyframes news-sweep { 0% { transform: translateX(-100%); } 42%, 100% { transform: translateX(100%); } }
+@keyframes news-shimmer { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+@keyframes news-pulse { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(3.2); opacity: 0; } }
 
 /* Education / Internship */
 .inst {
@@ -795,13 +861,20 @@ html:not(.js) .section__rule { transform: scaleX(1); }
 .pub:last-child { border-bottom: 1px solid var(--line); }
 
 /* .pub__thumb appearance comes from the recessed-well rules above.
-   White backing so transparent PNG figures keep their dark text readable. */
+   Every figure sits in the same 3:2 frame: it is scaled to fit (never cropped) and the
+   spare edges are filled with a colour matching the figure — white by default (which
+   also keeps transparent PNG figures readable), black for dark figures; figures whose
+   edges are busy are cropped to fill instead. */
+.pub__media { aspect-ratio: 3 / 2; }
 .pub__thumb img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
     background: #fff;
 }
+.pub__media--black img { background: #000; }
+.pub__media--cover img { object-fit: cover; }
 
 .pub__title {
     font-family: var(--f-display);
@@ -819,6 +892,7 @@ html:not(.js) .section__rule { transform: scaleX(1); }
 .pub__authors a { color: var(--ink-soft); }
 .pub__authors a:hover { color: var(--gold-bright); }
 .pub__authors b { color: #f4efe4; font-weight: 600; }
+span.pub__thumb { cursor: default; }   /* a figure without a link yet */
 
 .pub__meta {
     display: flex;
@@ -967,6 +1041,7 @@ html:not(.js) .section__rule { transform: scaleX(1); }
 }
 .service ul { list-style: none; margin: 0; padding: 0; }
 .service li { padding: 4px 0; font-size: 1rem; color: var(--ink-soft); }
+.service__venues { margin: 0; font-size: 1.02rem; line-height: 1.85; letter-spacing: .02em; color: var(--ink-soft); }
 
 /* Miscellaneous — photographs */
 .misc-lead {
