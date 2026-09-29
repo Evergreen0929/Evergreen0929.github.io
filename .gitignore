@@ -49,3 +49,10 @@ venv/
 .env
 .env.local
 *.local
+
+# LaTeX build intermediates (cv/)
+*.aux
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
