@@ -529,6 +529,10 @@
 
     /* ---------------------------------------------------------- boot */
 
+    if (root.classList.contains('jz-from-dark')) {          // arrived from a project page (see index.html head)
+        requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('jz-lit'); }); });
+    }
+
     measure();
     sk.lastY = y();
     buildSky();

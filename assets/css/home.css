@@ -1146,6 +1146,19 @@ span.pub__thumb { cursor: default; }   /* a figure without a link yet */
         0 30px 80px -20px rgba(0, 0, 0, .9);
 }
 
+/* Coming back from a project page, which faded to ink before leaving: rise out of it */
+html.jz-from-dark::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+    background: var(--bg);
+    opacity: 1;
+    transition: opacity 1s cubic-bezier(.33, 0, .2, 1) .05s;
+}
+html.jz-from-dark.jz-lit::before { opacity: 0; }
+
 /* ------------------------------------------------------------------ reveal on scroll */
 
 .js .reveal {
