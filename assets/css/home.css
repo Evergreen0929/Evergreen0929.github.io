@@ -1036,6 +1036,16 @@ html:not(.js) .section__rule { transform: scaleX(1); }
 
 /* ------------------------------------------------------------------ publication -> page transition */
 
+/* The clicked figure fades out of its slot while its copy flies; removing the class
+   (on return to the page) fades it back in along the same curve. */
+.pub__thumb {
+    transition:
+        border-color .8s var(--ease-out),
+        box-shadow .8s var(--ease-out),
+        opacity .45s cubic-bezier(.4, 0, .2, 1);
+}
+.pub__thumb.is-lifted { opacity: 0; }
+
 .zoom-veil {
     position: fixed;
     inset: 0;

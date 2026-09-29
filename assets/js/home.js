@@ -408,22 +408,30 @@
        Project pages are expected to rise out of that dark on arrival.
        Modified clicks keep the browser's default behaviour. */
 
-    var ZOOM_MS = 900;   // kept under 1 s: Safari only forwards the click's user gesture to timers < 1 s
-    var zooming = false;
+    var ZOOM_MS = 900;          // kept under 1 s: Safari only forwards the click's user gesture to timers < 1 s
+    var RESTORE_FALLBACK_MS = 5000;
+    var lift = null;            // { thumb, clone, veil, left } while a transition is (or was left) on screen
 
+    // Put the page back: overlays dissolve, the original figure fades back into its slot.
+    // State lives in `lift` + one CSS class, so restoring never depends on the browser
+    // having kept (or reported) Web Animations across a back/forward-cache round trip.
     function clearZoom(fade) {
-        var nodes = [].slice.call(document.querySelectorAll('.zoomer, .zoom-veil'));
-        zooming = false;
-        [].forEach.call(document.querySelectorAll('.pub__thumb.is-lifted'), function (t) {
-            t.classList.remove('is-lifted');
-            if (t.getAnimations) t.getAnimations().forEach(function (an) { if (an.effect && an.effect.target === t) an.cancel(); });
-        });
-        nodes.forEach(function (n) {
+        var L = lift;
+        lift = null;
+        if (!L) return;
+        L.thumb.classList.remove('is-lifted');            // CSS transition fades it back in
+        [L.clone, L.veil].forEach(function (n) {
+            if (!n || !n.parentNode) return;
+            var from = getComputedStyle(n).opacity;
+            if (n.getAnimations) n.getAnimations().forEach(function (an) { an.cancel(); });
             if (!fade || !n.animate) { n.remove(); return; }
-            var anim = n.animate([{ opacity: getComputedStyle(n).opacity }, { opacity: 0 }], { duration: 320, easing: 'ease-out', fill: 'forwards' });
-            anim.onfinish = function () { n.remove(); };
+            n.style.opacity = from;
+            n.animate([{ opacity: from }, { opacity: 0 }], { duration: 420, easing: 'ease-out', fill: 'forwards' })
+                .onfinish = function () { n.remove(); };
         });
     }
+
+    function restoreIfLeft() { if (lift && lift.left) clearZoom(true); }
 
     function zoomOut(thumb, done) {
         var r = thumb.getBoundingClientRect();
@@ -439,6 +447,7 @@
         veil.className = 'zoom-veil';
         body.appendChild(veil);
         body.appendChild(clone);
+        lift = { thumb: thumb, clone: clone, veil: veil, left: false };
 
         var vw = window.innerWidth, vh = window.innerHeight;
         var k = Math.min(vw * .78 / r.width, vh * .78 / r.height);
@@ -448,9 +457,7 @@
         // One continuous move: from the first frame the whole page dims — the lifted figure
         // included, since the veil sits above it — while the figure drifts to the centre and
         // grows. The zoom only signals "entering the next page"; its content fades with the rest.
-        thumb.classList.add('is-lifted');
-        thumb.animate([{ opacity: 1 }, { opacity: 0 }],          // the original fades out of its slot
-            { duration: ZOOM_MS * .5, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' });
+        thumb.classList.add('is-lifted');                  // the original fades out of its slot (CSS)
         veil.animate([{ opacity: 0 }, { opacity: 1 }],
             { duration: ZOOM_MS, easing: 'cubic-bezier(.2,.55,.35,1)', fill: 'forwards' });   // responds on the first frame
         clone.animate([
@@ -464,25 +471,31 @@
 
     document.addEventListener('click', function (e) {
         var a = e.target.closest ? e.target.closest('a.pub__thumb') : null;
-        if (!a || zooming) return;
+        if (!a || lift) return;
         if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
         if (reduceMotion || !document.body.animate) return;
         e.preventDefault();
-        zooming = true;
         var href = a.href, newTab = a.getAttribute('target') === '_blank';
         zoomOut(a, function () {
+            if (!lift) return;
+            lift.left = true;
             if (newTab) {
                 // still inside the click's user-activation window (< 1 s), so this is not a blocked popup
                 window.open(href, '_blank', 'noopener');
                 setTimeout(function () { clearZoom(true); }, 120);
             } else {
                 window.location.href = href;
+                // Timers are frozen while a page sits in the back/forward cache, so this also
+                // fires shortly after coming back if no event below restored the page first.
+                setTimeout(restoreIfLeft, RESTORE_FALLBACK_MS);
             }
         });
     });
 
-    // Coming back via the back button (bfcache): never leave the page faded out
-    window.addEventListener('pageshow', function (e) { if (e.persisted) clearZoom(false); });
+    // Coming back (back/forward cache, tab switch, refocus): never leave the page faded out
+    window.addEventListener('pageshow', function () { restoreIfLeft(); });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) restoreIfLeft(); });
+    window.addEventListener('focus', restoreIfLeft);
 
     // Warm the cache for same-site project pages so the page after the transition appears at once
     var prefetched = {};
