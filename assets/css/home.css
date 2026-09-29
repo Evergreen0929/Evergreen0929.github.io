@@ -392,14 +392,11 @@ a:focus-visible { outline: 1px dashed var(--gold); outline-offset: 4px; }
     transform: scale(1.001);
     transition: transform 1.4s var(--ease-out), opacity .8s var(--ease-out);
 }
-/* Publications zoom a wrapper that is its own compositor layer from the start.
-   Keep animated thumbnails as images (WebP/GIF): a scaled <video> jitters during the
-   zoom in Chrome/Safari, even inside this wrapper. */
-.pub__media {
-    display: block;
-    will-change: transform;
-    backface-visibility: hidden;
-}
+/* Publications zoom this wrapper. Keep animated thumbnails as images (WebP/GIF):
+   a scaled <video> jitters during the zoom in Chrome/Safari. No permanent
+   will-change here — a pre-promoted layer can come back unpainted after a
+   back/forward-cache restore. */
+.pub__media { display: block; }
 .portrait:hover,
 .inst__logo:hover,
 .pub__thumb:hover {
@@ -1044,7 +1041,15 @@ html:not(.js) .section__rule { transform: scaleX(1); }
         box-shadow .8s var(--ease-out),
         opacity .45s cubic-bezier(.4, 0, .2, 1);
 }
-.pub__thumb.is-lifted { opacity: 0; }
+.pub__thumb.is-lifted { opacity: .001; }   /* not 0: Chrome may skip painting a fully transparent subtree */
+
+/* JS-independent safety net, armed when the page is left: CSS animations run on the
+   document timeline, which is frozen in the back/forward cache and resumes on return,
+   so even if no restore handler runs, the page un-dims shortly after coming back. */
+.zoom-veil.is-leaving { animation: zoom-release .5s ease-out 2.4s forwards; }
+.pub__thumb.is-lifted.is-leaving { animation: zoom-return .5s ease-out 2.4s forwards; }
+@keyframes zoom-release { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
+@keyframes zoom-return { from { opacity: .001; } to { opacity: 1; } }
 
 .zoom-veil {
     position: fixed;

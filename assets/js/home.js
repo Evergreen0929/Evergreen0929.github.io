@@ -419,16 +419,31 @@
         var L = lift;
         lift = null;
         if (!L) return;
-        L.thumb.classList.remove('is-lifted');            // CSS transition fades it back in
+        var t = L.thumb;
+        t.classList.remove('is-lifted', 'is-leaving');     // CSS transition fades it back in
+        // nudge a repaint of the figure (belt and braces against a stale, unpainted layer)
+        t.style.backgroundColor = '#0b0e11';
+        requestAnimationFrame(function () { requestAnimationFrame(function () { t.style.backgroundColor = ''; }); });
         [L.clone, L.veil].forEach(function (n) {
             if (!n || !n.parentNode) return;
             var from = getComputedStyle(n).opacity;
             if (n.getAnimations) n.getAnimations().forEach(function (an) { an.cancel(); });
-            if (!fade || !n.animate) { n.remove(); return; }
+            n.classList.remove('is-leaving');
+            if (!fade || !n.animate || +from === 0) { n.remove(); return; }
             n.style.opacity = from;
             n.animate([{ opacity: from }, { opacity: 0 }], { duration: 420, easing: 'ease-out', fill: 'forwards' })
                 .onfinish = function () { n.remove(); };
         });
+    }
+
+    // Leaving for another page: hand the dimmed state over to CSS (see .is-leaving),
+    // so it unwinds on return even if no script event fires.
+    function armLeave(L) {
+        if (L.clone && L.clone.parentNode) L.clone.remove();          // fully faded by now
+        if (L.veil.getAnimations) L.veil.getAnimations().forEach(function (an) { an.cancel(); });
+        L.veil.style.opacity = '1';
+        L.veil.classList.add('is-leaving');
+        L.thumb.classList.add('is-leaving');
     }
 
     function restoreIfLeft() { if (lift && lift.left) clearZoom(true); }
@@ -484,6 +499,7 @@
                 window.open(href, '_blank', 'noopener');
                 setTimeout(function () { clearZoom(true); }, 120);
             } else {
+                armLeave(lift);
                 window.location.href = href;
                 // Timers are frozen while a page sits in the back/forward cache, so this also
                 // fires shortly after coming back if no event below restored the page first.
