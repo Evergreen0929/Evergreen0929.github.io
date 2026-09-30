@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLEVHY0HS1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-NLEVHY0HS1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="S4VY: Segment Anything in Feed-Forward 4D Visual Geometry.">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/project.css">
+    <script>document.documentElement.classList.add('pp-js');</script>
+
+    <title>S4VY: Segment Anything in Feed-Forward 4D Visual Geometry</title>
+</head>
+
+<body data-bg="segfield" style="--accent: #de94d8;">
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">S4VY</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html#Publications">Other Publications</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================== Hero ============================== -->
+    <section class="container pt-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h1 class="paper-title">
+                    <span class="title-mark">S4VY</span>: Segment Anything in Feed-Forward 4D Visual Geometry
+                </h1>
+
+                <div class="author-block">
+                    <a href="../index.html">Jingdong Zhang</a><sup>1</sup>,
+                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a><sup>1</sup>,
+                    <a href="https://jankautz.com/" target="_blank">Jan Kautz</a><sup>2</sup>,
+                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a><sup>1</sup>,
+                    <a href="https://chrischoy.github.io/" target="_blank">Chris Choy</a><sup>2</sup>
+                </div>
+
+                <div class="affiliation-block">
+                    <sup>1</sup>Texas A&amp;M University &nbsp;&nbsp;
+                    <sup>2</sup>NVIDIA
+                </div>
+
+                <div class="mb-4">
+                    <img src="../homepage_assets/TAMU.png" alt="TAMU Logo" style="height: 46px; margin: 0 22px;">
+                    <img src="../homepage_assets/nvidia_logo_trim.png" alt="NVIDIA Logo" style="height: 26px; margin: 0 22px 10px;">
+                </div>
+
+                <div class="mb-5">
+                    <a href="https://arxiv.org/pdf/2609.36875" target="_blank" class="btn btn-resource"><i class="fas fa-file-pdf"></i> Paper</a>
+                    <a href="https://arxiv.org/abs/2609.36875" target="_blank" class="btn btn-resource"><i class="fas fa-file-alt"></i> arXiv</a>
+                    <a class="btn btn-resource is-soon" aria-disabled="true"><i class="fab fa-github"></i> Code</a>
+                    <a href="#demo" class="btn btn-resource"><i class="fab fa-youtube"></i> Video</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Class-agnostic 4D segmentation -->
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="stage-wrap">
+                    <div class="stage" id="seg-stage">
+                        <video src="../project_assets/s4vy/seg_roundabout.mp4" poster="../project_assets/s4vy/seg_roundabout.jpg" autoplay loop muted playsinline></video>
+                        <div class="stage__labels"><span>Input observations</span><span>4D instance masks</span></div>
+                        <div class="stage__title">Roundabout</div>
+                    </div>
+                    <div class="slider">
+                        <button class="slider__btn slider__btn--prev" type="button" aria-label="Previous examples"><i class="fas fa-chevron-left"></i></button>
+                        <div class="thumbs thumbs--slider" data-stage-for="seg-stage" aria-label="Segmentation examples">
+                        <button class="thumb is-active" data-src="../project_assets/s4vy/seg_roundabout.mp4" data-poster="../project_assets/s4vy/seg_roundabout.jpg" data-title="Roundabout"><img src="../project_assets/s4vy/seg_roundabout_thumb.jpg" alt="" loading="lazy"><span>Roundabout</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_studio.mp4" data-poster="../project_assets/s4vy/seg_studio.jpg" data-title="Studio"><img src="../project_assets/s4vy/seg_studio_thumb.jpg" alt="" loading="lazy"><span>Studio</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_jetski.mp4" data-poster="../project_assets/s4vy/seg_jetski.jpg" data-title="Jet Ski"><img src="../project_assets/s4vy/seg_jetski_thumb.jpg" alt="" loading="lazy"><span>Jet Ski</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_hotelroom.mp4" data-poster="../project_assets/s4vy/seg_hotelroom.jpg" data-title="Hotel Room"><img src="../project_assets/s4vy/seg_hotelroom_thumb.jpg" alt="" loading="lazy"><span>Hotel Room</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_plaza.mp4" data-poster="../project_assets/s4vy/seg_plaza.jpg" data-title="Plaza"><img src="../project_assets/s4vy/seg_plaza_thumb.jpg" alt="" loading="lazy"><span>Plaza</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_intersection.mp4" data-poster="../project_assets/s4vy/seg_intersection.jpg" data-title="Intersection"><img src="../project_assets/s4vy/seg_intersection_thumb.jpg" alt="" loading="lazy"><span>Intersection</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_office.mp4" data-poster="../project_assets/s4vy/seg_office.jpg" data-title="Office"><img src="../project_assets/s4vy/seg_office_thumb.jpg" alt="" loading="lazy"><span>Office</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_tabletop.mp4" data-poster="../project_assets/s4vy/seg_tabletop.jpg" data-title="Tabletop"><img src="../project_assets/s4vy/seg_tabletop_thumb.jpg" alt="" loading="lazy"><span>Tabletop</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_drift.mp4" data-poster="../project_assets/s4vy/seg_drift.jpg" data-title="Drifting Car"><img src="../project_assets/s4vy/seg_drift_thumb.jpg" alt="" loading="lazy"><span>Drifting Car</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_bedroom.mp4" data-poster="../project_assets/s4vy/seg_bedroom.jpg" data-title="Bedroom"><img src="../project_assets/s4vy/seg_bedroom_thumb.jpg" alt="" loading="lazy"><span>Bedroom</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_cat.mp4" data-poster="../project_assets/s4vy/seg_cat.jpg" data-title="Cat"><img src="../project_assets/s4vy/seg_cat_thumb.jpg" alt="" loading="lazy"><span>Cat</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_parkour.mp4" data-poster="../project_assets/s4vy/seg_parkour.jpg" data-title="Parkour"><img src="../project_assets/s4vy/seg_parkour_thumb.jpg" alt="" loading="lazy"><span>Parkour</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_breakdance.mp4" data-poster="../project_assets/s4vy/seg_breakdance.jpg" data-title="Breakdance"><img src="../project_assets/s4vy/seg_breakdance_thumb.jpg" alt="" loading="lazy"><span>Breakdance</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_citystreet.mp4" data-poster="../project_assets/s4vy/seg_citystreet.jpg" data-title="City Street"><img src="../project_assets/s4vy/seg_citystreet_thumb.jpg" alt="" loading="lazy"><span>City Street</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_cyclist.mp4" data-poster="../project_assets/s4vy/seg_cyclist.jpg" data-title="Cyclist"><img src="../project_assets/s4vy/seg_cyclist_thumb.jpg" alt="" loading="lazy"><span>Cyclist</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/seg_pandas.mp4" data-poster="../project_assets/s4vy/seg_pandas.jpg" data-title="Pandas"><img src="../project_assets/s4vy/seg_pandas_thumb.jpg" alt="" loading="lazy"><span>Pandas</span></button>
+                        </div>
+                        <button class="slider__btn slider__btn--next" type="button" aria-label="Next examples"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <p class="caption">
+                    Exhaustive 4D instance segmentation within feed-forward visual geometry.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== Abstract ============================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>Abstract</h2>
+                <div class="abstract-box">
+                    <p>
+                        Segment Anything models work on 2D image or video masks and carry object identity through sequential memory.
+                        We introduce <b>S4VY</b>, a Segment Anything model built on feed-forward 4D visual geometry: from any set of RGB
+                        observations, a space-time query decoder turns shared visual-geometric features into exhaustive, class-agnostic
+                        4D instance masks, each persistent object query binding one entity across all observations. Any instance can also
+                        be selected by a point or box prompt, with no seed mask or temporal ordering required, and an agentic harness
+                        grounds natural-language descriptions in large 4D scenes.
+                    </p>
+                    <ul class="highlight-list">
+                        <li><i class="fas fa-check-circle text-warning"></i> <b>Feed-forward Segment Anything in 4D:</b> shared visual-geometric features become exhaustive, class-agnostic 4D instances with persistent identities, and any of them can be selected by a point or box prompt.</li>
+                        <li><i class="fas fa-check-circle text-warning"></i> <b>Agentic language grounding in 4D:</b> dual-stream prediction, active tree search and comparative critic selection locate a described object across large observation sets.</li>
+                        <li><i class="fas fa-check-circle text-warning"></i> <b>Unified evaluation:</b> state-of-the-art 4D instance segmentation and strong language grounding across static and dynamic scenes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== Method ============================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2>Method</h2>
+                <div class="fig-wrap">
+                    <svg class="fig-method" viewBox="0 0 1400 700" role="img" aria-labelledby="fig-title">
+                        <title id="fig-title">Architecture of S4VY: feed-forward 4D segmentation (top) and agentic language grounding (bottom)</title>
+                        <defs>
+                            <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#c9a96a" stroke-width="1.6"/></marker>
+                        </defs>
+
+                        <!-- ===== top panel: segment anything in 4D ===== -->
+                        <rect class="panel" x="10" y="10" width="1380" height="390" rx="14"/>
+                        <text class="ptitle" x="34" y="44">SEGMENT ANYTHING IN 4D</text>
+
+                        <!-- inputs: observations + a point / box prompt -->
+                        <g class="frame"><image href="../project_assets/s4vy/fig_input_00.jpg" x="40" y="78" width="144" height="80"/><rect x="40" y="78" width="144" height="80" rx="4"/></g>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_input_03.jpg" x="56" y="94" width="144" height="80"/><rect x="56" y="94" width="144" height="80" rx="4"/></g>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_input_07.jpg" x="72" y="110" width="144" height="80"/><rect x="72" y="110" width="144" height="80" rx="4"/></g>
+                        <text class="lbl" x="128" y="218">RGB observations</text>
+                        <text class="sub" x="128" y="238">any number, any order</text>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_input_07.jpg" x="72" y="274" width="144" height="80"/><rect x="72" y="274" width="144" height="80" rx="4"/></g>
+                        <rect class="prompt-box" x="88" y="304" width="66" height="44" rx="2"/>
+                        <circle class="prompt-pt" cx="118" cy="326" r="4.5"/>
+                        <text class="sub" x="144" y="378">point / box prompt</text>
+
+                        <!-- backbone + LoRA, prompt encoder -->
+                        <rect class="blk blue" x="262" y="78" width="170" height="150" rx="16"/>
+                        <text class="blbl" x="347" y="144">Visual Geometry</text>
+                        <text class="blbl" x="347" y="168">Backbone</text>
+                        <text class="sub" x="347" y="194">feed-forward</text>
+                        <rect class="blk gold" x="440" y="78" width="24" height="150" rx="6"/>
+                        <text class="vlbl" transform="translate(456 153) rotate(-90)">LoRA</text>
+                        <rect class="blk blue" x="262" y="288" width="202" height="56" rx="12"/>
+                        <text class="blbl" x="363" y="322">Prompt Encoder</text>
+                        <path class="fl" d="M216 150H258" marker-end="url(#ah)"/>
+                        <path class="fl" d="M216 316H258" marker-end="url(#ah)"/>
+
+                        <!-- patch tokens, object queries, promptable query -->
+                        <g class="tok"><rect x="482" y="90" width="12" height="12"/><rect x="482" y="114" width="12" height="12"/><rect x="482" y="138" width="12" height="12"/><rect x="482" y="162" width="12" height="12"/><rect x="482" y="186" width="12" height="12"/><rect x="482" y="210" width="12" height="12"/></g>
+                        <path class="fl" d="M464 153H478"/>
+                        <path class="fl" d="M494 153H508" marker-end="url(#ah)"/>
+                        <rect class="q" x="482" y="238" width="12" height="12" fill="#7fd3c7"/>
+                        <rect class="q" x="482" y="256" width="12" height="12" fill="#e6a15a"/>
+                        <rect class="q" x="482" y="274" width="12" height="12" fill="#9f8be8"/>
+                        <text class="sub end" x="474" y="262">object queries</text>
+                        <path class="fl" d="M494 262H508" marker-end="url(#ah)"/>
+                        <path class="fl" d="M464 316H478"/>
+                        <rect class="q" x="482" y="310" width="12" height="12" fill="#de94d8"/>
+                        <path class="fl" d="M494 316H508" marker-end="url(#ah)"/>
+                        <text class="sub" x="582" y="376">promptable query</text>
+
+                        <!-- space-time query decoder -->
+                        <rect class="blk gold" x="512" y="78" width="140" height="266" rx="16"/>
+                        <text class="blbl hi" x="582" y="188">Space-Time</text>
+                        <text class="blbl hi" x="582" y="212">Query</text>
+                        <text class="blbl hi" x="582" y="236">Decoder</text>
+
+                        <!-- output 1: every instance -->
+                        <path class="fl" d="M652 126H694" marker-end="url(#ah)"/>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_mask_overlay_00.jpg" x="700" y="70" width="144" height="80"/><rect x="700" y="70" width="144" height="80" rx="4"/></g>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_mask_overlay_03.jpg" x="716" y="86" width="144" height="80"/><rect x="716" y="86" width="144" height="80" rx="4"/></g>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_mask_overlay_07.jpg" x="732" y="102" width="144" height="80"/><rect x="732" y="102" width="144" height="80" rx="4"/></g>
+                        <path class="fl" d="M876 130H906" marker-end="url(#ah)"/>
+                        <image href="../project_assets/s4vy/fig_pc_mask.png" x="912" y="56" width="290" height="145"/>
+                        <text class="lbl" x="1294" y="118">4D instance</text>
+                        <text class="lbl" x="1294" y="142">segmentation</text>
+                        <text class="sub" x="1294" y="166">every object</text>
+
+                        <!-- output 2: the prompted instance -->
+                        <path class="fl" d="M652 292H694" marker-end="url(#ah)"/>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_ref_overlay_00.jpg" x="700" y="236" width="144" height="80"/><rect x="700" y="236" width="144" height="80" rx="4"/></g>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_ref_overlay_03.jpg" x="716" y="252" width="144" height="80"/><rect x="716" y="252" width="144" height="80" rx="4"/></g>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_ref_overlay_07.jpg" x="732" y="268" width="144" height="80"/><rect x="732" y="268" width="144" height="80" rx="4"/></g>
+                        <path class="fl" d="M876 296H906" marker-end="url(#ah)"/>
+                        <image href="../project_assets/s4vy/fig_ref_pc.png" x="912" y="222" width="290" height="145"/>
+                        <text class="lbl" x="1294" y="284">Prompted</text>
+                        <text class="lbl" x="1294" y="308">4D instance</text>
+                        <text class="sub" x="1294" y="332">from a point or box</text>
+
+                        <!-- ===== bottom panel: agentic language grounding ===== -->
+                        <rect class="panel" x="10" y="416" width="1380" height="274" rx="14"/>
+                        <text class="ptitle" x="34" y="450">AGENTIC LANGUAGE GROUNDING</text>
+
+                        <!-- expression + active tree search -->
+                        <rect class="bubble" x="40" y="466" width="290" height="42" rx="21"/>
+                        <text class="quote" x="185" y="492">&#8220;the black car moving through the roundabout&#8221;</text>
+                        <g class="tree"><path d="M185 514V526M109 542L185 526L259 542M73 558L109 542L145 558M219 558L259 542L291 558"/></g>
+                        <g class="frame dim"><image href="../project_assets/s4vy/fig_input_00.jpg" x="40" y="558" width="66" height="37"/><rect x="40" y="558" width="66" height="37" rx="3"/></g>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_input_03.jpg" x="112" y="558" width="66" height="37"/><rect x="112" y="558" width="66" height="37" rx="3"/></g>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_input_07.jpg" x="186" y="558" width="66" height="37"/><rect x="186" y="558" width="66" height="37" rx="3"/></g>
+                        <g class="frame dim"><image href="../project_assets/s4vy/fig_input_00.jpg" x="258" y="558" width="66" height="37"/><rect x="258" y="558" width="66" height="37" rx="3"/></g>
+                        <text class="mark no" x="73" y="617">&#215;</text><text class="mark yes" x="145" y="617">&#10003;</text>
+                        <text class="mark yes" x="219" y="617">&#10003;</text><text class="mark no" x="291" y="617">&#215;</text>
+                        <text class="lbl" x="182" y="650">Active Tree Search</text>
+                        <text class="sub" x="182" y="672">visits only relevant observations</text>
+
+                        <!-- grounder -->
+                        <path class="fl" d="M330 487C362 487 378 500 382 520" marker-end="url(#ah)"/>
+                        <path class="fl" d="M324 576H378" marker-end="url(#ah)"/>
+                        <rect class="blk pink" x="384" y="520" width="150" height="96" rx="16"/>
+                        <text class="blbl pk" x="459" y="562">Grounder</text>
+                        <text class="sub" x="459" y="588">VLM, dual-stream</text>
+
+                        <!-- two streams, each decoded into a 4D mask candidate -->
+                        <path class="fl" d="M534 546L572 510" marker-end="url(#ah)"/>
+                        <path class="fl" d="M534 590L572 626" marker-end="url(#ah)"/>
+                        <rect class="chip" x="576" y="488" width="176" height="40" rx="8"/>
+                        <rect class="q" x="590" y="502" width="12" height="12" fill="#de94d8"/>
+                        <text class="clbl" x="612" y="513">object-query match</text>
+                        <rect class="chip" x="576" y="608" width="176" height="40" rx="8"/>
+                        <rect class="bx" x="590" y="622" width="12" height="12"/>
+                        <text class="clbl" x="612" y="633">box prediction</text>
+                        <path class="fl" d="M752 508H786" marker-end="url(#ah)"/>
+                        <path class="fl" d="M752 628H786" marker-end="url(#ah)"/>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_ref_overlay_03.jpg" x="792" y="474" width="120" height="67"/><rect x="792" y="474" width="120" height="67" rx="3"/></g>
+                        <g class="frame"><image href="../project_assets/s4vy/fig_ref_overlay_07.jpg" x="792" y="594" width="120" height="67"/><rect x="792" y="594" width="120" height="67" rx="3"/></g>
+                        <text class="tag" x="800" y="490">A</text><text class="tag" x="800" y="610">B</text>
+
+                        <!-- critic -> 4D grounding -->
+                        <path class="fl" d="M912 508L962 552" marker-end="url(#ah)"/>
+                        <path class="fl" d="M912 628L962 588" marker-end="url(#ah)"/>
+                        <rect class="blk pink" x="966" y="540" width="96" height="60" rx="12"/>
+                        <text class="blbl pk sm" x="1014" y="576">Critic</text>
+                        <path class="fl" d="M1062 570H1096" marker-end="url(#ah)"/>
+                        <image href="../project_assets/s4vy/fig_ref_pc.png" x="1102" y="478" width="270" height="135"/>
+                        <text class="lbl" x="1237" y="646">4D grounding</text>
+                        <text class="sub" x="1237" y="668">the better of the two candidates</text>
+                    </svg>
+                </div>
+                <p class="caption">
+                    <b>Top:</b> learnable object queries decode every instance in 4D; a point or box prompt selects one.
+                    <b>Bottom:</b> Active Tree Search finds the relevant observations, the Grounder proposes a query match and a box,
+                    and the Critic keeps the better 4D mask.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== Grounding ============================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>Language-Guided 4D Grounding</h2>
+                <div class="stage-wrap">
+                    <div class="stage" id="tour-stage">
+                        <video src="../project_assets/s4vy/tour_tabletop.mp4" poster="../project_assets/s4vy/tour_tabletop_thumb.jpg" autoplay loop muted playsinline></video>
+                        <div class="stage__title stage__title--right">Tabletop</div>
+                    </div>
+                    <ol class="queries" data-queries-for="tour-stage" aria-live="polite">
+                        <li>a yellow bottle being picked up by a hand</li>
+                        <li>gray scissors on the dark wood table</li>
+                        <li>a mug on the light-colored small cabinet</li>
+                    </ol>
+                    <div class="thumbs thumbs--grid" data-stage-for="tour-stage" aria-label="Grounding scenes">
+                        <button class="thumb is-active" data-src="../project_assets/s4vy/tour_tabletop.mp4" data-poster="../project_assets/s4vy/tour_tabletop_thumb.jpg" data-title="Tabletop" data-queries="a yellow bottle being picked up by a hand|gray scissors on the dark wood table|a mug on the light-colored small cabinet"><img src="../project_assets/s4vy/tour_tabletop_thumb.jpg" alt="" loading="lazy"><span>Tabletop</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/tour_bedroom.mp4" data-poster="../project_assets/s4vy/tour_bedroom_thumb.jpg" data-title="Bedroom" data-queries="a dark colored pillow on the bed|a round makeup mirror on the white desk by the window|a black guitar case leaning against the wall in the corner|a black automatic pet feeder on the floor in the corner near the window|the window next to the makeup mirror"><img src="../project_assets/s4vy/tour_bedroom_thumb.jpg" alt="" loading="lazy"><span>Bedroom</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/tour_pandas.mp4" data-poster="../project_assets/s4vy/tour_pandas_thumb.jpg" data-title="Pandas" data-queries="the panda standing up on its hind legs to be fed|the zookeeper feeding the panda"><img src="../project_assets/s4vy/tour_pandas_thumb.jpg" alt="" loading="lazy"><span>Pandas</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/tour_studio.mp4" data-poster="../project_assets/s4vy/tour_studio_thumb.jpg" data-title="Studio" data-queries="a yellow storage bag on top of the wardrobe|an orange basketball on the desk|a black bottle at the far right end of the shelf above the sink|a black backpack placed on the floor next to a pair of white shoes|a black comb on the desk"><img src="../project_assets/s4vy/tour_studio_thumb.jpg" alt="" loading="lazy"><span>Studio</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/tour_kitchen.mp4" data-poster="../project_assets/s4vy/tour_kitchen_thumb.jpg" data-title="Kitchen" data-queries="a white bowl being picked up by a hand"><img src="../project_assets/s4vy/tour_kitchen_thumb.jpg" alt="" loading="lazy"><span>Kitchen</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/tour_office.mp4" data-poster="../project_assets/s4vy/tour_office_thumb.jpg" data-title="Office" data-queries="a white wall-mounted washbasin|a white keyboard on the desk|an office chair with a blue backrest|the right one of the two monitors on the desk"><img src="../project_assets/s4vy/tour_office_thumb.jpg" alt="" loading="lazy"><span>Office</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/tour_rabbits.mp4" data-poster="../project_assets/s4vy/tour_rabbits_thumb.jpg" data-title="Rabbits" data-queries="the rabbit jumping over another rabbit"><img src="../project_assets/s4vy/tour_rabbits_thumb.jpg" alt="" loading="lazy"><span>Rabbits</span></button>
+                        <button class="thumb" data-src="../project_assets/s4vy/tour_sheep.mp4" data-poster="../project_assets/s4vy/tour_sheep_thumb.jpg" data-title="Sheep" data-queries="a white sheep with a black head|a small lamb"><img src="../project_assets/s4vy/tour_sheep_thumb.jpg" alt="" loading="lazy"><span>Sheep</span></button>
+                    </div>
+                </div>
+                <p class="caption">Each queried object is highlighted in turn in the reconstructed 4D scene.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== Demo video ============================== -->
+    <section class="container" id="demo">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>Demo Video</h2>
+                <div class="demo-soon">
+                    <i class="fas fa-play"></i>
+                    <b>Coming soon</b>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== BibTeX ============================== -->
+    <section class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>BibTeX</h2>
+                <pre class="bibtex-box">
+@article{zhang2026s4vy,
+  title={S4VY: Segment Anything in Feed-Forward 4D Visual Geometry},
+  author={Zhang, Jingdong and Li, Xin and Kautz, Jan and Wang, Wenping and Choy, Chris},
+  journal={arXiv preprint arXiv:2609.36875},
+  year={2026}
+}</pre>
+            </div>
+        </div>
+    </section>
+
+    <hr class="mt-5">
+    <footer class="text-center text-muted mb-4">
+        <p>© Jingdong Zhang 2026</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+</body>
+</html>
