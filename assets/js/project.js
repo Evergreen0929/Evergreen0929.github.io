@@ -158,6 +158,8 @@
         '}'
     ].join('\n');
 
+    var SEGFIELD_SPEED = .5;       // overall pace of the lattice (waves, drift, twinkle, colours)
+
     function startSegfield(host) {
         var c = document.createElement('canvas');
         host.appendChild(c);
@@ -191,7 +193,7 @@
         function draw(t) {
             if (!gl || gl.isContextLost()) return;
             gl.uniform2f(uRes, gl.drawingBufferWidth, gl.drawingBufferHeight);
-            gl.uniform1f(uTime, t0 + t); gl.uniform1f(uPx, px * gl.drawingBufferWidth / c.width);
+            gl.uniform1f(uTime, t0 + t * SEGFIELD_SPEED); gl.uniform1f(uPx, px * gl.drawingBufferWidth / c.width);
             gl.drawArrays(gl.TRIANGLES, 0, 3);
         }
         c.addEventListener('webglcontextlost', function (e) { e.preventDefault(); });
