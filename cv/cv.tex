@@ -55,137 +55,131 @@
 
 \newcommand{\me}{\textbf{Jingdong Zhang}}
 \newcommand{\venue}[1]{{\itshape\color{gold!85!black}#1}}
-\newcommand{\lnk}[2]{{\small[\href{#1}{#2}]}}
+\newcommand{\lnk}[2]{{\small[\href{#1}{#2}]}\,}
 \newcommand{\pub}[3]{\item \parbox[t]{\linewidth}{{\bfseries #1}\\ #2\\ #3}}   % one entry never splits across pages
 
 \begin{document}
 
 % ------------------------------------------------------------------ header
 {\centering
-  {\fontsize{25}{28}\selectfont\scshape Jingdong Zhang}\\[3pt]
-  {\itshape Ph.D. Student in Computer Science, Texas A\&M University}\\[3pt]
+  {\fontsize{25}{28}\selectfont\scshape Jingdong Zhang}\\[4pt]
   {\small
-    \href{mailto:jdzhang@tamu.edu}{jdzhang@tamu.edu} \enspace{\color{gold}$\diamond$}\enspace
-    +1 979-933-7159 \enspace{\color{gold}$\diamond$}\enspace
-    \href{https://evergreen0929.github.io/}{evergreen0929.github.io} \enspace{\color{gold}$\diamond$}\enspace
-    \href{https://scholar.google.com/citations?user=bhcm3NEAAAAJ}{Google Scholar} \enspace{\color{gold}$\diamond$}\enspace
-    \href{https://github.com/Evergreen0929}{GitHub} \enspace{\color{gold}$\diamond$}\enspace
-    \href{https://www.linkedin.com/in/jingdong-zhang-1b21572a7/}{LinkedIn}}\par}
+    E-mail: \href{mailto:jdzhang@tamu.edu}{jdzhang@tamu.edu} \enspace{\color{gold}$\diamond$}\enspace
+    Phone: +1 979-933-7159 \enspace{\color{gold}$\diamond$}\enspace
+    Personal Website: \href{https://evergreen0929.github.io/}{https://evergreen0929.github.io/}}\par}
 \vspace{0.4ex}
-
-% ------------------------------------------------------------------ research interests
-\section{Research Interests}
-My research builds scalable foundation models for spatial intelligence, with interests in:
-\begin{itemize}
-  \item \textbf{Spatial reasoning \& scene understanding.} Perceiving and reasoning about the world from visual observations, toward embodied spatial intelligence.
-  \item \textbf{Multi-modal learning.} Vision-language models and agentic systems that ground, search, and reason across modalities.
-  \item \textbf{Generative models.} Controllable visual editing and content creation.
-\end{itemize}
 
 % ------------------------------------------------------------------ education
 \section{Education}
-\entry{Texas A\&M University}{Aug.\ 2023 -- Present}
-      {Ph.D.\ in Computer Science, Department of Computer Science and Engineering}{College Station, TX}
-Advisors: Prof.\ \href{https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en}{Wenping Wang} and Prof.\ \href{https://people.tamu.edu/~xinli/}{Xin Li}
-
-\vspace{0.7ex}
-\entry{Fudan University}{Sep.\ 2019 -- Jun.\ 2023}
-      {B.Eng.\ in Intelligent Science and Technology (Excellent Class), School of Information Science and Engineering}{Shanghai, China}
-
-% ------------------------------------------------------------------ industry
-\section{Industry Experience}
-\entry{NVIDIA Research}{May 2026 -- Aug.\ 2026}{Research Intern, mentored by Chris Choy}{}
+\entry{Texas A\&M University}{Aug.\ 2023 $\sim$ Present}{Ph.D.\ $|$ Computer Science, Advisor: \href{https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en}{Wenping Wang}, \href{https://people.tamu.edu/~xinli/}{Xin Li}}{}
+Research Interest:
 \begin{itemize}
-  \item Foundational 3D/4D understanding: S4VY, a Segment Anything model built on feed-forward 4D visual geometry, with agentic natural-language grounding.
+  \item Spatial reasoning \& scene understanding.
+  \item Multi-modal learning.
+  \item Generative models.
 \end{itemize}
-\vspace{0.5ex}
-\entry{Adobe}{May 2025 -- Aug.\ 2025}{Research Intern, mentored by Xiaohang Zhan and Lingzhi Zhang}{}
-\begin{itemize}
-  \item Generative soft inpainting: UniSER, a foundation model that removes diverse soft effects (lens flare, haze, shadows, reflections) in one framework. Accepted by CVPR 2026.
-\end{itemize}
-\vspace{0.5ex}
-\entry{Tencent America}{May 2024 -- Aug.\ 2024}{Research Intern, mentored by Weikai Chen and Bo Yang}{}
-\begin{itemize}
-  \item High-quality 3D asset generation: SPGen, which leverages 2D diffusion priors through consistent Spherical Projection maps for single-image 3D shape generation. Accepted by SIGGRAPH Asia 2025.
-\end{itemize}
-
-% ------------------------------------------------------------------ research
-\section{Research Experience}
-\entry{Aggie Graphics Group, Texas A\&M University}{Aug.\ 2023 -- Present}{Ph.D.\ Student, advised by Prof.\ Wenping Wang and Prof.\ Xin Li}{}
-\begin{itemize}
-  \item Panoramic scene understanding: MTPano, a multi-task panoramic foundation model trained label-free from perspective dense priors. Accepted by SIGGRAPH 2026.
-  \item Embodied visual search: Imagining in 360, which decouples spatial imagination from action planning for humanoid visual search. Accepted by NeurIPS 2026.
-\end{itemize}
-\vspace{0.5ex}
-\entry{Hong Kong University of Science and Technology}{Feb.\ 2022 -- Nov.\ 2023}{Research Assistant, advised by Prof.\ Dan Xu}{}
-\begin{itemize}
-  \item Multi-task learning with partially annotated data: hierarchical task tokens for cross-task interaction and pseudo-label discovery in scene parsing. Accepted by ACM MM 2025.
-\end{itemize}
-\vspace{0.5ex}
-\entry{Embedded Deep Learning and Visual Analysis Lab, Fudan University}{Jul.\ 2021 -- Aug.\ 2023}{Research Assistant, advised by Prof.\ Tao Chen and Prof.\ Jiayuan Fan}{}
-\begin{itemize}
-  \item Multi-task dense prediction: BridgeNet, which builds bridge features as comprehensive intermediate multi-task representations. Accepted by TPAMI.
-  \item Cross-domain pedestrian detection: background-focused distribution alignment for domain-adaptive one-stage detectors. Accepted by TIP.
-\end{itemize}
+\vspace{0.6ex}
+\entry{School of Information Science and Engineering $|$ Fudan University}{Sep.\ 2019 $\sim$ Jun.\ 2023}{Bachelor of Engineering $|$ Intelligent Science and Technology Major (Excellent Class)}{}
 
 % ------------------------------------------------------------------ publications
 \section{Publications}
 \begin{enumerate}[leftmargin=1.9em, label={\color{gold}[\arabic*]}, topsep=1pt, itemsep=4pt, parsep=0pt]
   \pub{S4VY: Segment Anything in Feed-Forward 4D Visual Geometry}
       {\me, Xin Li, Jan Kautz, Wenping Wang, Chris Choy}
-      {\venue{Under review, 2026}}
+      {\venue{Under review}}
   \pub{Beyond Thinking: Imagining in 360 for Humanoid Visual Search}
       {\me, Yizhou Wang, Zhengzhong Tu, Xin Li, Wenping Wang, Xiaohang Zhan}
-      {\venue{NeurIPS 2026} \enspace \lnk{https://arxiv.org/abs/2605.09146}{arXiv}}
+      {\venue{NeurIPS 2026} \enspace \lnk{https://arxiv.org/abs/2605.09146}{arxiv}}
   \pub{MTPano: Multi-Task Panoramic Scene Understanding via Label-Free Integration of Dense Prediction Priors}
       {\me, Xiaohang Zhan, Lingzhi Zhang, Yizhou Wang, Zhengming Yu, Jionghao Wang, Wenping Wang, Xin Li}
-      {\venue{SIGGRAPH 2026} \enspace \lnk{https://arxiv.org/abs/2602.05330}{arXiv} \lnk{https://evergreen0929.github.io/projects/mtpano.html}{Project} \lnk{https://github.com/Evergreen0929/MTPano}{Code} \lnk{https://huggingface.co/spaces/jdzhang0929/MTPano-demo}{Demo}}
+      {\venue{SIGGRAPH 2026} \enspace \lnk{https://arxiv.org/abs/2602.05330}{arxiv}\lnk{https://evergreen0929.github.io/projects/mtpano.html}{project}\lnk{https://github.com/Evergreen0929/MTPano}{code}\lnk{https://huggingface.co/spaces/jdzhang0929/MTPano-demo}{demo}}
   \pub{Promoting LDR Panoramas to HDRI with Rendering-Space Losses}
       {Zhengming Yu, Li Ma, Mingming He, \me, Jionghao Wang, Ning Yu, Paul Debevec}
-      {\venue{SIGGRAPH 2026 Poster} \enspace \lnk{https://dl.acm.org/doi/10.1145/3799825.3818762}{Paper} \lnk{https://eyeline-labs.github.io/HDRI/}{Project} \lnk{https://github.com/Eyeline-Labs/HDRI}{Code}}
+      {\venue{SIGGRAPH 2026 Poster} \enspace \lnk{https://dl.acm.org/doi/10.1145/3799825.3818762}{paper}\lnk{https://eyeline-labs.github.io/HDRI/}{project}\lnk{https://github.com/Eyeline-Labs/HDRI}{code}}
   \pub{UniSER: A Foundation Model for Unified Soft Effects Removal}
-      {\me, Lingzhi Zhang, Qing Liu, MangTik Chiu, Connelly Barnes, Yizhou Wang, Haoran You, Xiaoyang Liu, Yuqian Zhou, Zhe Lin, Eli Shechtman, Sohrab Amirghodsi, Xin Li, Wenping Wang, Xiaohang Zhan}
-      {\venue{CVPR 2026} \enspace \lnk{https://evergreen0929.github.io/papers/UniSER_CVPR.pdf}{Paper} \lnk{https://arxiv.org/abs/2511.14183}{arXiv} \lnk{https://evergreen0929.github.io/projects/uniser.html}{Project} \lnk{https://github.com/Evergreen0929/UniSER-Datasets}{Code} \lnk{https://evergreen0929.github.io/projects/uniser_dataset.html}{Dataset}}
+      {\me, Lingzhi Zhang, Qing Liu, Mang Tik Chiu, Connelly Barnes, Yizhou Wang, Haoran You, Xiaoyang Liu, Yuqian Zhou, Zhe Lin, Eli Shechtman, Sohrab Amirghodsi, Xin Li, Wenping Wang, Xiaohang Zhan}
+      {\venue{CVPR 2026} \enspace \lnk{https://arxiv.org/abs/2511.14183}{arxiv}\lnk{https://evergreen0929.github.io/papers/UniSER_CVPR.pdf}{pdf}\lnk{https://evergreen0929.github.io/projects/uniser.html}{project}\lnk{https://github.com/Evergreen0929/UniSER-Datasets}{code}\lnk{https://evergreen0929.github.io/projects/uniser_dataset.html}{dataset}}
   \pub{SPGen: Spherical Projection as Consistent and Flexible Representation for Single Image 3D Shape Generation}
       {\me, Weikai Chen, Yuan Liu, Jionghao Wang, Zhengming Yu, Zhuowen Shen, Bo Yang, Wenping Wang, Xin Li}
-      {\venue{SIGGRAPH Asia 2025} \enspace \lnk{https://evergreen0929.github.io/papers/SPGen_SIG_Asia.pdf}{Paper} \lnk{https://arxiv.org/abs/2509.12721}{arXiv} \lnk{https://evergreen0929.github.io/projects/spgen.html}{Project}}
+      {\venue{SIGGRAPH Asia 2025} \enspace \lnk{https://arxiv.org/abs/2509.12721}{arxiv}\lnk{https://evergreen0929.github.io/papers/SPGen_SIG_Asia.pdf}{pdf}\lnk{https://evergreen0929.github.io/projects/spgen.html}{project}}
+  \pub{3R-GS: Best Practice in Optimizing Camera Poses Along with 3DGS}
+      {Zhisheng Huang, Peng Wang, \me, Yuan Liu, Xin Li, Wenping Wang}
+      {\venue{Arxiv 2025} \enspace \lnk{https://arxiv.org/abs/2504.04294}{arxiv}\lnk{https://zsh523.github.io/3R-GS/}{project}\lnk{https://github.com/zsh523/3R-GS}{code}}
   \pub{SolidGS: Consolidating Gaussian Surfel Splatting for Sparse-View Surface Reconstruction}
       {Zhuowen Shen, Yuan Liu, Zhang Chen, Zhong Li, Jiepeng Wang, Yongqing Liang, Zhengming Yu, \me, Yi Xu, Scott Schaefer, Xin Li, Wenping Wang}
-      {\venue{arXiv 2024} \enspace \lnk{https://arxiv.org/abs/2412.15400}{arXiv} \lnk{https://mickshen7558.github.io/projects/SolidGS/}{Project}}
+      {\venue{Arxiv 2024} \enspace \lnk{https://arxiv.org/abs/2412.15400}{arxiv}\lnk{https://mickshen7558.github.io/projects/SolidGS/}{project}}
   \pub{Multi-Task Label Discovery via Hierarchical Task Tokens for Partially Annotated Dense Predictions}
       {\me, Hanrong Ye, Xin Li, Wenping Wang, Dan Xu}
-      {\venue{ACM MM 2025} \enspace \lnk{https://evergreen0929.github.io/papers/HiTTs_ACMMM.pdf}{Paper} \lnk{https://arxiv.org/abs/2411.18823}{arXiv} \lnk{https://github.com/Evergreen0929/EEMTL}{Code}}
+      {\venue{ACM MM (ACM MultiMedia) 2025} \enspace \lnk{https://arxiv.org/abs/2411.18823}{arxiv}\lnk{https://github.com/Evergreen0929/EEMTL}{code}\lnk{https://evergreen0929.github.io/papers/HiTTs_ACMMM.pdf}{pdf}}
   \pub{BridgeNet: Comprehensive and Effective Feature Interactions via Bridge Feature for Multi-task Dense Predictions}
       {\me, Jiayuan Fan, Peng Ye, Bo Zhang, Hancheng Ye, Baopu Li, Yancheng Cai, Tao Chen}
-      {\venue{IEEE TPAMI 2025} \enspace \lnk{https://evergreen0929.github.io/papers/BridgeNet_TPAMI.pdf}{Paper} \lnk{https://ieeexplore.ieee.org/abstract/document/10870147}{IEEE} \lnk{https://github.com/Evergreen0929/EEMTL}{Code}}
+      {\venue{TPAMI (IEEE Transactions on Pattern Analysis and Machine Intelligence) 2025} \enspace \lnk{https://www.computer.org/csdl/journal/tp/5555/01/10870147/2427FKRSiJO}{paper}\lnk{https://arxiv.org/pdf/2312.13514.pdf}{arxiv}\lnk{https://github.com/Evergreen0929/EEMTL}{code}\lnk{https://evergreen0929.github.io/papers/BridgeNet_TPAMI.pdf}{pdf}}
   \pub{Rethinking Cross-Domain Pedestrian Detection: A Background-Focused Distribution Alignment Framework for Instance-Free One-Stage Detectors}
       {Yancheng Cai, Bo Zhang, Baopu Li, Tao Chen, Hongliang Yan, \me, Jiahao Xu}
-      {\venue{IEEE TIP 2023} \enspace \lnk{https://ieeexplore.ieee.org/document/10231122}{IEEE} \lnk{https://github.com/caiyancheng/BFDA}{Code}}
+      {\venue{TIP (IEEE Transactions on Image Processing) 2023} \enspace \lnk{https://ieeexplore.ieee.org/document/10231122}{paper}\lnk{https://github.com/caiyancheng/BFDA}{code}}
 \end{enumerate}
 
-% ------------------------------------------------------------------ service & teaching
-\section{Academic Service \& Teaching}
-\textbf{Reviewer:} CVPR, ICCV, ECCV, NeurIPS, ICLR, ICRA, AAAI, TPAMI, TVCG\\[2pt]
-\textbf{Teaching Assistant, Texas A\&M University:} CSCE 633 Machine Learning; CSCE 489 Special Topics in Computer Science and Engineering; CSCE 442 Scientific Programming; CSCE 222 Discrete Structures for Computing
+% ------------------------------------------------------------------ internships
+% kept together: the whole section moves to the next page rather than splitting
+\par\noindent\begin{minipage}{\linewidth}
+\section{Internships}
+\entry{NVIDIA $|$ Research Intern}{May.\ 2026 $\sim$ Aug.\ 2026}{Advisor: Chris Choy \enspace{\color{mute}$\cdot$}\enspace working on foundational spatial understanding}{}
+\vspace{0.4ex}
+\entry{Adobe Photoshop $|$ Research Intern}{May.\ 2025 $\sim$ Aug.\ 2025}{Advisor: Xiaohang Zhan, Lingzhi Zhang \enspace{\color{mute}$\cdot$}\enspace working on generative soft inpainting}{}
+\vspace{0.4ex}
+\entry{Tencent America $|$ Research Intern}{May.\ 2024 $\sim$ Aug.\ 2024}{Advisor: Weikai Chen, Bo Yang \enspace{\color{mute}$\cdot$}\enspace working on high-quality 3D asset generation}{}
+\end{minipage}
+
+% ------------------------------------------------------------------ research experiences
+\section{Research Experiences}
+\entry{Aggie Graphics Group $|$ Texas A\&M University}{Aug.\ 2023 $\sim$ Present}{Ph.D Student, Advisor: \href{https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en}{Wenping Wang} and \href{https://people.tamu.edu/~xinli/}{Xin Li}}{}
+\begin{itemize}
+  \item 3D shape generation via Spherical Projection maps (SIGGRAPH Asia 2025) and unified soft-effect removal (CVPR 2026).
+  \item Label-free multi-task panoramic scene understanding (SIGGRAPH 2026) and humanoid visual search (NeurIPS 2026).
+\end{itemize}
+\vspace{0.4ex}
+\entry{Vision and Graphics Group $|$ Hong Kong University of Science and Technology}{Feb.\ 2022 $\sim$ Nov.\ 2023}{Research Assistant, Advisor: Prof.\ \href{https://www.danxurgb.net/}{Dan Xu}}{}
+\begin{itemize}
+  \item Multi-task dense prediction with partially annotated data via hierarchical task tokens (ACM MM 2025).
+\end{itemize}
+\vspace{0.4ex}
+\entry{Embedded Deep Learning and Visual Analysis Lab $|$ Fudan University}{Jul.\ 2021 $\sim$ Aug.\ 2023}{Research Assistant, Advisor: Prof.\ \href{http://www.it.fudan.edu.cn/En/Data/View/3012}{Tao Chen} and Prof.\ \href{https://fansarah.github.io/}{Jiayuan Fan}}{}
+\begin{itemize}
+  \item Multi-task dense prediction with bridge features (TPAMI) and background-focused domain adaptation for pedestrian detection (TIP).
+\end{itemize}
 
 % ------------------------------------------------------------------ awards
-\section{Selected Awards}
+\section{Awards}
 \begin{tabularx}{\linewidth}{@{}X r@{}}
-  First prize, Advanced Driving Assistance System (ADAS) National Competition, Dell Corporation & {\color{mute}2021} \\
-  Third prize, Outstanding Undergraduate Student Scholarship, Fudan University & {\color{mute}2021--2022} \\
-  Second prize, Outstanding Undergraduate Student Scholarship, Fudan University & {\color{mute}2019--2020} \\
-  Outstanding Student, Fudan University & {\color{mute}2019--2020} \\
+  Outstanding Student of Fudan University in 2019-2020 Academic year. & {\color{mute}2020} \\
+  The first prize of Advanced Driving Assistance System (ADAS) National Competition by Dell Corporation. & {\color{mute}2021} \\
+  The second prize of outstanding Undergraduate Student Scholarship of FDU in 2019-2020 Academic year. & {\color{mute}2020} \\
+  The third prize of outstanding Undergraduate Student Scholarship of FDU in 2021-2022 Academic year. & {\color{mute}2022} \\
 \end{tabularx}
 
 % ------------------------------------------------------------------ projects
 \section{Projects}
-\entry{ADAS National Competition (Team Leader)}{May 2021}{}{}
+\entry{Advanced Driving Assistance System (ADAS) National Competition}{May.\ 2021}{Team Leader}{}
 \begin{itemize}
-  \item Built a pipeline combining real-time detection and segmentation for perception, followed by planning and control; won the first prize. \lnk{https://drive.google.com/file/d/1hcRb_ya9f1QUQbqvQkiTBJ3Y9_Bq-S-k/view?usp=sharing}{Video}
+  \item Built a real-time detection and segmentation perception pipeline with planning and control; won the first prize. \lnk{https://drive.google.com/file/d/1hcRb_ya9f1QUQbqvQkiTBJ3Y9_Bq-S-k/view?usp=sharing}{video}
+\end{itemize}
+
+% ------------------------------------------------------------------ academic services
+\section{Academic Service \& Teaching}
+\textbf{Reviewer for:} CVPR, ICCV, ECCV, NeurIPS, ICLR, ICRA, AAAI, TPAMI, TVCG\\[3pt]
+\textbf{Teaching Assistant:}
+\begin{itemize}
+  \item CSCE 633: Machine Learning
+  \item CSCE 489: Special Topics in Computer Science and Engineering
+  \item CSCE 442: Scientific Programming
+  \item CSCE 222: Discrete Structures for Computing
 \end{itemize}
 
 % ------------------------------------------------------------------ skills
 \section{Skills}
-\textbf{Programming:} Python, C, MATLAB \enspace{\color{gold}$\diamond$}\enspace \textbf{Deep learning:} PyTorch
+\begin{itemize}
+  \item Programming Languages: C, Python, Matlab.
+  \item Deep Learning Frameworks: PyTorch.
+\end{itemize}
 
 \end{document}
