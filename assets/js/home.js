@@ -22,7 +22,7 @@
 
     var COVER_HOLD_MS = 3000;     // how long the cover stays before auto-gliding
     var SNAP_IDLE_MS = 160;       // scroll-idle delay before snapping inside the cover zone
-    var WHEEL_SWALLOW_MS = 1250;  // absorb trackpad momentum after a wheel-triggered cover glide
+    var WHEEL_GAP_MS = 180;       // wheel events closer than this belong to the same gesture (incl. trackpad momentum)
 
     var body = document.body;
     var root = document.documentElement;
@@ -283,22 +283,31 @@
 
     /* ---------------------------------------------------------- input */
 
-    var swallow = { until: 0, dir: 0 };
+    // The wheel gesture that drove a cover glide. While that glide runs, the rest of the gesture is
+    // absorbed by it; once it has landed, only a decaying trackpad momentum tail is absorbed, so the
+    // user's next deliberate scroll applies at once instead of piling up behind the glide.
+    var gesture = { dir: 0, last: 0, mag: 0 };
 
     // Wheel inside the cover zone (or upward at the very top of the page) glides instead of scrolling
     window.addEventListener('wheel', function (e) {
         if (e.ctrlKey || reduceMotion) return;
         var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
         if (!dir) return;
-        var now = performance.now();
-        if (now < swallow.until && dir === swallow.dir) { e.preventDefault(); return; }   // trackpad momentum
+        var now = performance.now(), mag = Math.abs(e.deltaY);
+        var sameGesture = dir === gesture.dir && now - gesture.last < WHEEL_GAP_MS;
+        if (sameGesture && (sc.on || mag < gesture.mag || (mag === gesture.mag && mag < 20))) {
+            e.preventDefault();
+            gesture.last = now; gesture.mag = mag;
+            return;
+        }
+        gesture.dir = 0;
         var h = geo.coverH, s = y();
         if (s < h - 2 || (s <= h + 2 && dir < 0)) {
             e.preventDefault();
             userActed = true;
-            var target = dir > 0 ? h : 0;
-            if (!(sc.on && sc.target === target)) glideTo(target, 5.6);   // retarget keeps velocity
-            swallow = { until: now + WHEEL_SWALLOW_MS, dir: dir };
+            // the user takes over: an auto glide speeds up, or turns round; retargeting keeps velocity
+            glideTo(dir > 0 ? h : 0, 5.6);
+            gesture = { dir: dir, last: now, mag: mag };
             return;
         }
         if (sc.on) stopGlide();          // ordinary scrolling: hand control back to the user
@@ -319,6 +328,10 @@
     ['touchstart', 'mousedown'].forEach(function (ev) {
         window.addEventListener(ev, function () { userActed = true; }, { passive: true });
     });
+    // grabbing the scrollbar takes over from any glide (it would otherwise fight the drag every frame)
+    window.addEventListener('mousedown', function (e) {
+        if (sc.on && e.clientX >= root.clientWidth) stopGlide();
+    }, { passive: true });
     window.addEventListener('touchstart', function () { stopGlide(); }, { passive: true });
 
     // Touch / scrollbar fallback: when scrolling settles inside the cover zone, glide to the nearer end
