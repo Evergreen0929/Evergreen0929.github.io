@@ -22,7 +22,6 @@
 
     var COVER_HOLD_MS = 3000;     // how long the cover stays before auto-gliding
     var SNAP_IDLE_MS = 160;       // scroll-idle delay before snapping inside the cover zone
-    var WHEEL_GAP_MS = 180;       // wheel events closer than this belong to the same gesture (incl. trackpad momentum)
 
     var body = document.body;
     var root = document.documentElement;
@@ -67,12 +66,12 @@
 
     /* ---------------------------------------------------------- spring scroller */
 
-    var sc = { on: false, pos: 0, vel: 0, goal: 0, target: 0, w: 5, raf: 0, last: 0 };
+    var sc = { on: false, pos: 0, vel: 0, goal: 0, target: 0, w: 5, raf: 0, last: 0, serial: 0 };
 
     function glideTo(target, stiffness) {
         target = Math.max(0, Math.min(target, geo.docH - geo.vh));
         if (reduceMotion) { window.scrollTo(0, target); paint(target); return; }
-        if (!sc.on) { sc.pos = y(); sc.vel = 0; sc.goal = sc.pos; sc.last = 0; }
+        if (!sc.on) { sc.pos = y(); sc.vel = 0; sc.goal = sc.pos; sc.last = 0; sc.serial++; }
         sc.target = target;
         sc.w = stiffness || 5;
         sc.on = true;
@@ -283,31 +282,31 @@
 
     /* ---------------------------------------------------------- input */
 
-    // The wheel gesture that drove a cover glide. While that glide runs, the rest of the gesture is
-    // absorbed by it; once it has landed, only a decaying trackpad momentum tail is absorbed, so the
-    // user's next deliberate scroll applies at once instead of piling up behind the glide.
-    var gesture = { dir: 0, last: 0, mag: 0 };
+    // Wheel input during a downward cover glide is folded into it as it arrives: the distance first
+    // carries the glide to the top of the page, and anything beyond keeps scrolling the page in the same
+    // motion. Nothing is held back and replayed later, and there is no dead time while the glide lands.
+    var intent = 0, intentFor = -1;       // intended position, and the glide it belongs to
 
-    // Wheel inside the cover zone (or upward at the very top of the page) glides instead of scrolling
     window.addEventListener('wheel', function (e) {
         if (e.ctrlKey || reduceMotion) return;
         var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
         if (!dir) return;
-        var now = performance.now(), mag = Math.abs(e.deltaY);
-        var sameGesture = dir === gesture.dir && now - gesture.last < WHEEL_GAP_MS;
-        if (sameGesture && (sc.on || mag < gesture.mag || (mag === gesture.mag && mag < 20))) {
-            e.preventDefault();
-            gesture.last = now; gesture.mag = mag;
-            return;
-        }
-        gesture.dir = 0;
         var h = geo.coverH, s = y();
-        if (s < h - 2 || (s <= h + 2 && dir < 0)) {
+        var px = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? geo.vh : 1);
+        var gliding = sc.on && sc.target > s;                        // a downward glide still under way
+        if (dir > 0 && (s < h - 2 || gliding)) {
             e.preventDefault();
             userActed = true;
-            // the user takes over: an auto glide speeds up, or turns round; retargeting keeps velocity
-            glideTo(dir > 0 ? h : 0, 5.6);
-            gesture = { dir: dir, last: now, mag: mag };
+            if (!gliding || intentFor !== sc.serial) intent = s;    // first input of this glide: start from the page
+            intent += px;
+            glideTo(Math.max(h, intent), 5.6);                       // retargeting keeps velocity
+            intentFor = sc.serial;
+            return;
+        }
+        if (dir < 0 && s <= h + 2) {                                 // upward at the top of the page: back to the cover
+            e.preventDefault();
+            userActed = true;
+            glideTo(0, 5.6);
             return;
         }
         if (sc.on) stopGlide();          // ordinary scrolling: hand control back to the user
