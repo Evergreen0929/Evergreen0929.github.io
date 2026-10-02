@@ -914,6 +914,182 @@ table.comp tr:last-child td { font-weight: 600; color: var(--ink); background: r
     .thumbs--slider .thumb { flex-basis: 112px; }
 }
 
+/* ------------------------------------------------------------------ Imagining in 360
+   result tables with a gain column, and the step-by-step imagination viewer */
+
+.table-wrap { margin-bottom: 4px; overflow-x: auto; scrollbar-width: thin; scrollbar-color: #2b3238 transparent; }
+.i360 .table-wrap + .caption, .i360 .img-container + .caption { margin-bottom: 2.6rem; }   /* several figures per section */
+table.comp--i360 { min-width: 640px; }
+table.comp--i360 th { padding: 8px 10px; font-size: .74rem; letter-spacing: .14em; }
+table.comp--i360 td { padding: 7px 10px; font-variant-numeric: tabular-nums; }
+table.comp--i360 tr.grp td {
+    padding: 6px 14px;
+    background: rgba(235, 230, 218, .035);
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: .9rem;
+    text-align: left;
+    color: var(--ink-mute);
+}
+table.comp--i360 td.hi { font-weight: 600; color: var(--ink); }
+table.comp--i360 td.gain { font-size: .86rem; color: var(--accent); }
+table.comp--ablation { min-width: 520px; }
+/* the shared table style emphasises the last row (a method's own result); in the Actor table that row is a baseline */
+table.comp--actors tr:last-child td { font-weight: 400; color: var(--ink-soft); background: transparent; }
+table.comp--actors tr:last-child td.hi { font-weight: 600; color: var(--ink); }
+table.comp--actors tr:last-child td.gain { color: var(--accent); }
+/* in-the-wild stage: the episode videos carry their own corner read-outs, so labels sit centred */
+#traj-stage .stage__labels span { text-align: center; }
+#traj-stage .stage__labels span:first-child { text-align: right; }   /* the yaw / pitch read-out owns the top-left */
+#traj-stage .stage__title { left: 50%; right: auto; transform: translateX(-50%); white-space: nowrap; }
+
+/* method figure: the Imaginator's layout card and the unfolded panorama it is drawn on */
+.fig-i360 .card { fill: rgba(10, 13, 16, .92); stroke: rgba(230, 164, 126, .45); }
+.fig-i360 .hd { font-family: var(--f-mono); font-size: 15px; font-weight: 600; }
+.fig-i360 .hd.obs, .fig-i360 .glyph.obs { fill: var(--gold-bright); }
+.fig-i360 .hd.img, .fig-i360 .glyph.img { fill: var(--accent); }
+.fig-i360 .mono { font-family: var(--f-mono); font-size: 13.5px; fill: #e9e3d6; }
+.fig-i360 .mono.tgt { fill: #f0b893; font-weight: 600; }
+.fig-i360 .mono.sug { fill: var(--gold-bright); font-size: 15px; font-weight: 600; }
+.fig-i360 .mono.acc { fill: #f0b893; }
+.fig-i360 .blk.terra { fill: rgba(230, 164, 126, .14); stroke: rgba(230, 164, 126, .85); }
+.fig-i360 .blbl.hi-terra { fill: #f0b893; }
+.fig-i360 .pano-rim { fill: none; stroke: rgba(235, 230, 218, .35); }
+.fig-i360 .fp { fill: rgba(235, 230, 218, .07); stroke: rgba(235, 230, 218, .78); stroke-width: 1.2; stroke-dasharray: 5 3; }
+.fig-i360 .fp-dot { fill: rgba(10, 13, 16, .82); stroke: rgba(235, 230, 218, .8); }
+.fig-i360 .fp-num { fill: #f3ede1; font-family: var(--f-body); font-size: 11px; font-weight: 600; text-anchor: middle; }
+.fig-i360 .mk-obs { fill: var(--gold-bright); stroke: #0e1215; stroke-width: 1.2; }
+.fig-i360 .mk-img { fill: rgba(14, 18, 21, .35); stroke: var(--accent); stroke-width: 1.8; stroke-dasharray: 3 2.5; }
+.fig-i360 .mk-tgt { fill: var(--accent); stroke: #0e1215; stroke-width: 1.5; }
+.fig-i360 .mk-tgt-ring { fill: none; stroke: var(--accent); stroke-width: 1.5; transform-box: fill-box; transform-origin: center; animation: i360-pulse 2.4s ease-out infinite; }
+@keyframes i360-pulse { 0% { opacity: .9; transform: scale(.5); } 100% { opacity: 0; transform: scale(1.7); } }
+.fig-i360 .callout { font-family: var(--f-mono); font-size: 13px; fill: #f0b893; text-anchor: end; paint-order: stroke; stroke: rgba(10, 13, 16, .85); stroke-width: 3px; }
+.fig-i360 .tick, .fig-chart .tick { fill: var(--ink-mute); font-family: var(--f-body); font-size: 13px; text-anchor: middle; }
+.fig-chart .tick { font-size: 18px; }
+.fig-chart .tick.end, .fig-i360 .tick.end { text-anchor: end; }
+.fig-i360 .tick.start { text-anchor: start; }
+
+/* charts redrawn in the page palette (data statistics, scaling) */
+.fig-chart { display: block; width: 100%; min-width: 860px; height: auto; font-family: var(--f-display); }
+.fig-chart .panel { fill: rgba(14, 18, 21, .82); stroke: rgba(235, 230, 218, .14); }
+.fig-chart .ctitle { fill: var(--gold-bright); font-size: 23px; font-weight: 600; letter-spacing: .12em; }
+.fig-chart .clbl { fill: var(--ink-soft); font-family: var(--f-body); font-size: 20px; }
+.fig-chart .clbl.end { text-anchor: end; }
+.fig-chart .cval { fill: var(--ink); font-family: var(--f-body); font-size: 19px; }
+.fig-chart .grid { stroke: rgba(235, 230, 218, .08); }
+.fig-chart .axis { fill: var(--ink-mute); font-family: var(--f-body); font-style: italic; font-size: 20px; text-anchor: middle; }
+.fig-chart .base { stroke: #8fb4cc; stroke-width: 1.6; stroke-dasharray: 6 5; }
+.fig-chart .baselbl { fill: #a9c6d9; font-family: var(--f-body); font-size: 19px; text-anchor: end; }
+.fig-chart .area { fill: rgba(230, 164, 126, .12); }
+.fig-chart .line { fill: none; stroke: var(--accent); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.fig-chart .pt { fill: #0e1215; stroke: var(--accent); stroke-width: 2.4; }
+.fig-chart .ptlbl { fill: #f3ede1; font-family: var(--f-body); font-size: 20px; text-anchor: middle; }
+.fig-chart .linelbl { fill: #f0b893; font-weight: 600; font-size: 21px; text-anchor: end; }
+/* they draw themselves in once scrolled into view */
+.pp-js .fig-wrap .fig-chart .bar { transform-box: fill-box; transform-origin: left center; transform: scaleX(0); transition: transform 1.1s var(--ease-out) var(--d, 0s); }
+.pp-js .fig-wrap .fig-chart .slice, .pp-js .fig-wrap .fig-chart .pt, .pp-js .fig-wrap .fig-chart .ptlbl, .pp-js .fig-wrap .fig-chart .area {
+    opacity: 0; transition: opacity .8s var(--ease) var(--d, 0s);
+}
+.pp-js .fig-wrap .fig-chart .line { stroke-dasharray: 1400; stroke-dashoffset: 1400; transition: stroke-dashoffset 1.8s var(--ease-out); }
+.pp-js .fig-wrap.is-visible .fig-chart .bar { transform: none; }
+.pp-js .fig-wrap.is-visible .fig-chart .slice, .pp-js .fig-wrap.is-visible .fig-chart .pt,
+.pp-js .fig-wrap.is-visible .fig-chart .ptlbl, .pp-js .fig-wrap.is-visible .fig-chart .area { opacity: 1; }
+.pp-js .fig-wrap.is-visible .fig-chart .line { stroke-dashoffset: 0; }
+
+.istep__cases { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-bottom: 14px; }
+.istep__case {
+    padding: .28em .95em .34em;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: rgba(10, 13, 16, .82);
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: .86rem;
+    letter-spacing: .05em;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: border-color .45s var(--ease), color .45s var(--ease), background-color .45s var(--ease);
+}
+.istep__case:hover { border-color: rgba(201, 169, 106, .6); color: var(--ink); }
+.istep__case.is-active { border-color: var(--gold); background: var(--gold-dim); color: var(--gold-bright); }
+.istep__case:focus-visible, .istep__step:focus-visible { outline: 1px dashed var(--gold); outline-offset: 3px; }
+
+.istep__grid { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 16px; align-items: start; }
+.istep__stage img { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; transition: opacity .4s var(--ease); }
+.istep.is-swapping .istep__stage img, .istep.is-swapping .istep__side > * { opacity: 0; }
+.istep__side > * { transition: opacity .35s var(--ease); }
+.istep__side {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--accent);
+    border-radius: 3px;
+    background: rgba(10, 13, 16, .82);
+    text-align: left;
+}
+.istep__task { margin-bottom: 12px; font-family: var(--f-body); font-style: italic; font-size: 1.08rem; line-height: 1.4; color: var(--ink); }
+.istep__steps { display: flex; gap: 6px; margin-bottom: 14px; }
+.istep__step {
+    position: relative;
+    overflow: hidden;
+    padding: .2em .8em .26em;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: .82rem;
+    letter-spacing: .06em;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: border-color .4s var(--ease), color .4s var(--ease), background-color .4s var(--ease);
+}
+.istep__step::after {                    /* time left on the current step while it plays on its own */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: var(--accent);
+}
+.istep.is-playing .istep__step.is-active::after { animation: istep-progress var(--istep-ms, 4500ms) linear forwards; }
+@keyframes istep-progress { to { width: 100%; } }
+.istep__step:hover { border-color: rgba(201, 169, 106, .6); color: var(--ink); }
+.istep__step.is-active { border-color: var(--gold); background: var(--gold-dim); color: var(--gold-bright); }
+.istep__block { margin-bottom: 12px; }
+.istep__block h6 {
+    margin: 0 0 6px;
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: .74rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.istep__opts { margin: 0; padding-left: 1.3em; font-family: var(--f-mono); font-size: .84rem; line-height: 1.7; color: var(--ink); }
+.istep__opts li::marker { color: var(--ink-mute); }
+.istep__think { margin: 0 0 6px; font-size: .95rem; line-height: 1.5; color: var(--ink-soft); }
+.istep__act {
+    display: inline-block;
+    padding: .1em .55em;
+    border-radius: 3px;
+    background: rgba(201, 169, 106, .14);
+    font-family: var(--f-mono);
+    font-size: .84rem;
+    color: var(--gold-bright);
+}
+.istep__base { padding-top: 10px; border-top: 1px solid var(--line); font-size: .9rem; font-style: italic; color: var(--ink-mute); }
+.istep__base:empty { display: none; }
+.istep__base b { font-style: normal; color: var(--ink-soft); }
+
+@media (max-width: 991px) {
+    .istep__grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 767px) {
+    .istep__stage .stage__labels span, #traj-stage .stage__labels span { padding: 6px 9px; font-size: .58rem; letter-spacing: .14em; }
+    .istep__stage .stage__title, #traj-stage .stage__title { font-size: .82rem; }
+}
+
 /* ------------------------------------------------------------------ living backgrounds
    Fixed to the viewport, animated on their own clock (never tied to scrolling).
    A soft ink wash on top keeps the text readable. */
@@ -945,6 +1121,7 @@ body[data-bg="segfield"]::after { display: none; }
         radial-gradient(120% 95% at 50% 38%, rgba(14, 18, 21, 0) 40%, rgba(14, 18, 21, .6) 100%);
 }
 .pp-bg--smoke::after { background: radial-gradient(130% 100% at 50% 40%, rgba(14, 18, 21, 0) 45%, rgba(14, 18, 21, .5) 100%); }
+.pp-bg--compass::after { background: none; }      /* the dials live in the margins: no wash needed */
 
 /* SPGen keeps a still backdrop: its key figure blurred behind the hero (data-hero) */
 body[data-hero] > section:first-of-type { position: relative; isolation: isolate; }

@@ -1,0 +1,206 @@
+[
+ {
+  "id": "trainstation",
+  "title": "Train Station",
+  "task": "Find the pink suitcase.",
+  "result": "✓ SUCCESS",
+  "steps": [
+   {
+    "options": [
+     "rotate(160,-30)",
+     "rotate(130,-20)",
+     "rotate(-140,-30)"
+    ],
+    "think": "I notice a train platform with a train on the left and tracks on the right. There is no visible pink suitcase in the current view. The platform is wide, and the suitcase might be in another direction. Since the goal is to find the pink suitcase and it's not visible here, rotating 160 degrees to the right will help explore a new area of the platform where the suitcase might be located. Therefore, the next action is rotate(160,-30).",
+    "answer": "rotate(160,-30)"
+   },
+   {
+    "options": [
+     "rotate(60,0)",
+     "rotate(60,-10)",
+     "rotate(50,0)"
+    ],
+    "think": "I notice a train platform with people walking and carrying luggage. There is a suitcase on the ground to the left, but it is not pink. The task is to find a pink suitcase, and it is not visible in this view. Rotating 60 degrees might reveal more of the platform where the pink suitcase could be located. Therefore, the next action is rotate(60,0).",
+    "answer": "rotate(60,0)"
+   },
+   {
+    "options": [
+     "submit(310,-50)"
+    ],
+    "think": "I notice a train platform with people carrying luggage. There is a pink suitcase in the center of the view, which matches the task requirement. Since the pink suitcase is clearly visible and centered, it confirms the task's completion. Therefore, the next action is submit(310,-50).",
+    "answer": "submit(310,-50)"
+   }
+  ],
+  "baseline": {
+   "result": "✗ FAILED",
+   "steps": 10
+  }
+ },
+ {
+  "id": "airport",
+  "title": "Airport",
+  "task": "You want to travel to Frankfurt, your flight number is 'LH496', where'd you go?",
+  "result": "✓ SUCCESS",
+  "steps": [
+   {
+    "options": [
+     "rotate(-140,0)",
+     "rotate(-90,0)"
+    ],
+    "think": "I notice a busy airport terminal with people walking and sitting. There are signs and directions visible, but no clear indication of the Frankfurt airport or flight LH496. The current view doesn't provide specific guidance towards the flight. Since the goal is to find the Frankfurt airport, rotating 140 degrees might reveal more signage or directions that could lead to the correct terminal or gate. Therefore, the next action is rotate(-140,0).",
+    "answer": "rotate(-140,0)"
+   },
+   {
+    "options": [
+     "submit(130,0)"
+    ],
+    "think": "I notice a busy airport terminal with clear signage. The sign indicates that flight LH496 to Frankfurt is at gate B57. The current view shows the direction towards gate B57, which is the correct destination for the flight. Since the goal is to reach gate B57, submitting the current direction is appropriate. Therefore, the next action is submit(130,0).",
+    "answer": "submit(130,0)"
+   }
+  ]
+ },
+ {
+  "id": "london",
+  "title": "London",
+  "task": "Locate the Big Ben Tower.",
+  "result": "✓ SUCCESS",
+  "steps": [
+   {
+    "options": [
+     "rotate(90,20)",
+     "rotate(90,15)"
+    ],
+    "think": "I notice a busy bridge with people and vehicles, but no visible landmarks like the Big Ben Tower. The current view does not provide any clues about the location of the Big Ben Tower. Since the goal is to locate the Big Ben Tower, and there are no visible indicators in this direction, it makes sense to explore further. Therefore, the next action is rotate(90,20) to potentially reveal more of the surrounding area and find the target.",
+    "answer": "rotate(90,20)"
+   },
+   {
+    "options": [
+     "rotate(45,0)",
+     "rotate(40,0)"
+    ],
+    "think": "I notice the Big Ben Tower is clearly visible on the right side of the image, near the edge. The task is to locate the Big Ben Tower, and it is not centered in the current view. To bring it to the center, a slight rotation is needed. Therefore, the next action is rotate(45,0) to adjust the view and center the target.",
+    "answer": "rotate(45,0)"
+   },
+   {
+    "options": [
+     "submit(45,20)"
+    ],
+    "think": "The current view shows the Big Ben Tower prominently in the center, with clear visibility against the blue sky. The task is to locate the Big Ben Tower, and it is now perfectly centered in the view. Therefore, the next action is submit(45,20) as the target is in the center of the current view.",
+    "answer": "submit(45,20)"
+   }
+  ]
+ },
+ {
+  "id": "seattle",
+  "title": "Seattle",
+  "task": "If you want to enter the red house, where should you move?",
+  "result": "✓ SUCCESS",
+  "steps": [
+   {
+    "options": [
+     "rotate(130,0)",
+     "rotate(120,0)",
+     "rotate(90,0)"
+    ],
+    "think": "I notice a residential street with a red house on the left side. The task is to enter the red house, but the current view does not show the entrance clearly. Rotating 130 degrees to the right will likely bring the entrance of the red house into view, allowing for better navigation towards it. Therefore, the next action is rotate(130,0).",
+    "answer": "rotate(130,0)"
+   },
+   {
+    "options": [
+     "rotate(110,0)"
+    ],
+    "think": "I notice a driveway with a white pickup truck parked in front of a house partially obscured by hedges. The task is to enter the red house, but the entrance is not visible from this angle. Rotating 110 degrees to the right will likely bring the entrance of the red house into view, allowing for better navigation towards it. Therefore, the next action is rotate(110,0).",
+    "answer": "rotate(110,0)"
+   },
+   {
+    "options": [
+     "rotate(30,0)"
+    ],
+    "think": "I notice the red house is visible on the right side of the image, with a driveway leading up to it. The task is to enter the red house, and the entrance is likely accessible from this angle. Since the goal is to move towards the entrance, rotating slightly to the right will help align the view more directly with the entrance. Therefore, the next action is rotate(30,0).",
+    "answer": "rotate(30,0)"
+   },
+   {
+    "options": [
+     "submit(90,0)"
+    ],
+    "think": "I notice the red house is directly in view, with a clear path leading up to it. The driveway is visible, and the entrance is likely accessible from this angle. Since the task is to enter the red house, moving forward along the path will allow access to the entrance. Therefore, the next action is submit(90,0).",
+    "answer": "submit(90,0)"
+   }
+  ]
+ },
+ {
+  "id": "room",
+  "title": "Bedroom",
+  "task": "Locate the mounted AC.",
+  "result": "✓ SUCCESS",
+  "steps": [
+   {
+    "options": [
+     "rotate(-70,0)",
+     "rotate(-60,0)",
+     "rotate(75,15)"
+    ],
+    "think": "I notice a room with a dresser, a mirror, and a framed picture on the wall. There is no visible AC or any indication of where one might be located. The current view does not provide any clues about the presence of an AC. Since the goal is to locate the mounted AC and there are no visible clues in this direction, it makes sense to explore further. Therefore, the next action is rotate(-70,0) to potentially reveal more of the room and search for the AC.",
+    "answer": "rotate(-70,0)"
+   },
+   {
+    "options": [
+     "rotate(-60,25)"
+    ],
+    "think": "I notice a bedroom with a bed, a nightstand, and framed artwork on the wall. There is no visible AC or any indication of where one might be located. The current view does not provide any clues about the presence of an AC. Since the goal is to locate the mounted AC and there are no visible clues in this direction, it makes sense to explore further. Therefore, the next action is rotate(-60,25) to potentially reveal more of the room and search for the AC.",
+    "answer": "rotate(-60,25)"
+   },
+   {
+    "options": [
+     "submit(320,25)"
+    ],
+    "think": "I notice a mounted air conditioning unit on the wall near a window. The AC is clearly visible and centered in the current view. Since the task is to locate the mounted AC and it is now in the center of the view, it makes sense to submit the current position. Therefore, the next action is submit(320,25).",
+    "answer": "submit(320,25)"
+   }
+  ],
+  "baseline": {
+   "result": "✗ FAILED",
+   "steps": 4
+  }
+ },
+ {
+  "id": "office",
+  "title": "Office",
+  "task": "Locate the black telephone.",
+  "result": "✓ SUCCESS",
+  "steps": [
+   {
+    "options": [
+     "rotate(-65,-10)",
+     "rotate(-105,-15)",
+     "rotate(-90,-20)"
+    ],
+    "think": "The current view shows an office or library setting with filing cabinets, a clock, and a doorway leading to another room. There is no visible black telephone in this view. The task is to locate a black telephone, and since it is not visible here, exploring further is necessary. The suggestion to rotate -105° might reveal more of the room, potentially uncovering the telephone. Therefore, the next action is rotate(-105,-15).",
+    "answer": "rotate(-105,-15)"
+   },
+   {
+    "options": [
+     "rotate(-90,0)",
+     "rotate(-80,-5)"
+    ],
+    "think": "The current view shows an office or library setting with desks, chairs, and a blackboard. There is no visible black telephone in this view. The task is to locate a black telephone, and since it is not visible here, exploring further is necessary. The suggestion to rotate -90° might reveal more of the room, potentially uncovering the telephone. Therefore, the next action is rotate(-90,0).",
+    "answer": "rotate(-90,0)"
+   },
+   {
+    "options": [
+     "rotate(0,-30)",
+     "rotate(0,-25)"
+    ],
+    "think": "The current view shows an office setting with desks and people working. There is a black telephone visible on a desk in the lower center of the image. Since the task is to locate the black telephone and it is already visible, it makes sense to adjust the view slightly downward to center it. Therefore, the next action is rotate(0,-30).",
+    "answer": "rotate(0,-30)"
+   },
+   {
+    "options": [
+     "submit(345,-45)"
+    ],
+    "think": "The current view clearly shows a black telephone on a desk in the center of the image. The task is to locate the black telephone, and since it is now centered, it confirms the target is correctly identified. Therefore, the next action is submit(345,-45).",
+    "answer": "submit(345,-45)"
+   }
+  ]
+ }
+]

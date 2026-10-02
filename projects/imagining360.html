@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLEVHY0HS1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-NLEVHY0HS1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Beyond Thinking: Imagining in 360&deg; for Humanoid Visual Search (NeurIPS 2026).">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/project.css">
+    <script>document.documentElement.classList.add('pp-js');</script>
+
+    <title>Beyond Thinking: Imagining in 360&deg; for Humanoid Visual Search</title>
+</head>
+
+<body class="i360" data-bg="compass" style="--accent: #e6a47e;">
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">Imagining in 360&deg;</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html#Publications">Other Publications</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================== Hero ============================== -->
+    <section class="container pt-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h1 class="paper-title">
+                    Beyond Thinking: <span class="title-mark">Imagining in 360&deg;</span> for Humanoid Visual Search
+                </h1>
+
+                <div class="author-block">
+                    <a href="../index.html">Jingdong Zhang</a><sup>1</sup>,
+                    <a href="https://wyzjack.github.io/" target="_blank">Yizhou Wang</a><sup>2</sup>,
+                    <a href="https://vztu.github.io/" target="_blank">Zhengzhong Tu</a><sup>1</sup>,
+                    <a href="https://people.tamu.edu/~xinli/" target="_blank">Xin Li</a><sup>1</sup>,
+                    <a href="https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en" target="_blank">Wenping Wang</a><sup>1</sup>,
+                    <a href="https://xiaohangzhan.github.io/" target="_blank">Xiaohang Zhan</a><sup>2,*</sup>
+                </div>
+
+                <div class="affiliation-block">
+                    <sup>1</sup>Texas A&amp;M University &nbsp;&nbsp;
+                    <sup>2</sup>Adobe &nbsp;&nbsp;
+                    <sup>*</sup>Corresponding author
+                </div>
+
+                <div class="mb-4">
+                    <img src="../homepage_assets/TAMU.png" alt="TAMU Logo" style="height: 46px; margin: 0 22px;">
+                    <img src="../homepage_assets/adobe_logo_alpha.png" alt="Adobe Logo" style="height: 34px; margin: 0 22px 6px;">
+                </div>
+
+                <div class="venue-block">NeurIPS 2026</div>
+
+                <div class="mb-5">
+                    <a href="https://arxiv.org/pdf/2605.09146" target="_blank" class="btn btn-resource"><i class="fas fa-file-pdf"></i> Paper</a>
+                    <a href="https://arxiv.org/abs/2605.09146" target="_blank" class="btn btn-resource"><i class="fas fa-file-alt"></i> arXiv</a>
+                    <a href="https://github.com/Evergreen0929/Imagining360" target="_blank" class="btn btn-resource"><i class="fab fa-github"></i> Code</a>
+                    <a href="https://huggingface.co/jdzhang0929/Imaginator" target="_blank" class="btn btn-resource"><i class="fas fa-cube"></i> Model</a>
+                    <a href="https://huggingface.co/datasets/jdzhang0929/Imagine-in-360-Dataset" target="_blank" class="btn btn-resource"><i class="fas fa-database"></i> Dataset</a>
+                    <a href="#video" class="btn btn-resource"><i class="fab fa-youtube"></i> Video</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- In-the-wild search episodes -->
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="stage-wrap">
+                    <div class="stage" id="traj-stage">
+                        <video src="../project_assets/imagining360/traj_trainstation.mp4" poster="../project_assets/imagining360/traj_trainstation.jpg" autoplay loop muted playsinline></video>
+                        <div class="stage__labels"><span>Agent&rsquo;s view</span><span>360&deg; scene &middot; explored so far</span></div>
+                        <div class="stage__title">“Find the pink suitcase.” · found in 3 steps</div>
+                    </div>
+                    <div class="slider">
+                        <button class="slider__btn slider__btn--prev" type="button" aria-label="Previous examples"><i class="fas fa-chevron-left"></i></button>
+                        <div class="thumbs thumbs--slider" data-stage-for="traj-stage" aria-label="In-the-wild search episodes">
+                        <button class="thumb is-active" data-src="../project_assets/imagining360/traj_trainstation.mp4" data-poster="../project_assets/imagining360/traj_trainstation.jpg" data-title="“Find the pink suitcase.” · found in 3 steps"><img src="../project_assets/imagining360/traj_trainstation_thumb.jpg" alt="" loading="lazy"><span>Train Station</span></button>
+                        <button class="thumb" data-src="../project_assets/imagining360/traj_london.mp4" data-poster="../project_assets/imagining360/traj_london.jpg" data-title="“Locate the Big Ben Tower.” · found in 3 steps"><img src="../project_assets/imagining360/traj_london_thumb.jpg" alt="" loading="lazy"><span>London</span></button>
+                        <button class="thumb" data-src="../project_assets/imagining360/traj_livingroom.mp4" data-poster="../project_assets/imagining360/traj_livingroom.jpg" data-title="“Locate the TV mounted on the wall.” · found in 3 steps"><img src="../project_assets/imagining360/traj_livingroom_thumb.jpg" alt="" loading="lazy"><span>Living Room</span></button>
+                        <button class="thumb" data-src="../project_assets/imagining360/traj_intersection.mp4" data-poster="../project_assets/imagining360/traj_intersection.jpg" data-title="“Find the sign &#x27;5th Ave&#x27;.” · found in 2 steps"><img src="../project_assets/imagining360/traj_intersection_thumb.jpg" alt="" loading="lazy"><span>Intersection</span></button>
+                        <button class="thumb" data-src="../project_assets/imagining360/traj_seattle.mp4" data-poster="../project_assets/imagining360/traj_seattle.jpg" data-title="“If you want to enter the red house, where should you move?” · found in 4 steps"><img src="../project_assets/imagining360/traj_seattle_thumb.jpg" alt="" loading="lazy"><span>Seattle</span></button>
+                        <button class="thumb" data-src="../project_assets/imagining360/traj_office.mp4" data-poster="../project_assets/imagining360/traj_office.jpg" data-title="“Locate the black telephone.” · found in 4 steps"><img src="../project_assets/imagining360/traj_office_thumb.jpg" alt="" loading="lazy"><span>Office</span></button>
+                        <button class="thumb" data-src="../project_assets/imagining360/traj_church.mp4" data-poster="../project_assets/imagining360/traj_church.jpg" data-title="“If you want to enter the church, where&#x27;d you move?” · found in 2 steps"><img src="../project_assets/imagining360/traj_church_thumb.jpg" alt="" loading="lazy"><span>Church Square</span></button>
+                        <button class="thumb" data-src="../project_assets/imagining360/traj_kitchen.mp4" data-poster="../project_assets/imagining360/traj_kitchen.jpg" data-title="“Find the built-in refrigerator.” · found in 3 steps"><img src="../project_assets/imagining360/traj_kitchen_thumb.jpg" alt="" loading="lazy"><span>Open Kitchen</span></button>
+                        <button class="thumb" data-src="../project_assets/imagining360/traj_resort.mp4" data-poster="../project_assets/imagining360/traj_resort.jpg" data-title="“Locate the SLOW banner.” · found in 2 steps"><img src="../project_assets/imagining360/traj_resort_thumb.jpg" alt="" loading="lazy"><span>Mountain Resort</span></button>
+                        </div>
+                        <button class="slider__btn slider__btn--next" type="button" aria-label="Next examples"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <p class="caption">
+                    Zero-shot search in the wild: imagining the unseen part of the scene tells the agent where to turn its head.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== Abstract ============================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>Abstract</h2>
+                <div class="abstract-box">
+                    <p>
+                        Humanoid Visual Search asks an agent to find a target in an immersive 360&deg; scene while it sees only a narrow
+                        field of view at a time. Prior methods treat it as one monolithic task driven by cumulative, multi-turn
+                        chain-of-thought, which is cognitively heavy and needs expensive trajectory-level annotations. We propose
+                        <b>Imagining in 360&deg;</b>, which decouples exploration into an <b>Imaginator</b> and an <b>Actor</b>. In a single
+                        step, the Imaginator infers the semantic layout of both observed and unobserved regions; sampling several
+                        hypotheses gives the Actor a distribution of spatial priors that hedges against uncertainty during the search.
+                    </p>
+                    <ul class="highlight-list">
+                        <li><i class="fas fa-check-circle text-warning"></i> <b>Decoupled paradigm:</b> spatial imagination is separated from action planning, for more active and grounded exploration.</li>
+                        <li><i class="fas fa-check-circle text-warning"></i> <b>Probabilistic Imaginator:</b> learns intuitive spatial priors and guides any Actor with sampled estimates of where things are.</li>
+                        <li><i class="fas fa-check-circle text-warning"></i> <b>Scalable data engine:</b> a fully automated pipeline produces 1.92M training samples without manual trajectory labels.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== Method ============================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2>Method</h2>
+                <p class="section-lede">Imagine first, then act: one model writes down the whole scene, another decides where to look.</p>
+                <div class="fig-wrap">
+                    <svg class="fig-method fig-i360" viewBox="0 0 1400 868" role="img" aria-labelledby="fig-title">
+                        <title id="fig-title">Method: the Imaginator predicts a 360 degree semantic layout in one pass, and its sampled suggestions guide a frozen Actor step by step</title>
+                        <defs>
+                            <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#c9a96a" stroke-width="1.6"/></marker>
+                            <clipPath id="pano-clip"><rect x="922" y="128" width="446" height="157.0581297388374" rx="4"/></clipPath>
+                        </defs>
+                        <!-- ===== top panel: one stateless pass of the Imaginator ===== -->
+                        <rect class="panel" x="10" y="10" width="1380" height="436" rx="14"/>
+                        <text class="ptitle" x="34" y="44">IMAGINATOR &#183; ONE STATELESS PASS</text>
+                        <!-- inputs: views seen so far + the instruction -->
+                        <g class="frame"><image href="../project_assets/imagining360/dg_view3.jpg" x="86" y="120" width="168" height="126"/><rect x="86" y="120" width="168" height="126"/></g>
+                        <g class="frame"><image href="../project_assets/imagining360/dg_view2.jpg" x="62" y="96" width="168" height="126"/><rect x="62" y="96" width="168" height="126"/></g>
+                        <g class="frame"><image href="../project_assets/imagining360/dg_view1.jpg" x="38" y="72" width="168" height="126"/><rect x="38" y="72" width="168" height="126"/></g>
+                        <text class="vlbl" x="146" y="272">VIEWS SO FAR</text>
+                        <text class="sub" x="146" y="294">(295,6) &#183; (267,13) &#183; (47,42)</text>
+                        <rect class="bubble" x="34" y="318" width="232" height="96" rx="10"/>
+                        <text class="quote" x="150" y="352">&#8220;Where is the bed</text>
+                        <text class="quote" x="150" y="376">with wooden posts?&#8221;</text>
+                        <text class="sub" x="150" y="400">instruction</text>
+                        <path class="fl" d="M272 196H318" marker-end="url(#ah)"/>
+                        <!-- the Imaginator -->
+                        <rect class="blk terra" x="324" y="128" width="160" height="136" rx="10"/>
+                        <text class="blbl hi-terra" x="404" y="186">Imaginator</text>
+                        <text class="sub" x="404" y="212">Qwen3-VL-8B</text>
+                        <text class="sub" x="404" y="234">no history, one pass</text>
+                        <path class="fl" d="M484 196H504" marker-end="url(#ah)"/>
+                        <!-- its output: a semantic 360 layout in language -->
+                        <rect class="card" x="508" y="72" width="398" height="356" rx="8"/>
+                        <text class="hd obs" x="522" y="104">[Observed]</text>
+                        <text class="mono" x="536" y="129"><tspan class="glyph obs">&#9670;</tspan> open white bedroom door: (25,0)</text>
+                        <text class="mono" x="536" y="152"><tspan class="glyph obs">&#9670;</tspan> rocking chair with stuffed toys: (270,-23)</text>
+                        <text class="mono" x="536" y="175"><tspan class="glyph obs">&#9670;</tspan> wall-mounted picture frames: (274,16)</text>
+                        <text class="mono" x="536" y="198"><tspan class="glyph obs">&#9670;</tspan> wall-mounted coat rack: (292,0)</text>
+                        <text class="mono" x="536" y="221"><tspan class="glyph obs">&#9670;</tspan> window seat with cushion: (227,-9)</text>
+                        <text class="hd img" x="522" y="252">[Imagined]</text>
+                        <text class="mono" x="536" y="277"><tspan class="glyph img">&#9671;</tspan> carpeted floor pathway: (0,-45)</text>
+                        <text class="mono" x="536" y="300"><tspan class="glyph img">&#9671;</tspan> arched doorway to adjacent room: (356,-2)</text>
+                        <text class="mono tgt" x="536" y="323"><tspan class="glyph img">&#9671;</tspan> bed with wooden posts: (126,-13)</text>
+                        <text class="mono" x="536" y="346"><tspan class="glyph img">&#9671;</tspan> window with outdoor view: (166,9)</text>
+                        <text class="mono" x="536" y="369"><tspan class="glyph img">&#9671;</tspan> ceiling light fixture: (148,52)</text>
+                        <text class="mono sug" x="522" y="404">suggest check(126,&#8722;13)</text>
+                        <!-- the same layout on the unfolded panorama -->
+                        <path class="fl" d="M906 226H916" marker-end="url(#ah)"/>
+                        <g clip-path="url(#pano-clip)"><image href="../project_assets/imagining360/dg_pano.jpg" x="922" y="128" width="446" height="157.0581297388374" preserveAspectRatio="none"/></g>
+                        <rect class="pano-rim" x="922" y="128" width="446" height="157.0581297388374" rx="4"/>
+                        <path class="fp" d="M998.9 188.1 L1005.3 185.0 L1013.2 181.8 L1023.0 178.6 L1035.0 175.7 L1049.1 173.7 L1064.5 173.0 L1079.9 173.7 L1093.9 175.7 L1105.9 178.6 L1115.8 181.8 L1123.7 185.0 L1130.0 188.1 L1129.4 192.7 L1128.9 197.6 L1128.3 202.9 L1127.7 208.4 L1127.2 214.1 L1126.6 219.9 L1126.1 225.7 L1125.5 231.4 L1125.0 236.9 L1124.5 242.2 L1124.0 247.1 L1123.5 251.7 L1117.0 253.9 L1109.2 256.2 L1100.0 258.5 L1089.3 260.4 L1077.3 261.7 L1064.5 262.2 L1051.7 261.7 L1039.6 260.4 L1028.9 258.5 L1019.7 256.2 L1012.0 253.9 L1005.5 251.7 L1005.0 247.1 L1004.5 242.2 L1003.9 236.9 L1003.4 231.4 L1002.9 225.7 L1002.3 219.9 L1001.8 214.1 L1001.2 208.4 L1000.7 202.9 L1000.1 197.6 L999.5 192.7Z"/>
+                        <circle class="fp-dot" cx="1064.5" cy="217.6" r="9"/><text class="fp-num" x="1064.5" y="221.6">1</text>
+                        <path class="fp" d="M959.1 183.8 L965.2 180.2 L973.1 176.4 L983.2 172.5 L996.1 169.0 L1011.9 166.5 L1029.8 165.6 L1047.6 166.5 L1063.5 169.0 L1076.4 172.5 L1086.5 176.4 L1094.3 180.2 L1100.4 183.8 L1099.0 188.3 L1097.7 193.2 L1096.4 198.3 L1095.1 203.8 L1093.8 209.4 L1092.6 215.1 L1091.5 220.9 L1090.3 226.5 L1089.2 232.0 L1088.1 237.1 L1087.0 242.0 L1086.0 246.5 L1079.6 248.3 L1072.0 250.1 L1063.1 251.9 L1052.9 253.3 L1041.7 254.3 L1029.8 254.7 L1017.9 254.3 L1006.6 253.3 L996.5 251.9 L987.6 250.1 L980.0 248.3 L973.5 246.5 L972.5 242.0 L971.5 237.1 L970.4 232.0 L969.3 226.5 L968.1 220.9 L966.9 215.1 L965.7 209.4 L964.5 203.8 L963.2 198.3 L961.9 193.2 L960.5 188.3Z"/>
+                        <circle class="fp-dot" cx="1029.8" cy="210.1" r="9"/><text class="fp-num" x="1029.8" y="214.1">2</text>
+                        <path class="fp" d="M1100.3 172.8 L1102.0 167.4 L1104.5 161.3 L1108.7 154.3 L1116.6 146.8 L1136.5 139.1 L1203.2 134.6 L1270.0 139.1 L1289.9 146.8 L1297.8 154.3 L1301.9 161.3 L1304.4 167.4 L1306.1 172.8 L1300.4 175.8 L1294.8 179.3 L1289.4 183.2 L1284.3 187.5 L1279.6 192.1 L1275.1 196.8 L1271.0 201.7 L1267.2 206.5 L1263.7 211.2 L1260.5 215.7 L1257.5 219.9 L1254.8 223.8 L1248.5 223.8 L1241.2 223.8 L1232.9 223.8 L1223.7 223.8 L1213.7 223.8 L1203.2 223.8 L1192.8 223.8 L1182.8 223.8 L1173.6 223.8 L1165.3 223.8 L1158.0 223.8 L1151.7 223.8 L1148.9 219.9 L1146.0 215.7 L1142.7 211.2 L1139.2 206.5 L1135.4 201.7 L1131.3 196.8 L1126.9 192.1 L1122.1 187.5 L1117.0 183.2 L1111.7 179.3 L1106.1 175.8Z"/>
+                        <circle class="fp-dot" cx="1203.2" cy="179.2" r="9"/><text class="fp-num" x="1203.2" y="183.2">3</text>
+                        <path class="mk-obs" d="M1176.0 218.0l5 6l-5 6l-5 -6z"><title>open white bedroom door</title></path>
+                        <path class="mk-obs" d="M1033.5 242.5l5 6l-5 6l-5 -6z"><title>rocking chair with stuffed toys</title></path>
+                        <path class="mk-obs" d="M1038.5 200.9l5 6l-5 6l-5 -6z"><title>wall-mounted picture frames</title></path>
+                        <path class="mk-obs" d="M1060.8 218.0l5 6l-5 6l-5 -6z"><title>wall-mounted coat rack</title></path>
+                        <path class="mk-obs" d="M980.2 227.6l5 6l-5 6l-5 -6z"><title>window seat with cushion</title></path>
+                        <circle class="mk-img" cx="1145.0" cy="272.0" r="6"><title>carpeted floor pathway</title></circle>
+                        <circle class="mk-img" cx="1140.0" cy="226.1" r="6"><title>arched doorway to adjacent room</title></circle>
+                        <circle class="mk-tgt-ring" cx="1301.1" cy="237.9" r="13"/><circle class="mk-tgt" cx="1301.1" cy="237.9" r="5"><title>bed with wooden posts</title></circle>
+                        <circle class="mk-img" cx="1350.7" cy="214.4" r="6"><title>window with outdoor view</title></circle>
+                        <circle class="mk-img" cx="1328.4" cy="168.5" r="6"><title>ceiling light fixture</title></circle>
+                        <text class="callout" x="1287" y="216">check(126,&#8722;13)</text>
+                        <text class="vlbl" x="1145" y="102">UNFOLDED 360&#176; SCENE</text>
+                        <text class="tick start" x="922" y="303.0581297388374">180&#176;</text><text class="tick" x="1034" y="303.0581297388374">270&#176;</text><text class="tick" x="1145" y="303.0581297388374">0&#176;</text><text class="tick" x="1256" y="303.0581297388374">90&#176;</text><text class="tick end" x="1368" y="303.0581297388374">180&#176;</text>
+                        <g class="legend" transform="translate(962 337.0581297388374)">
+                            <path class="mk-obs" d="M0 -6l5 6l-5 6l-5 -6z"/><text class="clbl" x="14" y="5">observed</text>
+                            <circle class="mk-img" cx="122" cy="0" r="6"/><text class="clbl" x="136" y="5">imagined</text>
+                            <circle class="mk-tgt" cx="246" cy="0" r="5"/><text class="clbl" x="260" y="5">suggested target</text>
+                        </g>
+                        <text class="sub" x="1145" y="377.0581297388374">coordinates are absolute (yaw, pitch) in degrees</text>
+
+                        <!-- ===== bottom panel: the search loop ===== -->
+                        <rect class="panel" x="10" y="462" width="1380" height="396" rx="14"/>
+                        <text class="ptitle" x="34" y="496">SEARCH LOOP &#183; THE IMAGINATOR SUGGESTS, THE ACTOR DECIDES</text>
+                        <!-- one step -->
+                        <rect class="chip" x="34" y="530" width="168" height="96" rx="8"/>
+                        <text class="blbl sm" x="118" y="570">View at step t</text>
+                        <text class="sub" x="118" y="596">current direction</text>
+                        <path class="fl" d="M202 578H238" marker-end="url(#ah)"/>
+                        <rect class="blk terra" x="244" y="530" width="178" height="96" rx="10"/>
+                        <text class="blbl sm hi-terra" x="333" y="568">Imaginator</text>
+                        <text class="sub" x="333" y="594">3 samples: 1 greedy + 2 at T</text>
+                        <path class="fl" d="M422 578H458" marker-end="url(#ah)"/>
+                        <rect class="chip" x="464" y="526" width="300" height="104" rx="8"/>
+                        <text class="vlbl" x="614" y="548">RANKED SUGGESTIONS</text>
+                        <text class="mono" x="482" y="574">1  rotate(&#916;&#966;, &#916;&#947;)</text>
+                        <text class="mono" x="482" y="597">2  rotate(&#916;&#966;&#8242;, &#916;&#947;&#8242;)</text>
+                        <text class="mono" x="482" y="620">3  submit(&#966;, &#947;)</text>
+                        <path class="fl" d="M764 578H800" marker-end="url(#ah)"/>
+                        <rect class="blk blue" x="806" y="530" width="196" height="96" rx="10"/>
+                        <text class="blbl sm" x="904" y="566">Actor</text>
+                        <text class="sub" x="904" y="592">any VLM, not fine-tuned</text>
+                        <text class="sub" x="904" y="612">weighs them against its view</text>
+                        <path class="fl" d="M1002 578H1038" marker-end="url(#ah)"/>
+                        <rect class="chip" x="1044" y="530" width="320" height="96" rx="8"/>
+                        <text class="mono" x="1062" y="570">rotate(&#916;&#966;, &#916;&#947;)  &#8594; step t+1</text>
+                        <text class="mono acc" x="1062" y="600">submit(&#966;, &#947;)  &#8594; done</text>
+                        <path class="fl faint" d="M1204 626V650H118V632" marker-end="url(#ah)"/>
+                        <text class="sub" x="660" y="668">the next view goes back to the Imaginator</text>
+                        <!-- hypotheses narrowing over three steps: "Find the pink suitcase." -->
+                        <g class="frame"><image href="../project_assets/imagining360/step_trainstation_1.jpg" x="34" y="690" width="320" height="160"/><rect x="34" y="690" width="320" height="160"/></g>
+                        <g class="frame"><image href="../project_assets/imagining360/step_trainstation_2.jpg" x="398" y="690" width="320" height="160"/><rect x="398" y="690" width="320" height="160"/></g>
+                        <g class="frame"><image href="../project_assets/imagining360/step_trainstation_3.jpg" x="762" y="690" width="320" height="160"/><rect x="762" y="690" width="320" height="160"/></g>
+                        <text class="tag" x="44" y="708">STEP 1</text><text class="tag" x="408" y="708">STEP 2</text><text class="tag" x="772" y="708">STEP 3</text>
+                        <path class="fl" d="M358 770H392" marker-end="url(#ah)"/><path class="fl" d="M722 770H756" marker-end="url(#ah)"/>
+                        <text class="quote" x="1236" y="742">&#8220;Find the pink</text>
+                        <text class="quote" x="1236" y="766">suitcase.&#8221;</text>
+                        <text class="sub" x="1236" y="796">hypotheses narrow</text>
+                        <text class="sub" x="1236" y="816">as more is seen;</text>
+                        <text class="sub" x="1236" y="836">found in 3 steps</text>
+                    </svg>
+                </div>
+                <p class="caption">
+                    <b>Top:</b> from the views seen so far, the Imaginator lists observed landmarks and imagines unseen ones at absolute
+                    (yaw, pitch), then suggests where the target is. <b>Bottom:</b> at every step three such hypotheses are sampled and
+                    handed to an unchanged Actor as ranked suggestions; they narrow onto the target as more of the scene is observed.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== Imagination, step by step ============================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2>Imagination, Step by Step</h2>
+                <div class="istep stage-wrap" data-steps="../project_assets/imagining360/steps.json" data-assets="../project_assets/imagining360">
+                    <div class="istep__cases" role="tablist" aria-label="Episodes"></div>
+                    <div class="istep__grid">
+                        <div class="stage istep__stage">
+                            <img class="istep__img" alt="Imagined target hypotheses on the 360 degree panorama">
+                            <div class="stage__labels"><span>Imagined target hypotheses &middot; explored views in green</span></div>
+                            <div class="stage__title"></div>
+                        </div>
+                        <div class="istep__side">
+                            <div class="istep__task"></div>
+                            <div class="istep__steps" role="group" aria-label="Steps"></div>
+                            <div class="istep__block">
+                                <h6>Imaginator suggests</h6>
+                                <ol class="istep__opts"></ol>
+                            </div>
+                            <div class="istep__block">
+                                <h6>Actor</h6>
+                                <p class="istep__think"></p>
+                                <code class="istep__act"></code>
+                            </div>
+                            <div class="istep__base"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="caption">
+                    Three hypotheses are sampled at every step. They spread over plausible regions at first and converge on the
+                    target as more of the scene is observed.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== Data engine ============================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>Scalable Data Engine</h2>
+                <p class="section-lede">Single-step layout supervision, generated from unlabeled panoramas.</p>
+                <div class="row">
+                    <div class="col-md-4"><div class="stat-card"><div class="stat-name">Panoramas</div><div class="stat-figure">~20k</div><div class="stat-sub">SUN360, Matterport3D, DiT360</div></div></div>
+                    <div class="col-md-4"><div class="stat-card"><div class="stat-name">Training samples</div><div class="stat-figure">1.92M</div><div class="stat-sub">observed + imagined layouts</div></div></div>
+                    <div class="col-md-4"><div class="stat-card"><div class="stat-name">Landmarks per scene</div><div class="stat-figure">11</div><div class="stat-sub">median, observed and imagined</div></div></div>
+                </div>
+                <div class="fig-wrap">
+                    <svg class="fig-chart" viewBox="0 0 1400 640" role="img" aria-label="Scene categories, panorama sources and labeled landmark types of the training corpus">
+                        <rect class="panel" x="10" y="10" width="1380" height="620" rx="14"/>
+                        <text class="ctitle" x="34" y="44">Scene categories</text>
+                        <text class="clbl end" x="262" y="97">Outdoor urban</text><rect class="bar" style="--d:0.00s" x="276" y="80" width="379.2" height="22" rx="3" fill="#c9a96a" fill-opacity="1.00"/><text class="cval" x="665.2" y="98">31.6%</text>
+                        <text class="clbl end" x="262" y="138">Residential interior</text><rect class="bar" style="--d:0.05s" x="276" y="121" width="310.8" height="22" rx="3" fill="#c9a96a" fill-opacity="0.94"/><text class="cval" x="596.8" y="139">25.9%</text>
+                        <text class="clbl end" x="262" y="179">Other / mixed</text><rect class="bar" style="--d:0.10s" x="276" y="162" width="127.2" height="22" rx="3" fill="#c9a96a" fill-opacity="0.89"/><text class="cval" x="413.2" y="180">10.6%</text>
+                        <text class="clbl end" x="262" y="220">Museum &amp; culture</text><rect class="bar" style="--d:0.15s" x="276" y="203" width="90.0" height="22" rx="3" fill="#c9a96a" fill-opacity="0.83"/><text class="cval" x="376.0" y="221">7.5%</text>
+                        <text class="clbl end" x="262" y="261">Hotel &amp; hospitality</text><rect class="bar" style="--d:0.20s" x="276" y="244" width="73.2" height="22" rx="3" fill="#c9a96a" fill-opacity="0.78"/><text class="cval" x="359.2" y="262">6.1%</text>
+                        <text class="clbl end" x="262" y="302">Retail &amp; commerce</text><rect class="bar" style="--d:0.25s" x="276" y="285" width="48.0" height="22" rx="3" fill="#c9a96a" fill-opacity="0.72"/><text class="cval" x="334.0" y="303">4.0%</text>
+                        <text class="clbl end" x="262" y="343">Food &amp; beverage</text><rect class="bar" style="--d:0.30s" x="276" y="326" width="44.4" height="22" rx="3" fill="#c9a96a" fill-opacity="0.67"/><text class="cval" x="330.4" y="344">3.7%</text>
+                        <text class="clbl end" x="262" y="384">Transportation hub</text><rect class="bar" style="--d:0.35s" x="276" y="367" width="42.0" height="22" rx="3" fill="#c9a96a" fill-opacity="0.61"/><text class="cval" x="328.0" y="385">3.5%</text>
+                        <text class="clbl end" x="262" y="425">Office &amp; workspace</text><rect class="bar" style="--d:0.40s" x="276" y="408" width="28.8" height="22" rx="3" fill="#c9a96a" fill-opacity="0.56"/><text class="cval" x="314.8" y="426">2.4%</text>
+                        <text class="clbl end" x="262" y="466">Nature &amp; landscape</text><rect class="bar" style="--d:0.45s" x="276" y="449" width="28.8" height="22" rx="3" fill="#c9a96a" fill-opacity="0.51"/><text class="cval" x="314.8" y="467">2.4%</text>
+                        <text class="clbl end" x="262" y="507">Entertainment &amp; leisure</text><rect class="bar" style="--d:0.50s" x="276" y="490" width="21.6" height="22" rx="3" fill="#c9a96a" fill-opacity="0.45"/><text class="cval" x="307.6" y="508">1.8%</text>
+                        <text class="clbl end" x="262" y="548">Industrial &amp; warehouse</text><rect class="bar" style="--d:0.55s" x="276" y="531" width="6.0" height="22" rx="3" fill="#c9a96a" fill-opacity="0.40"/><text class="cval" x="292.0" y="549">0.5%</text>
+                        <text class="ctitle" x="804" y="78">Panorama sources</text>
+                        <path class="slice" style="--d:0.00s" fill="#c9a96a" d="M900.0 106.0 A84 84 0 1 1 897.4 274.0 L898.4 240.0 A50 50 0 1 0 900.0 140.0Z"/>
+                        <rect x="1020" y="143" width="12" height="12" rx="2" fill="#c9a96a"/><text class="clbl" x="1042" y="153">SUN360</text><text class="cval" x="1290" y="153">50.5%</text>
+                        <path class="slice" style="--d:0.08s" fill="#8fb4cc" d="M897.4 274.0 A84 84 0 0 1 816.0 188.4 L850.0 189.1 A50 50 0 0 0 898.4 240.0Z"/>
+                        <rect x="1020" y="173" width="12" height="12" rx="2" fill="#8fb4cc"/><text class="clbl" x="1042" y="183">Matterport3D</text><text class="cval" x="1290" y="183">24.8%</text>
+                        <path class="slice" style="--d:0.16s" fill="#e6a47e" d="M816.0 188.4 A84 84 0 0 1 900.0 106.0 L900.0 140.0 A50 50 0 0 0 850.0 189.1Z"/>
+                        <rect x="1020" y="203" width="12" height="12" rx="2" fill="#e6a47e"/><text class="clbl" x="1042" y="213">DiT360 (generated)</text><text class="cval" x="1290" y="213">24.7%</text>
+                        <text class="ctitle" x="804" y="388">Labeled landmark types</text>
+                        <path class="slice" style="--d:0.00s" fill="#c9a96a" d="M900.0 416.0 A84 84 0 0 1 931.5 577.9 L918.7 546.4 A50 50 0 0 0 900.0 450.0Z"/>
+                        <rect x="1020" y="408" width="12" height="12" rx="2" fill="#c9a96a"/><text class="clbl" x="1042" y="418">Object</text><text class="cval" x="1290" y="418">43.8%</text>
+                        <path class="slice" style="--d:0.08s" fill="#9fbf9a" d="M931.5 577.9 A84 84 0 0 1 841.6 560.4 L865.3 536.0 A50 50 0 0 0 918.7 546.4Z"/>
+                        <rect x="1020" y="438" width="12" height="12" rx="2" fill="#9fbf9a"/><text class="clbl" x="1042" y="448">Pathway</text><text class="cval" x="1290" y="448">18.3%</text>
+                        <path class="slice" style="--d:0.16s" fill="#8d887e" d="M841.6 560.4 A84 84 0 0 1 820.9 471.7 L852.9 483.2 A50 50 0 0 0 865.3 536.0Z"/>
+                        <rect x="1020" y="468" width="12" height="12" rx="2" fill="#8d887e"/><text class="clbl" x="1042" y="478">Other</text><text class="cval" x="1290" y="478">18.2%</text>
+                        <path class="slice" style="--d:0.24s" fill="#e6a47e" d="M820.9 471.7 A84 84 0 0 1 856.3 428.3 L874.0 457.3 A50 50 0 0 0 852.9 483.2Z"/>
+                        <rect x="1020" y="498" width="12" height="12" rx="2" fill="#e6a47e"/><text class="clbl" x="1042" y="508">Exit / entrance</text><text class="cval" x="1290" y="508">10.8%</text>
+                        <path class="slice" style="--d:0.32s" fill="#8fb4cc" d="M856.3 428.3 A84 84 0 0 1 890.5 416.5 L894.3 450.3 A50 50 0 0 0 874.0 457.3Z"/>
+                        <rect x="1020" y="528" width="12" height="12" rx="2" fill="#8fb4cc"/><text class="clbl" x="1042" y="538">Sign &amp; text</text><text class="cval" x="1290" y="538">6.9%</text>
+                        <path class="slice" style="--d:0.40s" fill="#b99ac6" d="M890.5 416.5 A84 84 0 0 1 900.0 416.0 L900.0 450.0 A50 50 0 0 0 894.3 450.3Z"/>
+                        <rect x="1020" y="558" width="12" height="12" rx="2" fill="#b99ac6"/><text class="clbl" x="1042" y="568">Stairs / escalator</text><text class="cval" x="1290" y="568">1.8%</text>
+                    </svg>
+                </div>
+                <p class="caption">
+                    Qwen3-VL-235B filters the panoramas and proposes salient targets; search trajectories rendered around them turn
+                    every step into one sample of observed and imagined layout.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== Results ============================== -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>Results</h2>
+                <p class="section-lede">A plug-and-play gain for every Actor on H*Bench.</p>
+                <div class="table-wrap">
+                    <table class="comp comp--i360 comp--actors">
+                        <thead>
+                            <tr><th rowspan="2" class="left">Actor</th><th rowspan="2">Params</th><th colspan="3">Object Search (HOS)</th><th colspan="3">Path Search (HPS)</th></tr>
+                            <tr><th>Actor</th><th>+ Imaginator</th><th>Gain</th><th>Actor</th><th>+ Imaginator</th><th>Gain</th></tr>
+                        </thead>
+                        <tbody>
+                        <tr class="grp"><td colspan="8">Open-source</td></tr>
+                        <tr><td class="left">Qwen2.5-VL</td><td>3B</td><td>21.17</td><td class="hi">49.54</td><td class="gain">+28.4</td><td>7.69</td><td class="hi">25.94</td><td class="gain">+18.2</td></tr>
+                        <tr><td class="left">Qwen2.5-VL</td><td>7B</td><td>12.79</td><td class="hi">57.42</td><td class="gain">+44.6</td><td>9.88</td><td class="hi">28.38</td><td class="gain">+18.5</td></tr>
+                        <tr><td class="left">Qwen2.5-VL</td><td>72B</td><td>29.54</td><td class="hi">62.25</td><td class="gain">+32.7</td><td>12.94</td><td class="hi">38.19</td><td class="gain">+25.2</td></tr>
+                        <tr><td class="left">Qwen3-VL</td><td>32B</td><td>34.38</td><td class="hi">57.46</td><td class="gain">+23.1</td><td>23.19</td><td class="hi">31.31</td><td class="gain">+8.1</td></tr>
+                        <tr><td class="left">Qwen3-VL</td><td>235B</td><td>23.62</td><td class="hi">65.04</td><td class="gain">+41.4</td><td>21.44</td><td class="hi">38.25</td><td class="gain">+16.8</td></tr>
+                        <tr><td class="left">Gemma-3</td><td>4B</td><td>18.17</td><td class="hi">57.75</td><td class="gain">+39.6</td><td>14.50</td><td class="hi">35.06</td><td class="gain">+20.6</td></tr>
+                        <tr><td class="left">Gemma-3</td><td>12B</td><td>22.88</td><td class="hi">54.62</td><td class="gain">+31.7</td><td>15.31</td><td class="hi">33.56</td><td class="gain">+18.2</td></tr>
+                        <tr><td class="left">Kimi-VL</td><td>A3B</td><td>4.33</td><td class="hi">32.46</td><td class="gain">+28.1</td><td>5.62</td><td class="hi">21.00</td><td class="gain">+15.4</td></tr>
+                        <tr class="grp"><td colspan="8">Proprietary</td></tr>
+                        <tr><td class="left">Gemini-2.5 Flash</td><td>&ndash;</td><td>43.70</td><td class="hi">63.20</td><td class="gain">+19.5</td><td>27.70</td><td class="hi">37.70</td><td class="gain">+10.0</td></tr>
+                        <tr><td class="left">Gemini-2.5 Pro</td><td>&ndash;</td><td>55.00</td><td class="hi">66.10</td><td class="gain">+11.1</td><td>37.90</td><td class="hi">43.10</td><td class="gain">+5.2</td></tr>
+                        <tr class="grp"><td colspan="8">Fine-tuned for HVS</td></tr>
+                        <tr><td class="left">HVS</td><td>3B</td><td>48.04</td><td class="hi">62.75</td><td class="gain">+14.7</td><td>24.12</td><td class="hi">39.38</td><td class="gain">+15.3</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="caption">Success rate (%) within 10 steps. The same Imaginator-8B guides every Actor, none of which is fine-tuned on its output.</p>
+
+                <div class="fig-wrap">
+                    <svg class="fig-chart fig-scale" viewBox="0 0 1400 480" role="img" aria-label="Success rate grows with the amount of imagination data">
+                        <rect class="panel" x="10" y="10" width="1380" height="460" rx="14"/>
+                        <text class="ctitle" x="110" y="48">Object search (HOS)</text>
+                        <line class="grid" x1="110" x2="630" y1="380.0" y2="380.0"/><text class="tick end" x="96" y="386.0">46</text>
+                        <line class="grid" x1="110" x2="630" y1="320.0" y2="320.0"/><text class="tick end" x="96" y="326.0">48</text>
+                        <line class="grid" x1="110" x2="630" y1="260.0" y2="260.0"/><text class="tick end" x="96" y="266.0">50</text>
+                        <line class="grid" x1="110" x2="630" y1="200.0" y2="200.0"/><text class="tick end" x="96" y="206.0">52</text>
+                        <line class="grid" x1="110" x2="630" y1="140.0" y2="140.0"/><text class="tick end" x="96" y="146.0">54</text>
+                        <line class="grid" x1="110" x2="630" y1="80.0" y2="80.0"/><text class="tick end" x="96" y="86.0">56</text>
+                        <text class="tick" x="110.0" y="410">0</text>
+                        <text class="tick" x="212.9" y="410">0.38</text>
+                        <text class="tick" x="318.5" y="410">0.77</text>
+                        <text class="tick" x="421.5" y="410">1.15</text>
+                        <text class="tick" x="630.0" y="410">1.92</text>
+                        <text class="axis" x="370.0" y="442">imagination data (M samples)</text>
+                        <text class="axis" transform="translate(48 230.0) rotate(-90)">success rate (%)</text>
+                        <line class="base" x1="110" x2="630" y1="318.8" y2="318.8"/><text class="baselbl" x="630" y="344.8">Actor + SFT + RL &#183; 48.04</text>
+                        <polygon class="area" points="110.0,380.0 110.0,273.8 212.9,183.8 318.5,168.8 421.5,137.6 630.0,113.6 630.0,380.0"/>
+                        <polyline class="line" points="110.0,273.8 212.9,183.8 318.5,168.8 421.5,137.6 630.0,113.6"/>
+                        <circle class="pt" style="--d:0.25s" cx="110.0" cy="273.8" r="6"/><text class="ptlbl" style="--d:0.25s" x="124.0" y="257.8">49.54</text>
+                        <circle class="pt" style="--d:0.47s" cx="212.9" cy="183.8" r="6"/><text class="ptlbl" style="--d:0.47s" x="212.9" y="167.8">52.54</text>
+                        <circle class="pt" style="--d:0.69s" cx="318.5" cy="168.8" r="6"/><text class="ptlbl" style="--d:0.69s" x="318.5" y="152.8">53.04</text>
+                        <circle class="pt" style="--d:0.91s" cx="421.5" cy="137.6" r="6"/><text class="ptlbl" style="--d:0.91s" x="421.5" y="121.6">54.08</text>
+                        <circle class="pt" style="--d:1.13s" cx="630.0" cy="113.6" r="6"/><text class="ptlbl" style="--d:1.13s" x="630.0" y="97.6">54.88</text>
+                        <text class="linelbl" x="624.0" y="149.6">Actor + Imaginator</text>
+                        <text class="ctitle" x="790" y="48">Path search (HPS)</text>
+                        <line class="grid" x1="790" x2="1310" y1="380.0" y2="380.0"/><text class="tick end" x="776" y="386.0">22</text>
+                        <line class="grid" x1="790" x2="1310" y1="325.5" y2="325.5"/><text class="tick end" x="776" y="331.5">24</text>
+                        <line class="grid" x1="790" x2="1310" y1="270.9" y2="270.9"/><text class="tick end" x="776" y="276.9">26</text>
+                        <line class="grid" x1="790" x2="1310" y1="216.4" y2="216.4"/><text class="tick end" x="776" y="222.4">28</text>
+                        <line class="grid" x1="790" x2="1310" y1="161.8" y2="161.8"/><text class="tick end" x="776" y="167.8">30</text>
+                        <line class="grid" x1="790" x2="1310" y1="107.3" y2="107.3"/><text class="tick end" x="776" y="113.3">32</text>
+                        <text class="tick" x="790.0" y="410">0</text>
+                        <text class="tick" x="892.9" y="410">0.38</text>
+                        <text class="tick" x="998.5" y="410">0.77</text>
+                        <text class="tick" x="1101.5" y="410">1.15</text>
+                        <text class="tick" x="1310.0" y="410">1.92</text>
+                        <text class="axis" x="1050.0" y="442">imagination data (M samples)</text>
+                        <text class="axis" transform="translate(728 230.0) rotate(-90)">success rate (%)</text>
+                        <line class="base" x1="790" x2="1310" y1="322.2" y2="322.2"/><text class="baselbl" x="1310" y="348.2">Actor + SFT + RL &#183; 24.12</text>
+                        <polygon class="area" points="790.0,380.0 790.0,272.5 892.9,195.9 998.5,177.1 1101.5,136.2 1310.0,126.1 1310.0,380.0"/>
+                        <polyline class="line" points="790.0,272.5 892.9,195.9 998.5,177.1 1101.5,136.2 1310.0,126.1"/>
+                        <circle class="pt" style="--d:0.25s" cx="790.0" cy="272.5" r="6"/><text class="ptlbl" style="--d:0.25s" x="804.0" y="256.5">25.94</text>
+                        <circle class="pt" style="--d:0.47s" cx="892.9" cy="195.9" r="6"/><text class="ptlbl" style="--d:0.47s" x="892.9" y="179.9">28.75</text>
+                        <circle class="pt" style="--d:0.69s" cx="998.5" cy="177.1" r="6"/><text class="ptlbl" style="--d:0.69s" x="998.5" y="161.1">29.44</text>
+                        <circle class="pt" style="--d:0.91s" cx="1101.5" cy="136.2" r="6"/><text class="ptlbl" style="--d:0.91s" x="1101.5" y="120.2">30.94</text>
+                        <circle class="pt" style="--d:1.13s" cx="1310.0" cy="126.1" r="6"/><text class="ptlbl" style="--d:1.13s" x="1310.0" y="110.1">31.31</text>
+                        <text class="linelbl" x="1304.0" y="162.1">Actor + Imaginator</text>
+                    </svg>
+                </div>
+                <p class="caption">More imagination data keeps helping; 0.38M samples already beat the Actor fine-tuned with SFT and RL.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== Video ============================== -->
+    <section class="container" id="video">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>Video</h2>
+                <div class="demo-soon">
+                    <i class="fas fa-play"></i>
+                    <b>Coming soon</b>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== BibTeX ============================== -->
+    <section class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2>BibTeX</h2>
+                <pre class="bibtex-box">
+@inproceedings{zhang2026imagining,
+  title={Beyond Thinking: Imagining in 360$^\circ$ for Humanoid Visual Search},
+  author={Zhang, Jingdong and Wang, Yizhou and Tu, Zhengzhong and Li, Xin and Wang, Wenping and Zhan, Xiaohang},
+  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
+  year={2026}
+}</pre>
+            </div>
+        </div>
+    </section>
+
+    <hr class="mt-5">
+    <footer class="text-center text-muted mb-4">
+        <p>&copy; Jingdong Zhang 2026</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../assets/js/imagination-steps.js"></script>
+</body>
+</html>
