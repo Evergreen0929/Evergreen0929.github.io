@@ -359,10 +359,23 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <h2>Demo Video</h2>
-                <div class="demo-soon">
-                    <i class="fas fa-play"></i>
-                    <b>Coming soon</b>
+                <div class="pg__tabs" role="tablist" aria-label="Video language">
+                    <button class="pg__tab is-active" type="button" role="tab" aria-selected="true" data-yt="rvIcANaEws4">English</button>
+                    <button class="pg__tab" type="button" role="tab" aria-selected="false" data-yt="-RWIYHHu-NI">中文</button>
                 </div>
+                <div class="img-container" style="padding: 15px;">
+                    <div class="embed-responsive embed-responsive-16by9" style="border-radius: 4px; overflow: hidden;">
+                        <iframe class="embed-responsive-item" id="demo-video" src="https://www.youtube.com/embed/rvIcANaEws4" title="S4VY demo video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <script>
+                    document.querySelectorAll('#demo [data-yt]').forEach(function (b) {
+                        b.addEventListener('click', function () {
+                            document.querySelectorAll('#demo [data-yt]').forEach(function (x) { x.classList.toggle('is-active', x === b); x.setAttribute('aria-selected', x === b); });
+                            document.getElementById('demo-video').src = 'https://www.youtube.com/embed/' + b.dataset.yt;
+                        });
+                    });
+                </script>
             </div>
         </div>
     </section>
