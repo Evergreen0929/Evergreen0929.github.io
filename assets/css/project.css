@@ -1156,7 +1156,7 @@ body[data-hero] > section:first-of-type::before {
 
 /* ------------------------------------------------------------------ framed title artwork
    A title image drawn for a white page (UniSER's glass letters with white floor reflections)
-   hangs in a light gilt frame on an ivory mat behind glass, instead of sitting bare on ink.
+   hangs in a slim antique-gold frame on a narrow mat behind glass, instead of sitting bare on ink.
    .art-frame (outer bead) > .art-face (moulding) > .art-lip > .art-mat > .art-window > img,
    plus .art-glass (reflections on the glazing). Each moulding band shades its four sides
    separately, lit from the upper left, so the corners read as mitre joints. */
@@ -1171,44 +1171,42 @@ body[data-hero] > section:first-of-type::before {
 .title-lockup .title-sub > span { display: block; }
 
 .art-frame {
-    --art-w: clamp(240px, 21vw, 300px);
-    --art-mat: calc(var(--art-w) * .06);
+    --art-w: clamp(200px, 16.5vw, 240px);
+    --art-mat: calc(var(--art-w) * .036);
     position: relative;
     flex: none;
     display: block;
-    border: 3px solid;
-    border-color: #fbf2da #c5a66a #957843 #ecd9aa;
-    background: #dcc189;
-    box-shadow: 0 26px 46px -14px rgba(0, 0, 0, .78), 0 8px 18px rgba(0, 0, 0, .38);
+    border: 1px solid;
+    border-color: #6d5a37 #4a3c24 #2e2516 #5c4b2e;
+    background: #8f7547;
+    box-shadow: 0 22px 40px -16px rgba(0, 0, 0, .8), 0 6px 14px rgba(0, 0, 0, .4);
     overflow: hidden;
     line-height: 0;
 }
 .art-face {
     display: block;
-    border: 10px solid;
-    border-color: rgba(255, 251, 238, .42) rgba(70, 48, 12, .12) rgba(70, 48, 12, .32) rgba(255, 251, 238, .24);
-    background: linear-gradient(135deg, #f8ecce 0%, #e6cf9b 26%, #d1b479 50%, #ead6a6 72%, #c4a466 100%);
+    border: 5px solid;
+    border-color: rgba(255, 238, 200, .16) rgba(20, 14, 4, .14) rgba(20, 14, 4, .32) rgba(255, 238, 200, .08);
+    background: linear-gradient(135deg, #b39563 0%, #9a7d4d 32%, #866c42 58%, #a3875a 80%, #775f3a 100%);
     background-origin: border-box;
-    outline: 1px solid rgba(112, 82, 34, .38);   /* a groove cut round the moulding */
-    outline-offset: -6px;
 }
 .art-lip {
     display: block;
-    border: 2px solid;
-    border-color: #8a6c3c #a98a52 #f7e9c6 #9c7e48;
+    border: 1px solid;
+    border-color: #4d3f26 #5e4d2f #c9ad78 #574729;
 }
 .art-mat {
     display: block;
     padding: var(--art-mat);
-    background: #f3eee3;
-    box-shadow: inset 3px 4px 8px rgba(66, 46, 16, .34), inset -1px -1px 2px rgba(255, 255, 255, .6);
+    background: #e4ddcd;
+    box-shadow: inset 2px 3px 5px rgba(40, 28, 10, .38);
 }
 .art-window {
     display: block;
     width: var(--art-w);
     aspect-ratio: 1920 / 950;
-    border: 2px solid;
-    border-color: #d9d1bf #e2dbcb #fffefb #fbf9f3;
+    border: 1px solid;
+    border-color: #c9c0ac #d3cbb9 #f6f2e9 #efebe1;
     background: #fff;
     overflow: hidden;
 }
@@ -1219,21 +1217,20 @@ body[data-hero] > section:first-of-type::before {
    that mirrors the dark room */
 .art-glass {
     position: absolute;
-    inset: 12px;
+    inset: 6px;
     pointer-events: none;
     background:
-        linear-gradient(112deg, rgba(255, 255, 255, 0) 7%, rgba(255, 255, 255, .62) 15%, rgba(255, 255, 255, .2) 25%, rgba(255, 255, 255, 0) 33%),
-        linear-gradient(112deg, rgba(255, 255, 255, 0) 39%, rgba(255, 255, 255, .42) 43.5%, rgba(255, 255, 255, 0) 48%),
-        linear-gradient(112deg, rgba(110, 124, 120, .05) 0%, rgba(110, 124, 120, .08) 55%, rgba(40, 46, 50, .13) 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .55);
+        linear-gradient(112deg, rgba(255, 255, 255, 0) 7%, rgba(255, 255, 255, .34) 15%, rgba(255, 255, 255, .1) 25%, rgba(255, 255, 255, 0) 33%),
+        linear-gradient(112deg, rgba(255, 255, 255, 0) 39%, rgba(255, 255, 255, .22) 43.5%, rgba(255, 255, 255, 0) 48%),
+        linear-gradient(112deg, rgba(28, 30, 32, .1) 0%, rgba(28, 30, 32, .14) 55%, rgba(14, 16, 18, .24) 100%);
 }
 /* a slow glint that crosses glass and gilt now and then */
 .art-frame::after {
     content: '';
     position: absolute;
-    inset: -3px;
+    inset: -1px;
     pointer-events: none;
-    background: linear-gradient(104deg, rgba(255, 249, 230, 0) 38%, rgba(255, 249, 230, .5) 50%, rgba(255, 249, 230, 0) 62%);
+    background: linear-gradient(104deg, rgba(255, 244, 215, 0) 40%, rgba(255, 244, 215, .26) 50%, rgba(255, 244, 215, 0) 60%);
     transform: translate3d(-120%, 0, 0);
     animation: art-glint 10s cubic-bezier(.45, .05, .35, 1) 2.4s infinite;
 }
@@ -1246,7 +1243,7 @@ body[data-hero] > section:first-of-type::before {
     .title-lockup { flex-direction: column; gap: 1.5rem; }
     .title-lockup .title-sub { text-align: center; }
     .title-lockup .title-sub > span { text-wrap: balance; }
-    .art-frame { --art-w: min(330px, 100vw - 110px); }
+    .art-frame { --art-w: min(260px, 100vw - 90px); }
 }
 
 /* ------------------------------------------------------------------ page transitions
