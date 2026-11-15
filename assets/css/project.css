@@ -1154,6 +1154,101 @@ body[data-hero] > section:first-of-type::before {
 .pp-bg--smoke-css .pp-bg__glow:nth-child(2) { left: 40%; top: 30%; background: radial-gradient(closest-side, rgba(130, 150, 180, .14), rgba(130, 150, 180, 0)); animation-duration: 62s; }
 @keyframes pp-glow { from { transform: translate3d(-10%, -8%, 0) scale(1); } to { transform: translate3d(12%, 10%, 0) scale(1.2); } }
 
+/* ------------------------------------------------------------------ framed title artwork
+   A title image drawn for a white page (UniSER's glass letters with white floor reflections)
+   hangs in a light gilt frame on an ivory mat behind glass, instead of sitting bare on ink.
+   .art-frame (outer bead) > .art-face (moulding) > .art-lip > .art-mat > .art-window > img,
+   plus .art-glass (reflections on the glazing). Each moulding band shades its four sides
+   separately, lit from the upper left, so the corners read as mitre joints. */
+
+.title-lockup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.3rem, 2.4vw, 2.4rem);
+}
+.title-lockup .title-sub { display: block; text-align: left; font-size: .75em; font-weight: 500; }
+.title-lockup .title-sub > span { display: block; }
+
+.art-frame {
+    --art-w: clamp(240px, 21vw, 300px);
+    --art-mat: calc(var(--art-w) * .06);
+    position: relative;
+    flex: none;
+    display: block;
+    border: 3px solid;
+    border-color: #fbf2da #c5a66a #957843 #ecd9aa;
+    background: #dcc189;
+    box-shadow: 0 26px 46px -14px rgba(0, 0, 0, .78), 0 8px 18px rgba(0, 0, 0, .38);
+    overflow: hidden;
+    line-height: 0;
+}
+.art-face {
+    display: block;
+    border: 10px solid;
+    border-color: rgba(255, 251, 238, .42) rgba(70, 48, 12, .12) rgba(70, 48, 12, .32) rgba(255, 251, 238, .24);
+    background: linear-gradient(135deg, #f8ecce 0%, #e6cf9b 26%, #d1b479 50%, #ead6a6 72%, #c4a466 100%);
+    background-origin: border-box;
+    outline: 1px solid rgba(112, 82, 34, .38);   /* a groove cut round the moulding */
+    outline-offset: -6px;
+}
+.art-lip {
+    display: block;
+    border: 2px solid;
+    border-color: #8a6c3c #a98a52 #f7e9c6 #9c7e48;
+}
+.art-mat {
+    display: block;
+    padding: var(--art-mat);
+    background: #f3eee3;
+    box-shadow: inset 3px 4px 8px rgba(66, 46, 16, .34), inset -1px -1px 2px rgba(255, 255, 255, .6);
+}
+.art-window {
+    display: block;
+    width: var(--art-w);
+    aspect-ratio: 1920 / 950;
+    border: 2px solid;
+    border-color: #d9d1bf #e2dbcb #fffefb #fbf9f3;
+    background: #fff;
+    overflow: hidden;
+}
+.art-window img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 47%; }
+
+/* the glazing: picture glass faintly greys what is behind it, except where it catches
+   the light: two streaks from a window up and to the left, and a dim lower-right corner
+   that mirrors the dark room */
+.art-glass {
+    position: absolute;
+    inset: 12px;
+    pointer-events: none;
+    background:
+        linear-gradient(112deg, rgba(255, 255, 255, 0) 7%, rgba(255, 255, 255, .62) 15%, rgba(255, 255, 255, .2) 25%, rgba(255, 255, 255, 0) 33%),
+        linear-gradient(112deg, rgba(255, 255, 255, 0) 39%, rgba(255, 255, 255, .42) 43.5%, rgba(255, 255, 255, 0) 48%),
+        linear-gradient(112deg, rgba(110, 124, 120, .05) 0%, rgba(110, 124, 120, .08) 55%, rgba(40, 46, 50, .13) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .55);
+}
+/* a slow glint that crosses glass and gilt now and then */
+.art-frame::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    pointer-events: none;
+    background: linear-gradient(104deg, rgba(255, 249, 230, 0) 38%, rgba(255, 249, 230, .5) 50%, rgba(255, 249, 230, 0) 62%);
+    transform: translate3d(-120%, 0, 0);
+    animation: art-glint 10s cubic-bezier(.45, .05, .35, 1) 2.4s infinite;
+}
+@keyframes art-glint {
+    0% { transform: translate3d(-120%, 0, 0); }
+    22%, 100% { transform: translate3d(120%, 0, 0); }
+}
+
+@media (max-width: 991px) {
+    .title-lockup { flex-direction: column; gap: 1.5rem; }
+    .title-lockup .title-sub { text-align: center; }
+    .title-lockup .title-sub > span { text-wrap: balance; }
+    .art-frame { --art-w: min(330px, 100vw - 110px); }
+}
+
 /* ------------------------------------------------------------------ page transitions
    Arrive: the page rises out of the ink the homepage faded into.
    Leave (back home / to a sibling page): fade to ink first. */
