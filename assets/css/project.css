@@ -1156,10 +1156,10 @@ body[data-hero] > section:first-of-type::before {
 
 /* ------------------------------------------------------------------ framed title artwork
    A title image drawn for a white page (UniSER's glass letters with white floor reflections)
-   hangs in a slim antique-gold frame on a narrow mat behind glass, instead of sitting bare on ink.
-   .art-frame (outer bead) > .art-face (moulding) > .art-lip > .art-mat > .art-window > img,
-   plus .art-glass (reflections on the glazing). Each moulding band shades its four sides
-   separately, lit from the upper left, so the corners read as mitre joints. */
+   is set into the page like the homepage figures: the same recessed well (gilded inlay
+   edge, heavy shadow under the top rim, a flat darkening overlay, picture zooming
+   beneath a fixed rim on hover), behind display-case glass with faint reflections.
+   .art-frame > img + .art-glass */
 
 .title-lockup {
     display: flex;
@@ -1171,66 +1171,73 @@ body[data-hero] > section:first-of-type::before {
 .title-lockup .title-sub > span { display: block; }
 
 .art-frame {
-    --art-w: clamp(200px, 16.5vw, 240px);
-    --art-mat: calc(var(--art-w) * .036);
+    --art-w: clamp(220px, 19vw, 270px);
     position: relative;
     flex: none;
     display: block;
-    border: 1px solid;
-    border-color: #6d5a37 #4a3c24 #2e2516 #5c4b2e;
-    background: #8f7547;
-    box-shadow: 0 22px 40px -16px rgba(0, 0, 0, .8), 0 6px 14px rgba(0, 0, 0, .4);
-    overflow: hidden;
-    line-height: 0;
-}
-.art-face {
-    display: block;
-    border: 5px solid;
-    border-color: rgba(255, 238, 200, .16) rgba(20, 14, 4, .14) rgba(20, 14, 4, .32) rgba(255, 238, 200, .08);
-    background: linear-gradient(135deg, #b39563 0%, #9a7d4d 32%, #866c42 58%, #a3875a 80%, #775f3a 100%);
-    background-origin: border-box;
-}
-.art-lip {
-    display: block;
-    border: 1px solid;
-    border-color: #4d3f26 #5e4d2f #c9ad78 #574729;
-}
-.art-mat {
-    display: block;
-    padding: var(--art-mat);
-    background: #e4ddcd;
-    box-shadow: inset 2px 3px 5px rgba(40, 28, 10, .38);
-}
-.art-window {
-    display: block;
     width: var(--art-w);
     aspect-ratio: 1920 / 950;
-    border: 1px solid;
-    border-color: #c9c0ac #d3cbb9 #f6f2e9 #efebe1;
-    background: #fff;
     overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(201, 169, 106, .55);
+    border-radius: 4px;
+    background: #0a0d10;
+    box-shadow:
+        0 1px 0 rgba(255, 240, 210, .07),      /* lit lower lip of the cut */
+        0 -1px 0 rgba(0, 0, 0, .55);           /* shaded upper lip */
+    line-height: 0;
+    transition: border-color .8s var(--ease-out), box-shadow .8s var(--ease-out);
 }
-.art-window img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 47%; }
-
-/* the glazing: picture glass faintly greys what is behind it, except where it catches
-   the light: two streaks from a window up and to the left, and a dim lower-right corner
-   that mirrors the dark room */
-.art-glass {
-    position: absolute;
-    inset: 6px;
-    pointer-events: none;
-    background:
-        linear-gradient(112deg, rgba(255, 255, 255, 0) 7%, rgba(255, 255, 255, .34) 15%, rgba(255, 255, 255, .1) 25%, rgba(255, 255, 255, 0) 33%),
-        linear-gradient(112deg, rgba(255, 255, 255, 0) 39%, rgba(255, 255, 255, .22) 43.5%, rgba(255, 255, 255, 0) 48%),
-        linear-gradient(112deg, rgba(28, 30, 32, .1) 0%, rgba(28, 30, 32, .14) 55%, rgba(14, 16, 18, .24) 100%);
+.art-frame img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 47%;
+    background: #fff;
+    transform: scale(1.001);
+    transition: transform 1.4s var(--ease-out);
 }
-/* a slow glint that crosses glass and gilt now and then */
+/* the well's shading, as on the homepage */
 .art-frame::after {
     content: '';
     position: absolute;
-    inset: -1px;
+    inset: 0;
+    z-index: 3;
     pointer-events: none;
-    background: linear-gradient(104deg, rgba(255, 244, 215, 0) 40%, rgba(255, 244, 215, .26) 50%, rgba(255, 244, 215, 0) 60%);
+    border-radius: inherit;
+    background: rgba(10, 13, 16, .14);            /* keep whites a touch darker */
+    box-shadow:
+        inset 0 8px 14px -5px rgba(0, 0, 0, .78), /* deep shadow under the top rim */
+        inset 0 0 22px 2px rgba(0, 0, 0, .42),    /* all-round recess */
+        inset 0 -1px 0 rgba(255, 240, 210, .10);  /* faint catch-light on the bottom rim */
+    transition: background-color .8s var(--ease-out);
+}
+.art-frame:hover {
+    border-color: rgba(228, 203, 148, .92);
+    box-shadow: 0 1px 0 rgba(255, 240, 210, .09), 0 -1px 0 rgba(0, 0, 0, .55), 0 0 0 3px rgba(201, 169, 106, .07);
+}
+.art-frame:hover::after { background-color: rgba(10, 13, 16, .05); }
+.art-frame:hover img { transform: scale(1.045); }
+
+/* display-case glass: two faint streaks from a light up and to the left, and a slow glint now and then */
+.art-glass {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        linear-gradient(112deg, rgba(255, 255, 255, 0) 7%, rgba(255, 255, 255, .26) 15%, rgba(255, 255, 255, .07) 25%, rgba(255, 255, 255, 0) 33%),
+        linear-gradient(112deg, rgba(255, 255, 255, 0) 39%, rgba(255, 255, 255, .16) 43.5%, rgba(255, 255, 255, 0) 48%);
+}
+.art-glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(104deg, rgba(255, 244, 215, 0) 40%, rgba(255, 244, 215, .24) 50%, rgba(255, 244, 215, 0) 60%);
     transform: translate3d(-120%, 0, 0);
     animation: art-glint 10s cubic-bezier(.45, .05, .35, 1) 2.4s infinite;
 }
@@ -1243,7 +1250,7 @@ body[data-hero] > section:first-of-type::before {
     .title-lockup { flex-direction: column; gap: 1.5rem; }
     .title-lockup .title-sub { text-align: center; }
     .title-lockup .title-sub > span { text-wrap: balance; }
-    .art-frame { --art-w: min(260px, 100vw - 90px); }
+    .art-frame { --art-w: min(280px, 100vw - 80px); }
 }
 
 /* ------------------------------------------------------------------ page transitions
